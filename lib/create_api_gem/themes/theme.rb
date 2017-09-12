@@ -16,6 +16,15 @@ class Theme
 
   def self.default
     Theme.new(
+        id: 'gJ3gfQ',
+        name: 'Default',
+        colors: [
+            question: '#3D3D3D',
+            answer: '#4FB0AE',
+            button: '#4FB0AE',
+            background: '#FFFFFF'
+        ],
+        font: 'Arial',
         has_transparent_button: false,
         visibility: 'private'
     )
