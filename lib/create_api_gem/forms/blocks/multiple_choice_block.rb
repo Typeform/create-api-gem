@@ -1,3 +1,5 @@
+require_relative 'block'
+
 class MultipleChoiceBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :randomize, :allow_multiple_selection, :allow_other_choice,
                 :vertical_alignment, :choices, :required, :attachment

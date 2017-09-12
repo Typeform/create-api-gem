@@ -1,3 +1,5 @@
+require_relative 'block'
+
 class RatingBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :steps, :shape, :required, :attachment
 

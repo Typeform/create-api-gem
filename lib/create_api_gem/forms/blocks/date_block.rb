@@ -1,3 +1,5 @@
+require_relative 'block'
+
 class DateBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :structure, :separator, :required, :attachment
 

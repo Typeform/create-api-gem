@@ -1,3 +1,5 @@
+require_relative 'block'
+
 class DropdownBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :alphabetical_order, :choices, :required, :attachment
 

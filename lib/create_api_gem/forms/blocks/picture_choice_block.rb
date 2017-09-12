@@ -1,3 +1,5 @@
+require_relative 'block'
+
 class PictureChoiceBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :randomize, :allow_multiple_selection, :allow_other_choice,
                 :supersized, :show_labels, :choices, :required

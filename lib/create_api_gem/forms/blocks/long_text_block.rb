@@ -1,3 +1,5 @@
+require_relative 'block'
+
 class LongTextBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :required, :max_length, :attachment
 

@@ -1,3 +1,5 @@
+require_relative 'block'
+
 class StatementBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :hide_marks, :button_text, :attachment
 

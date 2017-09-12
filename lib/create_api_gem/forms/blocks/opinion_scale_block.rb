@@ -1,3 +1,5 @@
+require_relative 'block'
+
 class OpinionScaleBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :steps, :start_at_one, :labels, :required, :attachment
 

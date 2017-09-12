@@ -1,3 +1,5 @@
+require_relative 'block'
+
 class PaymentBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :required, :currency, :price, :show_button, :button_text, :attachment
 

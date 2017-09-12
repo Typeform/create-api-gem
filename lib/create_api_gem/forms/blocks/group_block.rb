@@ -1,3 +1,5 @@
+require_relative 'block'
+
 class GroupBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :show_button, :button_text, :attachment, :fields
 

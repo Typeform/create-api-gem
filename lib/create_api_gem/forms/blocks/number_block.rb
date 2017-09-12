@@ -1,3 +1,5 @@
+require_relative 'block'
+
 class NumberBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :required, :min_value, :max_value, :attachment
 

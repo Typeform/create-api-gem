@@ -1,3 +1,5 @@
+require_relative 'block'
+
 class EmailBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :required, :attachment
 
