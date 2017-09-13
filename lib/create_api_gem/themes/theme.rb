@@ -4,7 +4,6 @@ class Theme
   def initialize(id: nil, name:, font:, colors:, visibility: nil, has_transparent_button: nil, background: nil)
     raise ArgumentError.new("name must be a string") unless name.is_a?(String)
     raise ArgumentError.new("font must be a string of one of the allowed values") unless font.is_a?(String)
-    raise ArgumentError.new("visibility must be private") unless visibility == 'private' || visibility.nil?
     @id = id
     @name = name
     @font = font
@@ -84,4 +83,5 @@ class Theme
       (has_transparent_button.nil? ? Theme.default.has_transparent_button : has_transparent_button) == actual.has_transparent_button &&
       (background.nil? || background.same?(actual.background))
   end
+
 end

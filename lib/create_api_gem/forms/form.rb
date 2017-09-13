@@ -90,6 +90,10 @@ class Form
     end && logic.length == actual_logic.length
   end
 
+  def theme_id
+    theme_url.split('/themes/')[1]
+  end
+
   def self.full_example(id: nil)
       blocks = Block.all_types.values.map do |block|
         block.full_example

@@ -2,12 +2,12 @@ require_relative 'theme_request'
 
 class RetrieveThemeRequest < ThemeRequest
   def initialize(token, theme)
+    headers = {}
+    headers = { 'Authorization' => "Bearer #{token}" } unless token.nil?
     request(
       method: :get,
       url: "#{APIConfig.api_request_url}/themes/#{theme.id}",
-      headers: {
-        'Authorization' => "Bearer #{token}"
-      }
+      headers: headers
     )
   end
 
