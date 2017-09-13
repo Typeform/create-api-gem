@@ -94,6 +94,11 @@ class Form
     theme_url.split('/themes/')[1]
   end
 
+  def add_logic_action(field_ref, logic_action)
+    field_logic = logic.find { |current_field_logic| current_field_logic.field_ref == field_ref }
+    field_logic.nil? ? logic << FieldLogic.new(type: 'field', field_ref: field_ref, actions: [logic_action]) : field_logic.actions << logic_action
+  end
+
   def self.full_example(id: nil)
       blocks = Block.all_types.values.map do |block|
         block.full_example
