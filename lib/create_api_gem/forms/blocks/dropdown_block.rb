@@ -5,15 +5,13 @@ class DropdownBlock < Block
 
   def initialize(id: nil, title:, type: :dropdown, ref: nil, description: nil, alphabetical_order: nil,
                  choices:, required: nil, attachment: nil)
-    super
-    raise ArgumentError.new("at least two choices must be sent") unless choices.length >= 2
     @id = id
-    @title = title
+    @title = title || Fake.title
     @type = type
     @ref = ref
     @description = description
     @alphabetical_order = alphabetical_order
-    @choices = choices
+    @choices = choices || DropdownBlock.choices
     @required = required
     @attachment = attachment
   end

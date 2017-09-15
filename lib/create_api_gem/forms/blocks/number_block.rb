@@ -5,9 +5,8 @@ class NumberBlock < Block
 
   def initialize(id: nil, title:, type: :number, ref: nil, description: nil, required: nil, min_value: nil,
                  max_value: nil, attachment: nil)
-    super
     @id = id
-    @title = title
+    @title = title || Fake.title
     @type = type
     @ref = ref
     @description = description

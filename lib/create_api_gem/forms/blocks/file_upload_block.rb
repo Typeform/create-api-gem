@@ -4,9 +4,8 @@ class FileUploadBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :required
 
   def initialize(id: nil, title:, type: :file_upload, ref: nil, description: nil, required: nil)
-    super
     @id = id
-    @title = title
+    @title = title || Fake.title
     @type = type
     @ref = ref
     @description = description

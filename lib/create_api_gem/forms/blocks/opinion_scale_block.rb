@@ -5,9 +5,8 @@ class OpinionScaleBlock < Block
 
   def initialize(id: nil, title:, type: :opinion_scale, ref: nil, description: nil, steps: nil, start_at_one: nil,
                  labels: nil, required: nil, attachment: nil)
-    super
     @id = id
-    @title = title
+    @title = title || Fake.title
     @type = type
     @ref = ref
     @description = description

@@ -2,9 +2,6 @@ class Background
   attr_accessor :href, :brightness, :layout
 
   def initialize(href: nil, brightness: nil, layout: nil)
-    raise ArgumentError.new('href must be a link to an image') unless href.start_with?("#{APIConfig.clafoutis_address}/images/")
-    raise ArgumentError.new('brightness must be between 0 and 1') unless brightness.between?(0, 1)
-    raise ArgumentError.new('layout must be one of the allowed values') unless ['repeat', 'no-repeat'].include?(layout)
     @href = href
     @brightness = brightness
     @layout = layout

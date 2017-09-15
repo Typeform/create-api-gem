@@ -7,10 +7,8 @@ class MultipleChoiceBlock < Block
   def initialize(id: nil, title:, type: :multiple_choice, ref: nil, description: nil, randomize: nil,
                  allow_multiple_selection: nil, allow_other_choice: nil, vertical_alignment: nil,
                  choices:, required: nil, attachment: nil)
-    super
-    raise ArgumentError.new("at least two choices must be sent") unless choices.length >= 2
     @id = id
-    @title = title
+    @title = title || Fake.title
     @type = type
     @ref = ref
     @description = description
@@ -18,7 +16,7 @@ class MultipleChoiceBlock < Block
     @allow_multiple_selection = allow_multiple_selection
     @allow_other_choice = allow_other_choice
     @vertical_alignment = vertical_alignment
-    @choices = choices
+    @choices = choices || MultipleChoiceBlock.choices
     @required = required
     @attachment = attachment
   end

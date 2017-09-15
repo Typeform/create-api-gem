@@ -5,9 +5,8 @@ class RatingBlock < Block
 
   def initialize(id: nil, title:, type: :rating, ref: nil, description: nil, steps: nil, shape: nil,
                  required: nil, attachment: nil)
-    super
     @id = id
-    @title = title
+    @title = title || Fake.title
     @type = type
     @ref = ref
     @description = description

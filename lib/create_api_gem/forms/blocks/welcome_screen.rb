@@ -2,9 +2,8 @@ class WelcomeScreen < Block
   attr_accessor :id, :title, :ref, :description, :show_button, :button_text, :attachment
 
   def initialize(id: nil, title:, ref: nil, description: nil, show_button: nil, button_text: nil, attachment: nil)
-    super
     @id = id
-    @title = title
+    @title = title || Fake.title
     @ref = ref
     @description = description
     @show_button = show_button

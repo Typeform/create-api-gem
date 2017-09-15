@@ -1,9 +1,4 @@
 class Block
-  def initialize(*args)
-    block = args.first
-    raise ArgumentError.new("title must be a string") unless block[:title].is_a?(String)
-    raise ArgumentError.new("ref must be a string") unless block[:ref].is_a?(String) || block[:ref].nil?
-  end
 
   def self.all_types
     {

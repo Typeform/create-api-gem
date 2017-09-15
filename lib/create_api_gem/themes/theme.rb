@@ -2,10 +2,8 @@ class Theme
   attr_accessor :id, :name, :font, :colors, :visibility, :has_transparent_button, :background
 
   def initialize(id: nil, name:, font:, colors:, visibility: nil, has_transparent_button: nil, background: nil)
-    raise ArgumentError.new("name must be a string") unless name.is_a?(String)
-    raise ArgumentError.new("font must be a string of one of the allowed values") unless font.is_a?(String)
     @id = id
-    @name = name
+    @name = name || Fake.title
     @font = font
     @colors = colors
     @visibility = visibility

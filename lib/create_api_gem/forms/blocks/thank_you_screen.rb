@@ -2,8 +2,7 @@ class ThankYouScreen < Block
   attr_accessor :title, :ref, :show_button, :button_text, :button_mode, :redirect_url, :share_icons, :attachment
 
   def initialize(title:, ref: nil, show_button: nil, button_text: nil, button_mode: nil, redirect_url: nil, share_icons: nil, attachment: nil)
-    super
-    @title = title
+    @title = title || Fake.title
     @ref = ref
     @show_button = show_button
     @button_text = button_text

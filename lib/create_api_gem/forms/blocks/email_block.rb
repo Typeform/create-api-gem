@@ -4,9 +4,8 @@ class EmailBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :required, :attachment
 
   def initialize(id: nil, title:, type: :email, ref: nil, description: nil, required: nil, attachment: nil)
-    super
     @id = id
-    @title = title
+    @title = title || Fake.title
     @type = type
     @ref = ref
     @description = description

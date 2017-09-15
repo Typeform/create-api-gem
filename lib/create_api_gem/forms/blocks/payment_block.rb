@@ -5,9 +5,8 @@ class PaymentBlock < Block
 
   def initialize(id: nil, title:, type: :payment, ref: nil, description: nil, required: nil, currency: nil, price: nil,
                  show_button: nil, button_text: nil, attachment: nil)
-    super
     @id = id
-    @title = title
+    @title = title || Fake.title
     @type = type
     @ref = ref
     @description = description
