@@ -3,7 +3,7 @@ require_relative 'block'
 class WebsiteBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :required
 
-  def initialize(id: nil, title:, type: :website, ref: nil, description: nil, required: nil)
+  def initialize(id: nil, title: nil, type: :website, ref: nil, description: nil, required: nil)
     @id = id
     @title = title || Fake.title
     @type = type

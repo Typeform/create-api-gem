@@ -3,7 +3,7 @@ require_relative 'block'
 class OpinionScaleBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :steps, :start_at_one, :labels, :required, :attachment
 
-  def initialize(id: nil, title:, type: :opinion_scale, ref: nil, description: nil, steps: nil, start_at_one: nil,
+  def initialize(id: nil, title: nil, type: :opinion_scale, ref: nil, description: nil, steps: nil, start_at_one: nil,
                  labels: nil, required: nil, attachment: nil)
     @id = id
     @title = title || Fake.title

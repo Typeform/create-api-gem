@@ -3,7 +3,7 @@ require_relative 'block'
 class PaymentBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :required, :currency, :price, :show_button, :button_text, :attachment
 
-  def initialize(id: nil, title:, type: :payment, ref: nil, description: nil, required: nil, currency: nil, price: nil,
+  def initialize(id: nil, title: nil, type: :payment, ref: nil, description: nil, required: nil, currency: nil, price: nil,
                  show_button: nil, button_text: nil, attachment: nil)
     @id = id
     @title = title || Fake.title

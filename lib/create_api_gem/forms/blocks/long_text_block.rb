@@ -3,7 +3,7 @@ require_relative 'block'
 class LongTextBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :required, :max_length, :attachment
 
-  def initialize(id: nil, title:, type: :long_text, ref: nil, description: nil, required: nil,
+  def initialize(id: nil, title: nil, type: :long_text, ref: nil, description: nil, required: nil,
                  max_length: nil, attachment: nil)
     @id = id
     @title = title || Fake.title

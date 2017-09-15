@@ -3,8 +3,8 @@ require_relative 'block'
 class DropdownBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :alphabetical_order, :choices, :required, :attachment
 
-  def initialize(id: nil, title:, type: :dropdown, ref: nil, description: nil, alphabetical_order: nil,
-                 choices:, required: nil, attachment: nil)
+  def initialize(id: nil, title: nil, type: :dropdown, ref: nil, description: nil, alphabetical_order: nil,
+                 choices: nil, required: nil, attachment: nil)
     @id = id
     @title = title || Fake.title
     @type = type

@@ -3,7 +3,7 @@ require_relative 'block'
 class RatingBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :steps, :shape, :required, :attachment
 
-  def initialize(id: nil, title:, type: :rating, ref: nil, description: nil, steps: nil, shape: nil,
+  def initialize(id: nil, title: nil, type: :rating, ref: nil, description: nil, steps: nil, shape: nil,
                  required: nil, attachment: nil)
     @id = id
     @title = title || Fake.title

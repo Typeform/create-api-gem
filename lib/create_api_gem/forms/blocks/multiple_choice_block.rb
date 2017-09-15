@@ -4,9 +4,9 @@ class MultipleChoiceBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :randomize, :allow_multiple_selection, :allow_other_choice,
                 :vertical_alignment, :choices, :required, :attachment
 
-  def initialize(id: nil, title:, type: :multiple_choice, ref: nil, description: nil, randomize: nil,
+  def initialize(id: nil, title: nil, type: :multiple_choice, ref: nil, description: nil, randomize: nil,
                  allow_multiple_selection: nil, allow_other_choice: nil, vertical_alignment: nil,
-                 choices:, required: nil, attachment: nil)
+                 choices: nil, required: nil, attachment: nil)
     @id = id
     @title = title || Fake.title
     @type = type

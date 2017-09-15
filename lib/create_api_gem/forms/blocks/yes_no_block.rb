@@ -3,7 +3,7 @@ require_relative 'block'
 class YesNoBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :required, :attachment
 
-  def initialize(id: nil, title:, type: :yes_no, ref: nil, description: nil, required: nil, attachment: nil)
+  def initialize(id: nil, title: nil, type: :yes_no, ref: nil, description: nil, required: nil, attachment: nil)
     @id = id
     @title = title || Fake.title
     @type = type

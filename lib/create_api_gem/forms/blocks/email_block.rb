@@ -3,7 +3,7 @@ require_relative 'block'
 class EmailBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :required, :attachment
 
-  def initialize(id: nil, title:, type: :email, ref: nil, description: nil, required: nil, attachment: nil)
+  def initialize(id: nil, title: nil, type: :email, ref: nil, description: nil, required: nil, attachment: nil)
     @id = id
     @title = title || Fake.title
     @type = type

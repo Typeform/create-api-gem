@@ -3,7 +3,7 @@ require_relative 'block'
 class NumberBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :required, :min_value, :max_value, :attachment
 
-  def initialize(id: nil, title:, type: :number, ref: nil, description: nil, required: nil, min_value: nil,
+  def initialize(id: nil, title: nil, type: :number, ref: nil, description: nil, required: nil, min_value: nil,
                  max_value: nil, attachment: nil)
     @id = id
     @title = title || Fake.title

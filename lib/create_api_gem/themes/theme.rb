@@ -1,7 +1,7 @@
 class Theme
   attr_accessor :id, :name, :font, :colors, :visibility, :has_transparent_button, :background
 
-  def initialize(id: nil, name:, font:, colors:, visibility: nil, has_transparent_button: nil, background: nil)
+  def initialize(id: nil, name: nil, font: nil, colors: nil, visibility: nil, has_transparent_button: nil, background: nil)
     @id = id
     @name = name || Fake.title
     @font = font || 'Arial'

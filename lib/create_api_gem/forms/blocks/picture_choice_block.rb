@@ -4,9 +4,9 @@ class PictureChoiceBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :randomize, :allow_multiple_selection, :allow_other_choice,
                 :supersized, :show_labels, :choices, :required
 
-  def initialize(id: nil, title:, type: :picture_choice, ref: nil, description: nil, randomize: nil,
+  def initialize(id: nil, title: nil, type: :picture_choice, ref: nil, description: nil, randomize: nil,
                  allow_multiple_selection: nil, allow_other_choice: nil, supersized: nil, show_labels: nil,
-                 choices:, required: nil)
+                 choices: nil, required: nil)
     @id = id
     @title = title || Fake.title
     @type = type

@@ -3,7 +3,7 @@ require_relative 'block'
 class GroupBlock < Block
   attr_accessor :id, :title, :type, :ref, :description, :show_button, :button_text, :attachment, :fields
 
-  def initialize(id: nil, title:, type: :group, ref: nil, description: nil, show_button: nil, button_text: nil, attachment: nil, fields: [])
+  def initialize(id: nil, title: nil, type: :group, ref: nil, description: nil, show_button: nil, button_text: nil, attachment: nil, fields: [])
     @id = id
     @title = title || Fake.title
     @type = type
