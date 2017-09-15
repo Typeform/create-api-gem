@@ -4,8 +4,8 @@ class Theme
   def initialize(id: nil, name:, font:, colors:, visibility: nil, has_transparent_button: nil, background: nil)
     @id = id
     @name = name || Fake.title
-    @font = font
-    @colors = colors
+    @font = font || 'Arial'
+    @colors = colors || Theme.colors
     @visibility = visibility
     @has_transparent_button = has_transparent_button
     @background = background
