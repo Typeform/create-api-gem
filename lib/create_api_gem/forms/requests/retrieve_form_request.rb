@@ -6,7 +6,7 @@ class RetrieveFormRequest < FormRequest
       method: :get,
       url: "#{APIConfig.api_request_url}/forms/#{form.id}",
     }
-    r[:headers] = { 'Authorization' => "Bearer #{user.jwt}" } unless user.nil?
+    r[:headers] = { 'Authorization' => "Bearer #{token}" } unless token.nil?
 
     request(r)
   end
