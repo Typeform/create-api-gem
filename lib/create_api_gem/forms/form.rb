@@ -99,22 +99,26 @@ class Form
     field_logic.nil? ? logic << FieldLogic.new(type: 'field', field_ref: field_ref, actions: [logic_action]) : field_logic.actions << logic_action
   end
 
+  def self.with_all_blocks
+    blocks = Block.all_types.values.map { |block| block.new }
+    Form.new(
+      blocks: blocks
+    )
+  end
+
   def self.full_example(id: nil)
-      blocks = Block.all_types.values.map do |block|
-        block.full_example
-      end
-      email_block = blocks.find { |current_block| current_block.type == :email }
-      Form.new(
-        title: 'A new form',
-        id: id,
-        hidden: ['hiddenfield1', 'hiddenfield2'],
-        theme_url: 'https://api.typeform.com/themes/default',
-        blocks: blocks,
-        welcome_screens: [WelcomeScreen.full_example],
-        thank_you_screens: [ThankYouScreen.full_example],
-        logic: [],
-        settings: Settings.full_example(email_block.ref),
-        variables: Variables.full_example
-      )
+    blocks = Block.all_types.values.map { |block| block.full_example }
+    email_block = blocks.find { |current_block| current_block.type == :email }
+    Form.new(
+      id: id,
+      hidden: ['hiddenfield1', 'hiddenfield2'],
+      theme_url: 'https://api.typeform.com/themes/default',
+      blocks: blocks,
+      welcome_screens: [WelcomeScreen.full_example],
+      thank_you_screens: [ThankYouScreen.full_example],
+      logic: [],
+      settings: Settings.full_example(email_block.ref),
+      variables: Variables.full_example
+  )
   end
 end

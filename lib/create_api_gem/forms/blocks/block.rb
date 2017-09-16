@@ -66,13 +66,10 @@ class Block
   end
 
   def self.image_attachment_payload(image_id: 'default')
-    raise ArgumentError.new("image_id must be a string of 12 characters") unless (image_id.is_a?(String) && image_id.length == 12 || image_id == 'default')
     { type: 'image', href: "#{APIConfig.clafoutis_address}/images/#{image_id}" }
   end
 
   def self.video_attachment_payload(video_url: 'https://www.youtube.com/watch?v=Uui3oT-XBxs', scale: 0.6)
-    raise ArgumentError.new("scale must be one of these values [0.4, 0.6, 0.8, 1]") unless [0.4, 0.6, 0.8, 1].include?(scale) && !scale.nil?
-    raise ArgumentError.new("video_url must be either a vimeo or youtube link") unless (video_url.include?('youtube') || video_url.include?('vimeo'))
     { type: 'video', href: video_url, scale: scale }
   end
 
