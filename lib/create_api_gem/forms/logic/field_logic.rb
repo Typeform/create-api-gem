@@ -18,7 +18,7 @@ class FieldLogic
     payload = {}
     payload[:ref] = field_ref unless field_ref.nil?
     payload[:type] = type unless type.nil?
-    payload[:actions] = actions.map(&:to_payload) unless actions.empty?
+    payload[:actions] = actions.map(&:payload) unless actions.empty?
     payload
   end
 

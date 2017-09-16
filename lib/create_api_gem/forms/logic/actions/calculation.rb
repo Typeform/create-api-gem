@@ -23,7 +23,7 @@ class Calculation < LogicAction
     payload[:action] = action_type
     payload[:details] = { target: { type: 'variable', value: target_ref } }
     payload[:details][:value] = { type: 'constant', value: numeric_value }
-    payload[:condition] = logic_condition.to_payload
+    payload[:condition] = logic_condition.payload
     payload
   end
 

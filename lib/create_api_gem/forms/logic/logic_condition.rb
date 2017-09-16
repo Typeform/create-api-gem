@@ -43,7 +43,7 @@ class LogicCondition
   def payload
     payload = {}
     payload[:op] = op
-    payload[:vars] = vars.map(&:to_payload) unless vars.empty?
+    payload[:vars] = vars.map(&:payload) unless vars.empty?
     payload[:vars].flatten!
     payload
   end

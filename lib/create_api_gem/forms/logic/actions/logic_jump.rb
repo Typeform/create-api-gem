@@ -53,7 +53,7 @@ class LogicJump < LogicAction
     payload = {}
     payload[:action] = 'jump'
     payload[:details] = { to: { type: to_type, value: to_ref } }
-    payload[:condition] = logic_condition.to_payload
+    payload[:condition] = logic_condition.payload
     payload
   end
 
