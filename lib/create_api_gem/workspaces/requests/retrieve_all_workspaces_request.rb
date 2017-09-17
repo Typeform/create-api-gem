@@ -1,6 +1,6 @@
 require_relative 'workspace_request'
 
-class RetrieveWorkspacesRequest < WorkspaceRequest
+class RetrieveAllWorkspacesRequest < WorkspaceRequest
   def initialize(token)
     request(
       method: :get,
