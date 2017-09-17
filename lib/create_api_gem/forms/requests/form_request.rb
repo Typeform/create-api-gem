@@ -32,4 +32,8 @@ class FormRequest < APIRequest
   def service_unavailable?
     @response.code == 502 || @response.code == 503
   end
+
+  def last_modified
+    Time.parse(@response.headers[:last_modified])
+  end
 end
