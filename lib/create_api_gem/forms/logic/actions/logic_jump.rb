@@ -18,9 +18,17 @@ class LogicJump < LogicAction
 
   def self.create_field_logic_jump(form, block_type)
     logic_block = form.blocks.find { |block| Block.block_symbol_to_string(block.type) == block_type }
-    to_ref = form.blocks.last.ref
+    to_ref = if form.blocks.last.ref == logic_block.ref
+      form.blocks.first.ref
+    else
+      form.blocks.last.ref
+    end
     logic_condition = LogicCondition.generate_from_block(logic_block)
     LogicJump.new(to_type: 'field', to_ref: to_ref, logic_condition: logic_condition)
+  end
+
+  def self.create_always_jump(form)
+    LogicJump.new(to_type: 'field', to_ref: form.blocks.first.ref, logic_condition: LogicCondition.new(op: 'always'))
   end
 
   def self.create_hidden_logic_jump(form)

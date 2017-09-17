@@ -119,16 +119,17 @@ class Form
   def self.full_example(id: nil)
     blocks = Block.all_types.values.map(&:full_example)
     email_block = blocks.find { |current_block| current_block.type == :email }
-    Form.new(
+    form = Form.new(
       id: id,
       hidden: %w[hiddenfield1 hiddenfield2],
       theme_url: 'https://api.typeform.com/themes/default',
       blocks: blocks,
       welcome_screens: [WelcomeScreen.full_example],
       thank_you_screens: [ThankYouScreen.full_example],
-      logic: [],
       settings: Settings.full_example(email_block.ref),
       variables: Variables.full_example
     )
+    form.logic = blocks.map { |block| FieldLogic.full_example(block, form)}
+    form
   end
 end

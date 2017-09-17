@@ -11,11 +11,23 @@ class LogicConditionDetails
   def self.from_response(payload)
     reference_object = payload.first
     value_object = payload.last
-    LogicConditionDetails.new(reference_type: reference_object[:type], reference: reference_object[:value], value_type: value_object[:type], value: value_object[:value])
+    reference_type = reference_object[:type] unless reference_object.nil?
+    reference = reference_object[:value] unless reference_object.nil?
+    value_type = value_object[:type] unless value_object.nil?
+    value = value_object[:value] unless value_object.nil?
+    LogicConditionDetails.new(
+      reference_type: reference_type,
+      reference: reference,
+      value_type: value_type,
+      value: value)
   end
 
   def payload
-    [{ type: reference_type, value: reference }, { type: value_type, value: value }]
+    if reference_type.nil?
+      []
+    else
+      [{ type: reference_type, value: reference }, { type: value_type, value: value }]
+    end
   end
 
   def same?(actual)

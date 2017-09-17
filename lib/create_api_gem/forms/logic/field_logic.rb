@@ -29,4 +29,20 @@ class FieldLogic
         expected_action.same?(actual_action)
       end && actions.length == actual.actions.length
   end
+
+  def self.full_example(logic_block, form)
+    non_logic_blocks = [:group, :payment, :statement]
+    if non_logic_blocks.include?(logic_block.type)
+      actions = [
+        LogicJump.create_always_jump(form)
+      ]
+    else
+      actions = [
+        LogicJump.create_field_logic_jump(form, Block.block_symbol_to_string(logic_block.type)),
+        Calculation.full_example(logic_block)
+      ]
+    end
+    FieldLogic.new(field_ref: logic_block.ref, type: 'field', actions: actions)
+  end
+
 end

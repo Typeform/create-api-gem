@@ -30,7 +30,7 @@ class LogicCondition
     when :file_upload
       op ||= 'answered'
       logic_condition_details = LogicConditionDetails.new(reference_type: 'field', reference: block.ref, value_type: 'constant', value: true)
-    when :multiple_choice
+    when :multiple_choice, :picture_choice
       op ||= 'is'
       logic_condition_details = LogicConditionDetails.new(reference_type: 'field', reference: block.ref, value_type: 'choice', value: block.choices.first.fetch(:ref))
     else
@@ -43,8 +43,12 @@ class LogicCondition
   def payload
     payload = {}
     payload[:op] = op
-    payload[:vars] = vars.map(&:payload) unless vars.empty?
-    payload[:vars].flatten!
+    if vars.empty?
+      payload[:vars] = []
+    else
+      payload[:vars] = vars.map(&:payload)
+      payload[:vars].flatten!
+    end
     payload
   end
 

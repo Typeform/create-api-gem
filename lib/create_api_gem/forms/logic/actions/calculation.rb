@@ -27,6 +27,21 @@ class Calculation < LogicAction
     payload
   end
 
+  def self.full_example(block)
+    is_blocks = [:multiple_choice, :picture_choice, :yes_no, :legal, :file_upload]
+    logic_condition = if is_blocks.include?(block.type)
+      LogicCondition.generate_from_block(block, op: 'is')
+    else
+      LogicCondition.generate_from_block(block, op: 'equal')
+    end
+    Calculation.new(
+      action_type: 'add',
+      numeric_value: 5,
+      target_ref: 'score',
+      logic_condition: logic_condition
+    )
+  end
+
   def same?(actual)
     action_type == actual.action_type &&
       target_ref == actual.target_ref &&
