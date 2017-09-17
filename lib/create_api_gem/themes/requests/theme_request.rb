@@ -1,4 +1,4 @@
-require_relative 'theme_request'
+require_relative '../../api_request'
 
 class ThemeRequest < APIRequest
   def location_header

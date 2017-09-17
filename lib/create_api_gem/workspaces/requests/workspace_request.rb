@@ -1,4 +1,4 @@
-require_relative 'workspace_request'
+require_relative '../../api_request'
 
 class WorkspaceRequest < APIRequest
   def workspace
