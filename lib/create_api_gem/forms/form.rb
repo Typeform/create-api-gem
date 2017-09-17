@@ -100,7 +100,18 @@ class Form
   end
 
   def self.with_all_blocks
-    blocks = Block.all_types.values.map { |block| block.new }
+    blocks = Block.all_types.values.map do |block|
+      if block == GroupBlock
+        fields = Block.all_types.values.map do |block|
+            block.new unless block == GroupBlock || block == PaymentBlock
+          end
+        block.new(fields: fields)
+      else
+        block.new
+      end
+
+    end
+
     Form.new(
       blocks: blocks
     )

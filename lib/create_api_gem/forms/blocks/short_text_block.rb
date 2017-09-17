@@ -48,9 +48,8 @@ class ShortTextBlock < Block
 
   def self.full_example(id: nil)
     ShortTextBlock.new(
-        title: 'A short text block',
         ref: Block.ref,
-        description: 'a description of the short text block',
+        description: DataGenerator.description,
         id: id,
         required: true,
         max_length: 50,

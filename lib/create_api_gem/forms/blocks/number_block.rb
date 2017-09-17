@@ -45,16 +45,14 @@ class NumberBlock < Block
 
   def self.default
     NumberBlock.new(
-        title: 'A number block',
         required: false
     )
   end
 
   def self.full_example(id: nil)
     NumberBlock.new(
-        title: 'A number block',
         ref: Block.ref,
-        description: 'a description of the number block',
+        description: DataGenerator.description,
         id: id,
         required: true,
         min_value: 1,

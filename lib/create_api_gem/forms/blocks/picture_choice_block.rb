@@ -89,9 +89,8 @@ class PictureChoiceBlock < Block
 
   def self.full_example(id: nil)
     PictureChoiceBlock.new(
-        title: 'A picture choice block',
         ref: Block.ref,
-        description: 'a description of the picture choice block',
+        description: DataGenerator.description,
         id: id,
         randomize: true,
         allow_multiple_selection: true,

@@ -5,12 +5,8 @@ module DataGenerator
     FFaker::Movie.title
   end
 
-  def self.title_with_markdown
-    FFaker::Movie.title + ' with _some *accompanying* markdown_'
-  end
-
-  def self.song
-    FFaker::Music.song
+  def self.description
+    FFaker::Lorem.paragraph
   end
 
   def self.email

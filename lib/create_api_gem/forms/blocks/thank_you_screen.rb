@@ -52,7 +52,6 @@ class ThankYouScreen < Block
 
   def self.full_example
     ThankYouScreen.new(
-        title: 'A thank you screen',
         ref: Block.ref,
         show_button: false,
         button_text: 'Click me!',

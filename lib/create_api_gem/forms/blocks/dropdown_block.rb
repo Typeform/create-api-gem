@@ -57,7 +57,6 @@ class DropdownBlock < Block
 
   def self.default
     DropdownBlock.new(
-        title: 'A dropdown block',
         choices: choices,
         alphabetical_order: false,
         required: false
@@ -66,9 +65,8 @@ class DropdownBlock < Block
 
   def self.full_example(id: nil)
     DropdownBlock.new(
-        title: 'A dropdown block',
         ref: Block.ref,
-        description: 'a description of the dropdown block',
+        description: DataGenerator.description,
         id: id,
         choices: choices,
         alphabetical_order: true,

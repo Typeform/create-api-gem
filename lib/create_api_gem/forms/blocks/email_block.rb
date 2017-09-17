@@ -38,16 +38,14 @@ class EmailBlock < Block
 
   def self.default
     EmailBlock.new(
-        title: 'Email block',
         required: false
     )
   end
 
   def self.full_example(id: nil)
     EmailBlock.new(
-        title: 'A email block',
         ref: Block.ref,
-        description: 'a description of the email block',
+        description: DataGenerator.description,
         id: id,
         required: true,
         attachment: Block.attachment

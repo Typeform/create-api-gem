@@ -48,9 +48,8 @@ class LongTextBlock < Block
 
   def self.full_example(id: nil)
     LongTextBlock.new(
-        title: 'A long text block',
         ref: Block.ref,
-        description: 'a description of the long text block',
+        description: DataGenerator.description,
         id: id,
         required: true,
         max_length: 500,

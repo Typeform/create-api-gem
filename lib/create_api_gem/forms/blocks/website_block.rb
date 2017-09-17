@@ -41,9 +41,8 @@ class WebsiteBlock < Block
 
   def self.full_example(id: nil)
     WebsiteBlock.new(
-        title: 'A website block',
         ref: Block.ref,
-        description: 'a description of the website block',
+        description: DataGenerator.description,
         required: true,
         id: id
     )

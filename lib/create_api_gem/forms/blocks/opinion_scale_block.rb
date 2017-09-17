@@ -48,7 +48,6 @@ class OpinionScaleBlock < Block
 
   def self.default
     OpinionScaleBlock.new(
-        title: 'An opinion scale block',
         steps: 11,
         start_at_one: false,
         required: false
@@ -57,9 +56,8 @@ class OpinionScaleBlock < Block
 
   def self.full_example(id: nil)
     OpinionScaleBlock.new(
-        title: 'An opinion scale block',
         ref: Block.ref,
-        description: 'a description of the opinion scale block',
+        description: DataGenerator.description,
         steps: 7,
         id: id,
         start_at_one: true,

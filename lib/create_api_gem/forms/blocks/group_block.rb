@@ -49,7 +49,6 @@ class GroupBlock < Block
 
   def self.default
     GroupBlock.new(
-        title: 'A group block',
         fields: [],
         button_text: 'Continue',
         show_button: false
@@ -68,7 +67,7 @@ class GroupBlock < Block
     GroupBlock.new(
         ref: Block.ref,
         id: id,
-        description: 'a description of the group block',
+        description: DataGenerator.description,
         button_text: 'Click me!',
         show_button: true,
         fields: fields,

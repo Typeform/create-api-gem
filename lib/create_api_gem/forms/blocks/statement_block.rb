@@ -43,9 +43,8 @@ class StatementBlock < Block
 
   def self.full_example(id: nil)
     StatementBlock.new(
-        title: 'A statement block',
         ref: Block.ref,
-        description: 'a description of the statement block',
+        description: DataGenerator.description,
         hide_marks: true,
         id: id,
         button_text: 'Click me!',

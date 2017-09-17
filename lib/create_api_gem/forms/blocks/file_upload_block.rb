@@ -35,16 +35,14 @@ class FileUploadBlock < Block
 
   def self.default
     FileUploadBlock.new(
-        title: 'A file upload block',
         required: false
     )
   end
 
   def self.full_example(id: nil)
     FileUploadBlock.new(
-        title: 'A file upload block',
         ref: Block.ref,
-        description: 'a description of the file upload block',
+        description: DataGenerator.description,
         required: true,
         id: id
     )

@@ -53,9 +53,8 @@ class RatingBlock < Block
 
   def self.full_example(id: nil)
     RatingBlock.new(
-        title: 'A rating block',
         ref: Block.ref,
-        description: 'a description of the rating block',
+        description: DataGenerator.description,
         steps: 8,
         shape: 'heart',
         id: id,

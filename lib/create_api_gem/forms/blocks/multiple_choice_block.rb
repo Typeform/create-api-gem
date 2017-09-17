@@ -75,7 +75,6 @@ class MultipleChoiceBlock < Block
 
   def self.default
     MultipleChoiceBlock.new(
-        title: 'A multiple choice block',
         choices: choices,
         randomize: false,
         allow_multiple_selection: false,
@@ -87,9 +86,8 @@ class MultipleChoiceBlock < Block
 
   def self.full_example(id: nil)
     MultipleChoiceBlock.new(
-        title: 'A multiple choice block',
         ref: Block.ref,
-        description: 'a description of the multiple choice block',
+        description: DataGenerator.description,
         id: id,
         randomize: true,
         allow_multiple_selection: true,

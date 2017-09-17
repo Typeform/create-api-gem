@@ -44,9 +44,8 @@ class YesNoBlock < Block
 
   def self.full_example(id: nil)
     YesNoBlock.new(
-        title: 'A yes no block',
         ref: Block.ref,
-        description: 'a description of the yes no block',
+        description: DataGenerator.description,
         required: true,
         attachment: Block.attachment,
         id: id

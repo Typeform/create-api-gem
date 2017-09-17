@@ -51,7 +51,6 @@ class PaymentBlock < Block
 
   def self.default
     PaymentBlock.new(
-        title: 'A payment block',
         required: false,
         price: { type: 'variable', value: 'price' },
         currency: 'EUR'
@@ -60,9 +59,8 @@ class PaymentBlock < Block
 
   def self.full_example(id: nil)
     PaymentBlock.new(
-        title: 'A payment block',
         ref: Block.ref,
-        description: 'a description of the payment block',
+        description: DataGenerator.description,
         id: id,
         required: true,
         currency: 'USD',
