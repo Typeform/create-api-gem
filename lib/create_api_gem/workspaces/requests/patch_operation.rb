@@ -4,7 +4,7 @@ class PatchOperation
   def initialize(op: nil, path: nil, value: nil)
     @op = op
     @path = path
-    @value = value || Fake.title
+    @value = value || DataGenerator.title
   end
 
   def payload
@@ -13,7 +13,7 @@ class PatchOperation
       {
         op: op,
         path: path,
-        value: { href: "#{APIConfig.api_url}/forms/#{value}" }
+        value: { href: "#{APIConfig.api_request_url}/forms/#{value}" }
       }.to_json
     when '/members'
       {
