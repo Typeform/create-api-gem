@@ -8,7 +8,7 @@ class FormsTest < Minitest::Test
 
   def test_crud
     form = Form.full_example
-    
+
     create_form = CreateFormRequest.new(token, form)
     assert_equal create_form.success?, true
     form = create_form.form

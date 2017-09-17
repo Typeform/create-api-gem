@@ -122,7 +122,7 @@ class Form
     form = Form.new(
       id: id,
       hidden: %w[hiddenfield1 hiddenfield2],
-      theme_url: 'https://api.typeform.com/themes/default',
+      theme_url: "#{APIConfig.api_request_url}/themes/default",
       blocks: blocks,
       welcome_screens: [WelcomeScreen.full_example],
       thank_you_screens: [ThankYouScreen.full_example],
