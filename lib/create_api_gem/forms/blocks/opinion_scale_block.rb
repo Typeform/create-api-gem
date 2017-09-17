@@ -6,7 +6,7 @@ class OpinionScaleBlock < Block
   def initialize(id: nil, title: nil, type: :opinion_scale, ref: nil, description: nil, steps: nil, start_at_one: nil,
                  labels: nil, required: nil, attachment: nil)
     @id = id
-    @title = title || Fake.title
+    @title = title || DataGenerator.title
     @type = type
     @ref = ref
     @description = description

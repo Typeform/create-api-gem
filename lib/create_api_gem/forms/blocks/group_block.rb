@@ -5,7 +5,7 @@ class GroupBlock < Block
 
   def initialize(id: nil, title: nil, type: :group, ref: nil, description: nil, show_button: nil, button_text: nil, attachment: nil, fields: [])
     @id = id
-    @title = title || Fake.title
+    @title = title || DataGenerator.title
     @type = type
     @ref = ref
     @description = description
@@ -56,12 +56,16 @@ class GroupBlock < Block
     )
   end
 
-  def self.full_example(id: nil)
-    fields = Block.all_types.values.map do |block|
-      block.full_example unless block == GroupBlock || block == PaymentBlock
-    end
+  def self.full_example(id: nil, blocks: nil)
+    fields = blocks.nil? ?
+      Block.all_types.values.map do |block|
+        block.full_example unless block == GroupBlock || block == PaymentBlock
+      end
+      :
+      blocks.map do |block|
+        block.full_example(id: block.id) unless block == GroupBlock || block == PaymentBlock
+      end
     GroupBlock.new(
-        title: 'A group block',
         ref: Block.ref,
         id: id,
         description: 'a description of the group block',

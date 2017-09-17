@@ -6,7 +6,7 @@ class PaymentBlock < Block
   def initialize(id: nil, title: nil, type: :payment, ref: nil, description: nil, required: nil, currency: nil, price: nil,
                  show_button: nil, button_text: nil, attachment: nil)
     @id = id
-    @title = title || Fake.title
+    @title = title || DataGenerator.title
     @type = type
     @ref = ref
     @description = description

@@ -8,7 +8,7 @@ class PictureChoiceBlock < Block
                  allow_multiple_selection: nil, allow_other_choice: nil, supersized: nil, show_labels: nil,
                  choices: nil, required: nil)
     @id = id
-    @title = title || Fake.title
+    @title = title || DataGenerator.title
     @type = type
     @ref = ref
     @description = description

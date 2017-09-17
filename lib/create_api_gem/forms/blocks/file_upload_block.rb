@@ -5,7 +5,7 @@ class FileUploadBlock < Block
 
   def initialize(id: nil, title: nil, type: :file_upload, ref: nil, description: nil, required: nil)
     @id = id
-    @title = title || Fake.title
+    @title = title || DataGenerator.title
     @type = type
     @ref = ref
     @description = description

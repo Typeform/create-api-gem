@@ -6,7 +6,7 @@ class NumberBlock < Block
   def initialize(id: nil, title: nil, type: :number, ref: nil, description: nil, required: nil, min_value: nil,
                  max_value: nil, attachment: nil)
     @id = id
-    @title = title || Fake.title
+    @title = title || DataGenerator.title
     @type = type
     @ref = ref
     @description = description

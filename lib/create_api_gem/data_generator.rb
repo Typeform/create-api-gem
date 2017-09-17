@@ -1,4 +1,6 @@
-module Fake
+require 'ffaker'
+
+module DataGenerator
   def self.title
     FFaker::Movie.title
   end

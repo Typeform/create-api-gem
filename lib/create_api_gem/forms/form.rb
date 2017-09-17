@@ -3,7 +3,7 @@ class Form
 
   def initialize(id: nil, title: nil, blocks: [], hidden: [], last_updated_at: nil, theme_url: nil, welcome_screens: [], thank_you_screens: [], logic: [], settings: nil, variables: nil)
     @id = id
-    @title = title || Fake.title
+    @title = title || DataGenerator.title
     @blocks = blocks
     @hidden = hidden
     @last_updated_at = last_updated_at

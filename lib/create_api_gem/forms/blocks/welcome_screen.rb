@@ -3,7 +3,7 @@ class WelcomeScreen < Block
 
   def initialize(id: nil, title: nil, ref: nil, description: nil, show_button: nil, button_text: nil, attachment: nil)
     @id = id
-    @title = title || Fake.title
+    @title = title || DataGenerator.title
     @ref = ref
     @description = description
     @show_button = show_button

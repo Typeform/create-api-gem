@@ -6,7 +6,7 @@ class LongTextBlock < Block
   def initialize(id: nil, title: nil, type: :long_text, ref: nil, description: nil, required: nil,
                  max_length: nil, attachment: nil)
     @id = id
-    @title = title || Fake.title
+    @title = title || DataGenerator.title
     @type = type
     @ref = ref
     @description = description

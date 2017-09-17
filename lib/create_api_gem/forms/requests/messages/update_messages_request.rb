@@ -4,7 +4,7 @@ class UpdateMessagesRequest < APIRequest
       method: :put,
       url: "#{PannacottaConfig.api_request_url}/forms/#{form.id}/messages",
       headers: {
-        'Typeform-Request-Id' => Fake.uuid,
+        'Typeform-Request-Id' => DataGenerator.uuid,
         'Authorization' => "Bearer #{user.jwt}"
       },
       payload: messages.payload.to_json

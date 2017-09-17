@@ -6,7 +6,7 @@ class DateBlock < Block
   def initialize(id: nil, title: nil, type: :date, ref: nil, description: nil, structure: nil,
                  separator: nil, required: nil, attachment: nil)
     @id = id
-    @title = title || Fake.title
+    @title = title || DataGenerator.title
     @type = type
     @ref = ref
     @description = description

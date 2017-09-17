@@ -5,7 +5,7 @@ class YesNoBlock < Block
 
   def initialize(id: nil, title: nil, type: :yes_no, ref: nil, description: nil, required: nil, attachment: nil)
     @id = id
-    @title = title || Fake.title
+    @title = title || DataGenerator.title
     @type = type
     @ref = ref
     @description = description
