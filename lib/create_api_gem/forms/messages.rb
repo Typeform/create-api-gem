@@ -10,7 +10,7 @@ class Messages
   end
 
   def payload
-    messages
+    messages.to_json
   end
 
   def same?(actual)

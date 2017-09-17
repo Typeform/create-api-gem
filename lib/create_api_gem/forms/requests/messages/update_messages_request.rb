@@ -1,13 +1,13 @@
 class UpdateMessagesRequest < APIRequest
-  def initialize(user, form, messages)
+  def initialize(token, form, messages)
     request(
       method: :put,
-      url: "#{PannacottaConfig.api_request_url}/forms/#{form.id}/messages",
+      url: "#{APIConfig.api_request_url}/forms/#{form.id}/messages",
       headers: {
         'Typeform-Request-Id' => DataGenerator.uuid,
-        'Authorization' => "Bearer #{user.jwt}"
+        'Authorization' => "Bearer #{token}"
       },
-      payload: messages.payload.to_json
+      payload: messages.payload
     )
   end
 

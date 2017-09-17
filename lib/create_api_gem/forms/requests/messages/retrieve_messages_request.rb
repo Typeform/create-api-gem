@@ -1,11 +1,11 @@
 class RetrieveMessagesRequest < APIRequest
-  def initialize(user, form)
+  def initialize(token, form)
     request(
       method: :get,
-      url: "#{PannacottaConfig.api_request_url}/forms/#{form.id}/messages",
+      url: "#{APIConfig.api_request_url}/forms/#{form.id}/messages",
       headers: {
         'Typeform-Request-Id' => DataGenerator.uuid,
-        'Authorization' => "Bearer #{user.jwt}"
+        'Authorization' => "Bearer #{token}"
       }
     )
   end
