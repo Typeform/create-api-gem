@@ -48,22 +48,22 @@ class OpinionScaleBlock < Block
 
   def self.default
     OpinionScaleBlock.new(
-        steps: 11,
-        start_at_one: false,
-        required: false
+      steps: 11,
+      start_at_one: false,
+      required: false
     )
   end
 
   def self.full_example(id: nil)
     OpinionScaleBlock.new(
-        ref: Block.ref,
-        description: DataGenerator.description,
-        steps: 7,
-        id: id,
-        start_at_one: true,
-        labels: { left: 'beg', center: 'mid', right: 'end' },
-        required: true,
-        attachment: Block.attachment
+      ref: Block.ref,
+      description: DataGenerator.description,
+      steps: 7,
+      id: id,
+      start_at_one: true,
+      labels: { left: 'beg', center: 'mid', right: 'end' },
+      required: true,
+      attachment: Block.attachment
     )
   end
 end

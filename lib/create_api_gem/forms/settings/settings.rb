@@ -65,7 +65,7 @@ class Settings
   end
 
   def self.full_example(email_block_for_notifications_ref)
-    image = { href: APIConfig.clafoutis_address + '/images/default'}
+    image = { href: APIConfig.clafoutis_address + '/images/default' }
     Settings.new(redirect_after_submit_url: 'http://google.com', show_typeform_branding: false, progress_bar: 'percentage',
                  show_progress_bar: false, description: 'some meta description', allow_indexing: false, image: image,
                  language: 'fr', is_public: true, google_analytics: 'UA-1234-12', notifications: Notifications.full_example(email_block_for_notifications_ref))

@@ -35,16 +35,16 @@ class LegalBlock < Block
 
   def self.default
     LegalBlock.new(
-        required: false
+      required: false
     )
   end
 
   def self.full_example(id: nil)
     LegalBlock.new(
-        ref: Block.ref,
-        description: DataGenerator.description,
-        required: true,
-        id: id
+      ref: Block.ref,
+      description: DataGenerator.description,
+      required: true,
+      id: id
     )
   end
 end

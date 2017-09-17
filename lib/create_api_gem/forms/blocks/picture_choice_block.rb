@@ -32,7 +32,7 @@ class PictureChoiceBlock < Block
         label: 'label 2',
         ref: 'choice-2-ref',
         attachment: Block.image_attachment_payload(image_id: 'default')
-       }
+      }
     ]
   end
 
@@ -78,27 +78,27 @@ class PictureChoiceBlock < Block
 
   def self.default
     PictureChoiceBlock.new(
-        randomize: false,
-        allow_multiple_selection: false,
-        allow_other_choice: false,
-        supersized: false,
-        show_labels: true,
-        required: false
+      randomize: false,
+      allow_multiple_selection: false,
+      allow_other_choice: false,
+      supersized: false,
+      show_labels: true,
+      required: false
     )
   end
 
   def self.full_example(id: nil)
     PictureChoiceBlock.new(
-        ref: Block.ref,
-        description: DataGenerator.description,
-        id: id,
-        randomize: true,
-        allow_multiple_selection: true,
-        allow_other_choice: true,
-        supersized: true,
-        choices: choices,
-        show_labels: false,
-        required: true
+      ref: Block.ref,
+      description: DataGenerator.description,
+      id: id,
+      randomize: true,
+      allow_multiple_selection: true,
+      allow_other_choice: true,
+      supersized: true,
+      choices: choices,
+      show_labels: false,
+      required: true
     )
   end
 end

@@ -28,7 +28,7 @@ class GroupBlock < Block
       payload[:properties][:button_text] = button_text unless button_text.nil?
       unless fields.nil?
         p = []
-        fields.each { |field| p << field.payload unless field.nil?}
+        fields.each { |field| p << field.payload unless field.nil? }
         payload[:properties][:fields] = p
       end
     end
@@ -49,9 +49,9 @@ class GroupBlock < Block
 
   def self.default
     GroupBlock.new(
-        fields: [],
-        button_text: 'Continue',
-        show_button: false
+      fields: [],
+      button_text: 'Continue',
+      show_button: false
     )
   end
 
@@ -62,16 +62,16 @@ class GroupBlock < Block
       end
       :
       blocks.map do |block|
-        block.full_example(id: block.id) unless block == GroupBlock || block == PaymentBlock
+        block.class.full_example(id: block.id) unless block == GroupBlock || block == PaymentBlock
       end
     GroupBlock.new(
-        ref: Block.ref,
-        id: id,
-        description: DataGenerator.description,
-        button_text: 'Click me!',
-        show_button: true,
-        fields: fields,
-        attachment: Block.attachment
+      ref: Block.ref,
+      id: id,
+      description: DataGenerator.description,
+      button_text: 'Click me!',
+      show_button: true,
+      fields: fields,
+      attachment: Block.attachment
     )
   end
 end

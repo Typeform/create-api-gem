@@ -35,16 +35,16 @@ class WebsiteBlock < Block
 
   def self.default
     WebsiteBlock.new(
-        required: false
+      required: false
     )
   end
 
   def self.full_example(id: nil)
     WebsiteBlock.new(
-        ref: Block.ref,
-        description: DataGenerator.description,
-        required: true,
-        id: id
+      ref: Block.ref,
+      description: DataGenerator.description,
+      required: true,
+      id: id
     )
   end
 end

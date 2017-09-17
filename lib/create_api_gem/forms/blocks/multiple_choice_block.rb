@@ -24,12 +24,12 @@ class MultipleChoiceBlock < Block
   def self.choices
     [
       {
-          label: 'choice 1',
-          ref: 'choice-1-ref'
+        label: 'choice 1',
+        ref: 'choice-1-ref'
       },
       {
-          label: 'choice 2',
-          ref: 'choice-2-ref'
+        label: 'choice 2',
+        ref: 'choice-2-ref'
       }
     ]
   end
@@ -75,27 +75,27 @@ class MultipleChoiceBlock < Block
 
   def self.default
     MultipleChoiceBlock.new(
-        choices: choices,
-        randomize: false,
-        allow_multiple_selection: false,
-        allow_other_choice: false,
-        vertical_alignment: false,
-        required: false
+      choices: choices,
+      randomize: false,
+      allow_multiple_selection: false,
+      allow_other_choice: false,
+      vertical_alignment: false,
+      required: false
     )
   end
 
   def self.full_example(id: nil)
     MultipleChoiceBlock.new(
-        ref: Block.ref,
-        description: DataGenerator.description,
-        id: id,
-        randomize: true,
-        allow_multiple_selection: true,
-        allow_other_choice: true,
-        vertical_alignment: true,
-        choices: choices,
-        required: true,
-        attachment: Block.attachment
+      ref: Block.ref,
+      description: DataGenerator.description,
+      id: id,
+      randomize: true,
+      allow_multiple_selection: true,
+      allow_other_choice: true,
+      vertical_alignment: true,
+      choices: choices,
+      required: true,
+      attachment: Block.attachment
     )
   end
 end

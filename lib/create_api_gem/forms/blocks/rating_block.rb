@@ -45,21 +45,21 @@ class RatingBlock < Block
 
   def self.default
     RatingBlock.new(
-        steps: 3,
-        shape: 'star',
-        required: false
+      steps: 3,
+      shape: 'star',
+      required: false
     )
   end
 
   def self.full_example(id: nil)
     RatingBlock.new(
-        ref: Block.ref,
-        description: DataGenerator.description,
-        steps: 8,
-        shape: 'heart',
-        id: id,
-        required: true,
-        attachment: Block.attachment
+      ref: Block.ref,
+      description: DataGenerator.description,
+      steps: 8,
+      shape: 'heart',
+      id: id,
+      required: true,
+      attachment: Block.attachment
     )
   end
 end

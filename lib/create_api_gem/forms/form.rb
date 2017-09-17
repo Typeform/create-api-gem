@@ -57,12 +57,12 @@ class Form
     (id.nil? || id == actual.id) &&
       (hidden.nil? || hidden == actual.hidden) &&
       theme_url.nil? || theme_url == actual.theme_url &&
-      title == actual.title &&
-      same_blocks?(actual.blocks) &&
-      same_welcome_screens?(actual.welcome_screens) &&
-      same_thank_you_screens?(actual.thank_you_screens) &&
-      same_logic?(actual.logic)
-      (settings.nil? ? Settings.default : settings).same?(actual.settings) &&
+        title == actual.title &&
+        same_blocks?(actual.blocks) &&
+        same_welcome_screens?(actual.welcome_screens) &&
+        same_thank_you_screens?(actual.thank_you_screens) &&
+        same_logic?(actual.logic)
+    (settings.nil? ? Settings.default : settings).same?(actual.settings) &&
       (variables.nil? ? Variables.default : variables).same?(actual.variables)
   end
 
@@ -103,13 +103,12 @@ class Form
     blocks = Block.all_types.values.map do |block|
       if block == GroupBlock
         fields = Block.all_types.values.map do |block|
-            block.new unless block == GroupBlock || block == PaymentBlock
-          end
+          block.new unless block == GroupBlock || block == PaymentBlock
+        end
         block.new(fields: fields)
       else
         block.new
       end
-
     end
 
     Form.new(
@@ -118,11 +117,11 @@ class Form
   end
 
   def self.full_example(id: nil)
-    blocks = Block.all_types.values.map { |block| block.full_example }
+    blocks = Block.all_types.values.map(&:full_example)
     email_block = blocks.find { |current_block| current_block.type == :email }
     Form.new(
       id: id,
-      hidden: ['hiddenfield1', 'hiddenfield2'],
+      hidden: %w[hiddenfield1 hiddenfield2],
       theme_url: 'https://api.typeform.com/themes/default',
       blocks: blocks,
       welcome_screens: [WelcomeScreen.full_example],
@@ -130,6 +129,6 @@ class Form
       logic: [],
       settings: Settings.full_example(email_block.ref),
       variables: Variables.full_example
-  )
+    )
   end
 end

@@ -47,11 +47,12 @@ class WelcomeScreen < Block
 
   def self.full_example(id: nil)
     WelcomeScreen.new(
-        ref: Block.ref,
-        description: DataGenerator.description,
-        show_button: false,
-        button_text: 'Click me!',
-        id: id,
-        attachment: Block.attachment)
+      ref: Block.ref,
+      description: DataGenerator.description,
+      show_button: false,
+      button_text: 'Click me!',
+      id: id,
+      attachment: Block.attachment
+    )
   end
 end

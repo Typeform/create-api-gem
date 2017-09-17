@@ -13,27 +13,27 @@ class Theme
 
   def self.default
     Theme.new(
-        id: 'gJ3gfQ',
-        name: 'Default',
-        colors: [
-            question: '#3D3D3D',
-            answer: '#4FB0AE',
-            button: '#4FB0AE',
-            background: '#FFFFFF'
-        ],
-        font: 'Arial',
-        has_transparent_button: false,
-        visibility: 'private'
+      id: 'gJ3gfQ',
+      name: 'Default',
+      colors: [
+        question: '#3D3D3D',
+        answer: '#4FB0AE',
+        button: '#4FB0AE',
+        background: '#FFFFFF'
+      ],
+      font: 'Arial',
+      has_transparent_button: false,
+      visibility: 'private'
     )
   end
 
   def self.full_example
     Theme.new(
-        name: 'A new theme',
-        colors: colors,
-        font: 'Karla',
-        has_transparent_button: true,
-        background: Background.full_example
+      name: 'A new theme',
+      colors: colors,
+      font: 'Karla',
+      has_transparent_button: true,
+      background: Background.full_example
     )
   end
 
@@ -75,11 +75,10 @@ class Theme
     (id.nil? || id == actual.id) &&
       name == actual.name &&
       colors == actual.colors &&
-      colors.keys == [:question, :answer, :button, :background] &&
+      colors.keys == %i[question answer button background] &&
       font == actual.font &&
       (visibility.nil? ? Theme.default.visibility : visibility) == actual.visibility &&
       (has_transparent_button.nil? ? Theme.default.has_transparent_button : has_transparent_button) == actual.has_transparent_button &&
       (background.nil? || background.same?(actual.background))
   end
-
 end

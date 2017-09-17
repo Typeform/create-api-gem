@@ -51,22 +51,22 @@ class PaymentBlock < Block
 
   def self.default
     PaymentBlock.new(
-        required: false,
-        price: { type: 'variable', value: 'price' },
-        currency: 'EUR'
+      required: false,
+      price: { type: 'variable', value: 'price' },
+      currency: 'EUR'
     )
   end
 
   def self.full_example(id: nil)
     PaymentBlock.new(
-        ref: Block.ref,
-        description: DataGenerator.description,
-        id: id,
-        required: true,
-        currency: 'USD',
-        price: { type: 'variable', value: 'price' },
-        show_button: true, button_text: 'Click me!',
-        attachment: Block.attachment
+      ref: Block.ref,
+      description: DataGenerator.description,
+      id: id,
+      required: true,
+      currency: 'USD',
+      price: { type: 'variable', value: 'price' },
+      show_button: true, button_text: 'Click me!',
+      attachment: Block.attachment
     )
   end
 end

@@ -1,5 +1,4 @@
 class Block
-
   def self.all_types
     {
       'date block' => DateBlock,
@@ -58,7 +57,7 @@ class Block
   end
 
   def self.ref
-     (0...8).map { (65 + rand(26)).chr }.join
+    (0...8).map { (65 + rand(26)).chr }.join
   end
 
   def self.attachment
@@ -80,5 +79,4 @@ class Block
     string.sub!('_', ' ')
     string + ' block'
   end
-
 end

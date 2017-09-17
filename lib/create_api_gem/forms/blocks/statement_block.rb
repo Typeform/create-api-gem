@@ -43,12 +43,12 @@ class StatementBlock < Block
 
   def self.full_example(id: nil)
     StatementBlock.new(
-        ref: Block.ref,
-        description: DataGenerator.description,
-        hide_marks: true,
-        id: id,
-        button_text: 'Click me!',
-        attachment: Block.attachment
+      ref: Block.ref,
+      description: DataGenerator.description,
+      hide_marks: true,
+      id: id,
+      button_text: 'Click me!',
+      attachment: Block.attachment
     )
   end
 end

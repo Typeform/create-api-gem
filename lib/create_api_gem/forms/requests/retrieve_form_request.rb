@@ -4,7 +4,7 @@ class RetrieveFormRequest < FormRequest
   def initialize(token, form)
     r = {
       method: :get,
-      url: "#{APIConfig.api_request_url}/forms/#{form.id}",
+      url: "#{APIConfig.api_request_url}/forms/#{form.id}"
     }
     r[:headers] = { 'Authorization' => "Bearer #{token}" } unless token.nil?
 

@@ -45,19 +45,19 @@ class NumberBlock < Block
 
   def self.default
     NumberBlock.new(
-        required: false
+      required: false
     )
   end
 
   def self.full_example(id: nil)
     NumberBlock.new(
-        ref: Block.ref,
-        description: DataGenerator.description,
-        id: id,
-        required: true,
-        min_value: 1,
-        max_value: 500,
-        attachment: Block.attachment
+      ref: Block.ref,
+      description: DataGenerator.description,
+      id: id,
+      required: true,
+      min_value: 1,
+      max_value: 500,
+      attachment: Block.attachment
     )
   end
 end

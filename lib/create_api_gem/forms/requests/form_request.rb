@@ -10,7 +10,7 @@ class FormRequest < APIRequest
   end
 
   def invalid_form?
-    @response.code == 400 && %w(VALIDATION_ERROR BAD_REQUEST INVALID_JSON).include?(error_code)
+    @response.code == 400 && %w[VALIDATION_ERROR BAD_REQUEST INVALID_JSON].include?(error_code)
   end
 
   def unauthorized?

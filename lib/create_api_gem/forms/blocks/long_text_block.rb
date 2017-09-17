@@ -42,18 +42,18 @@ class LongTextBlock < Block
 
   def self.default
     LongTextBlock.new(
-        required: false
+      required: false
     )
   end
 
   def self.full_example(id: nil)
     LongTextBlock.new(
-        ref: Block.ref,
-        description: DataGenerator.description,
-        id: id,
-        required: true,
-        max_length: 500,
-        attachment: Block.attachment
+      ref: Block.ref,
+      description: DataGenerator.description,
+      id: id,
+      required: true,
+      max_length: 500,
+      attachment: Block.attachment
     )
   end
 end

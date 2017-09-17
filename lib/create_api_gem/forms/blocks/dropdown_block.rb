@@ -17,10 +17,10 @@ class DropdownBlock < Block
   end
 
   def self.choices
-      [
-          {label: 'choice 1'},
-          {label: 'choice 2'}
-      ]
+    [
+      { label: 'choice 1' },
+      { label: 'choice 2' }
+    ]
   end
 
   def payload
@@ -57,21 +57,21 @@ class DropdownBlock < Block
 
   def self.default
     DropdownBlock.new(
-        choices: choices,
-        alphabetical_order: false,
-        required: false
+      choices: choices,
+      alphabetical_order: false,
+      required: false
     )
   end
 
   def self.full_example(id: nil)
     DropdownBlock.new(
-        ref: Block.ref,
-        description: DataGenerator.description,
-        id: id,
-        choices: choices,
-        alphabetical_order: true,
-        required: true,
-        attachment: Block.attachment
+      ref: Block.ref,
+      description: DataGenerator.description,
+      id: id,
+      choices: choices,
+      alphabetical_order: true,
+      required: true,
+      attachment: Block.attachment
     )
   end
 end

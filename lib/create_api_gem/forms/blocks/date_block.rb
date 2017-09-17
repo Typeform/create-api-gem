@@ -45,21 +45,21 @@ class DateBlock < Block
 
   def self.default
     DateBlock.new(
-        structure: 'MMDDYYYY',
-        separator: '/',
-        required: false
+      structure: 'MMDDYYYY',
+      separator: '/',
+      required: false
     )
   end
 
   def self.full_example(id: nil)
     DateBlock.new(
-        ref: Block.ref,
-        separator: '-',
-        structure: 'DDMMYYYY',
-        required: true,
-        id: id,
-        description: DataGenerator.description,
-        attachment: Block.attachment
+      ref: Block.ref,
+      separator: '-',
+      structure: 'DDMMYYYY',
+      required: true,
+      id: id,
+      description: DataGenerator.description,
+      attachment: Block.attachment
     )
   end
 end

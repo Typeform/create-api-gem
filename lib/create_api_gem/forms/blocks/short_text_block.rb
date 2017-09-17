@@ -42,18 +42,18 @@ class ShortTextBlock < Block
 
   def self.default
     ShortTextBlock.new(
-        required: false
+      required: false
     )
   end
 
   def self.full_example(id: nil)
     ShortTextBlock.new(
-        ref: Block.ref,
-        description: DataGenerator.description,
-        id: id,
-        required: true,
-        max_length: 50,
-        attachment: Block.attachment
+      ref: Block.ref,
+      description: DataGenerator.description,
+      id: id,
+      required: true,
+      max_length: 50,
+      attachment: Block.attachment
     )
   end
 end

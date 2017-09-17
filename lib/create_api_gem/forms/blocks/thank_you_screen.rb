@@ -52,13 +52,13 @@ class ThankYouScreen < Block
 
   def self.full_example
     ThankYouScreen.new(
-        ref: Block.ref,
-        show_button: false,
-        button_text: 'Click me!',
-        button_mode: 'redirect',
-        redirect_url: 'http://www.google.com',
-        share_icons: false,
-        attachment: Block.attachment
-        )
+      ref: Block.ref,
+      show_button: false,
+      button_text: 'Click me!',
+      button_mode: 'redirect',
+      redirect_url: 'http://www.google.com',
+      share_icons: false,
+      attachment: Block.attachment
+    )
   end
 end

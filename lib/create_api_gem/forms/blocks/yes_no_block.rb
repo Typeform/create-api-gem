@@ -38,17 +38,17 @@ class YesNoBlock < Block
 
   def self.default
     YesNoBlock.new(
-        required: false
+      required: false
     )
   end
 
   def self.full_example(id: nil)
     YesNoBlock.new(
-        ref: Block.ref,
-        description: DataGenerator.description,
-        required: true,
-        attachment: Block.attachment,
-        id: id
+      ref: Block.ref,
+      description: DataGenerator.description,
+      required: true,
+      attachment: Block.attachment,
+      id: id
     )
   end
 end
