@@ -1,12 +1,11 @@
 class Form
-  attr_accessor :id, :title, :blocks, :hidden, :last_updated_at, :theme_url, :welcome_screens, :thank_you_screens, :logic, :settings, :variables
+  attr_accessor :id, :title, :blocks, :hidden, :theme_url, :welcome_screens, :thank_you_screens, :logic, :settings, :variables
 
-  def initialize(id: nil, title: nil, blocks: [], hidden: [], last_updated_at: nil, theme_url: nil, welcome_screens: [], thank_you_screens: [], logic: [], settings: nil, variables: nil)
+  def initialize(id: nil, title: nil, blocks: [], hidden: [], theme_url: nil, welcome_screens: [], thank_you_screens: [], logic: [], settings: nil, variables: nil)
     @id = id
     @title = title || DataGenerator.title
     @blocks = blocks
     @hidden = hidden
-    @last_updated_at = last_updated_at
     @theme_url = theme_url
     @welcome_screens = welcome_screens
     @thank_you_screens = thank_you_screens
@@ -28,7 +27,6 @@ class Form
       title: payload[:title],
       blocks: blocks,
       hidden: hidden_fields,
-      last_updated_at: payload[:last_updated_at],
       theme_url: payload[:theme][:href],
       welcome_screens: welcome_screens,
       thank_you_screens: thank_you_screens,
@@ -61,8 +59,8 @@ class Form
         same_blocks?(actual.blocks) &&
         same_welcome_screens?(actual.welcome_screens) &&
         same_thank_you_screens?(actual.thank_you_screens) &&
-        same_logic?(actual.logic)
-    (settings.nil? ? Settings.default : settings).same?(actual.settings) &&
+        same_logic?(actual.logic) &&
+        (settings.nil? ? Settings.default : settings).same?(actual.settings) &&
       (variables.nil? ? Variables.default : variables).same?(actual.variables)
   end
 
