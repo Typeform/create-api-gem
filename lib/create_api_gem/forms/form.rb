@@ -83,9 +83,10 @@ class Form
   end
 
   def same_logic?(actual_logic)
-    logic.zip(actual_logic).all? do |expected, actual|
-      expected.same?(actual)
-    end && logic.length == actual_logic.length
+    logic.all? do |field_logic|
+      actual_field_logic = actual_logic.find { |fl| fl.ref == field_logic.ref }
+      field_logic.same?(actual_field_logic)
+    end  && logic.length == actual_logic.length
   end
 
   def theme_id
