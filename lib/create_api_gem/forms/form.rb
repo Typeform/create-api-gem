@@ -84,7 +84,7 @@ class Form
 
   def same_logic?(actual_logic)
     logic.all? do |field_logic|
-      actual_field_logic = actual_logic.find { |fl| fl.ref == field_logic.ref }
+      actual_field_logic = actual_logic.find { |fl| fl.field_ref == field_logic.field_ref }
       field_logic.same?(actual_field_logic)
     end  && logic.length == actual_logic.length
   end
