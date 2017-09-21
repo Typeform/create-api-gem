@@ -29,4 +29,4 @@ class APIRequest
   rescue JSON::ParserError
     return false
   end
-  end
+end
