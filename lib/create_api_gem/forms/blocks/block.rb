@@ -47,9 +47,9 @@ class Block
     return true if attachment.nil?
     type = attachment[:type]
     case type
-    when 'image'
+      when 'image'
       return (attachment[:href].start_with?("#{APIConfig.clafoutis_address}/images/") && actual_attachment[:href].start_with?("#{APIConfig.clafoutis_address}/images/"))
-    when 'video'
+      when 'video'
       return attachment == actual_attachment
     else
       return false

@@ -42,8 +42,7 @@ class OpinionScaleBlock < Block
     (labels.nil? || labels == actual.labels) &&
       (steps.nil? ? OpinionScaleBlock.default.steps : steps) == actual.steps &&
       (start_at_one.nil? ? OpinionScaleBlock.default.start_at_one : start_at_one) == actual.start_at_one &&
-      (required.nil? ? OpinionScaleBlock.default.required : required) == actual.required &&
-      (attachment.nil? || attachment == actual.attachment)
+      (required.nil? ? OpinionScaleBlock.default.required : required) == actual.required
   end
 
   def self.default

@@ -32,8 +32,7 @@ class YesNoBlock < Block
   end
 
   def same_extra_attributes?(actual)
-    (required.nil? ? YesNoBlock.default.required : required) == actual.required &&
-      (attachment.nil? || attachment == actual.attachment)
+    (required.nil? ? YesNoBlock.default.required : required) == actual.required
   end
 
   def self.default

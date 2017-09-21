@@ -39,8 +39,7 @@ class DateBlock < Block
   def same_extra_attributes?(actual)
     (structure.nil? ? DateBlock.default.structure : structure) == actual.structure &&
       (separator.nil? ? DateBlock.default.separator : separator) == actual.separator &&
-      (required.nil? ? DateBlock.default.required : required) == actual.required &&
-      (attachment.nil? || attachment == actual.attachment)
+      (required.nil? ? DateBlock.default.required : required) == actual.required
   end
 
   def self.default

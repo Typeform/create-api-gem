@@ -45,8 +45,7 @@ class PaymentBlock < Block
       (price.nil? ? PaymentBlock.default.price : price) == actual.price &&
       (currency.nil? ? PaymentBlock.default.currency : currency) == actual.currency &&
       (show_button.nil? || show_button == actual.show_button) &&
-      (button_text.nil? || button_text == actual.button_text) &&
-      (attachment.nil? || attachment == actual.attachment)
+      (button_text.nil? || button_text == actual.button_text)
   end
 
   def self.default

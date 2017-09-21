@@ -58,6 +58,7 @@ class PictureChoiceBlock < Block
   end
 
   def same_extra_attributes?(actual)
+
     same_choices?(actual.choices) &&
       (randomize.nil? ? PictureChoiceBlock.default.randomize : randomize) == actual.randomize &&
       (allow_multiple_selection.nil? ? PictureChoiceBlock.default.allow_multiple_selection : allow_multiple_selection) == actual.allow_multiple_selection &&
@@ -71,8 +72,8 @@ class PictureChoiceBlock < Block
     choices.zip(actual_choices).all? do |expected, actual|
       (!expected.key?(:id) || expected[:id] == actual[:id]) &&
         (!expected.key?(:ref) || expected[:ref] == actual[:ref]) &&
-        expected[:label] == actual[:label]
-      expected[:attachment] == actual[:attachment]
+        expected[:label] == actual[:label] &&
+      (expected[:attachment][:href].start_with?("#{APIConfig.clafoutis_address}/images/") && actual[:attachment][:href].start_with?("#{APIConfig.clafoutis_address}/images/"))
     end
   end
 

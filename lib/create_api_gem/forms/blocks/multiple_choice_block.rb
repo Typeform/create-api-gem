@@ -61,8 +61,7 @@ class MultipleChoiceBlock < Block
       (allow_multiple_selection.nil? ? MultipleChoiceBlock.default.allow_multiple_selection : allow_multiple_selection) == actual.allow_multiple_selection &&
       (allow_other_choice.nil? ? MultipleChoiceBlock.default.allow_other_choice : allow_other_choice) == actual.allow_other_choice &&
       (vertical_alignment.nil? ? MultipleChoiceBlock.default.vertical_alignment : vertical_alignment) == actual.vertical_alignment &&
-      (required.nil? ? MultipleChoiceBlock.default.required : required) == actual.required &&
-      (attachment.nil? || attachment == actual.attachment)
+      (required.nil? ? MultipleChoiceBlock.default.required : required) == actual.required
   end
 
   def same_choices?(actual_choices)

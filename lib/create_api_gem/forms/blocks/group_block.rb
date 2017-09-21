@@ -37,8 +37,7 @@ class GroupBlock < Block
   end
 
   def same_extra_attributes?(actual)
-    same_fields?(actual.fields) &&
-      (attachment.nil? || attachment == actual.attachment)
+    same_fields?(actual.fields)
   end
 
   def same_fields?(actual_fields)
@@ -64,7 +63,6 @@ class GroupBlock < Block
       blocks.map do |block|
         block.class.full_example(id: block.id) unless block == GroupBlock || block == PaymentBlock
       end
-
     GroupBlock.new(
       ref: Block.ref,
       id: id,

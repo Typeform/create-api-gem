@@ -33,8 +33,7 @@ class StatementBlock < Block
 
   def same_extra_attributes?(actual)
     (hide_marks.nil? ? StatementBlock.default.hide_marks : hide_marks) == actual.hide_marks &&
-      (button_text.nil? ? StatementBlock.default.button_text : button_text) == actual.button_text &&
-      (attachment.nil? || attachment == actual.attachment)
+      (button_text.nil? ? StatementBlock.default.button_text : button_text) == actual.button_text
   end
 
   def self.default

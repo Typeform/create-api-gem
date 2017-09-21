@@ -1,10 +1,11 @@
 class WelcomeScreen < Block
-  attr_accessor :id, :title, :ref, :description, :show_button, :button_text, :attachment
+  attr_accessor :id, :title, :ref, :type, :description, :show_button, :button_text, :attachment
 
-  def initialize(id: nil, title: nil, ref: nil, description: nil, show_button: nil, button_text: nil, attachment: nil)
+  def initialize(id: nil, title: nil, type: :welcome_screen, ref: nil, description: nil, show_button: nil, button_text: nil, attachment: nil)
     @id = id
     @title = title || DataGenerator.title
     @ref = ref
+    @type = type
     @description = description
     @show_button = show_button
     @button_text = button_text
@@ -31,14 +32,9 @@ class WelcomeScreen < Block
     payload
   end
 
-  def same?(actual)
-    (id.nil? || id == actual.id) &&
-      title == actual.title &&
-      (ref.nil? || ref == actual.ref) &&
-      (description.nil? || description == actual.description) &&
+  def same_extra_attributes?(actual)
       (show_button.nil? ? WelcomeScreen.default.show_button == actual.show_button : show_button == actual.show_button) &&
-      (button_text.nil? ? WelcomeScreen.default.button_text == actual.button_text : button_text == actual.button_text) &&
-      (attachment.nil? || attachment == actual.attachment)
+      (button_text.nil? ? WelcomeScreen.default.button_text == actual.button_text : button_text == actual.button_text)
   end
 
   def self.default

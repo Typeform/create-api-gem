@@ -44,8 +44,7 @@ class DropdownBlock < Block
   def same_extra_attributes?(actual)
     same_choices?(actual.choices) &&
       (alphabetical_order.nil? ? DropdownBlock.default.alphabetical_order : alphabetical_order) == actual.alphabetical_order &&
-      (required.nil? ? DropdownBlock.default.required : required) == actual.required &&
-      (attachment.nil? || attachment == actual.attachment)
+      (required.nil? ? DropdownBlock.default.required : required) == actual.required
   end
 
   def same_choices?(actual_choices)

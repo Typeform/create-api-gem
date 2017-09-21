@@ -36,8 +36,7 @@ class LongTextBlock < Block
 
   def same_extra_attributes?(actual)
     (max_length.nil? || max_length == actual.max_length) &&
-      (required.nil? ? LongTextBlock.default.required : required) == actual.required &&
-      (attachment.nil? || attachment == actual.attachment)
+      (required.nil? ? LongTextBlock.default.required : required) == actual.required
   end
 
   def self.default

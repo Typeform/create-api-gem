@@ -39,8 +39,7 @@ class RatingBlock < Block
   def same_extra_attributes?(actual)
     (steps.nil? ? RatingBlock.default.steps : steps) == actual.steps &&
       (shape.nil? ? RatingBlock.default.shape : shape) == actual.shape &&
-      (required.nil? ? RatingBlock.default.required : required) == actual.required &&
-      (attachment.nil? || attachment == actual.attachment)
+      (required.nil? ? RatingBlock.default.required : required) == actual.required
   end
 
   def self.default

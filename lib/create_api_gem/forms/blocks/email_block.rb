@@ -32,8 +32,7 @@ class EmailBlock < Block
   end
 
   def same_extra_attributes?(actual)
-    (required.nil? ? EmailBlock.default.required : required) == actual.required &&
-      (attachment.nil? || attachment == actual.attachment)
+    (required.nil? ? EmailBlock.default.required : required) == actual.required
   end
 
   def self.default

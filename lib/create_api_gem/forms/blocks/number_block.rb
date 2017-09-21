@@ -39,8 +39,7 @@ class NumberBlock < Block
   def same_extra_attributes?(actual)
     (min_value.nil? || min_value == actual.min_value) &&
       (max_value.nil? || max_value == actual.max_value) &&
-      (required.nil? ? NumberBlock.default.required : required) == actual.required &&
-      (attachment.nil? || attachment == actual.attachment)
+      (required.nil? ? NumberBlock.default.required : required) == actual.required
   end
 
   def self.default
