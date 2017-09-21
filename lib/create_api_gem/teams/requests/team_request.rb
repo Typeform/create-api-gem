@@ -16,4 +16,8 @@ class TeamRequest < APIRequest
   def bad_request?
     @response.code == 400
   end
+
+  def payment_required?
+    @response.code == 402
+  end
 end
