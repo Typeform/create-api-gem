@@ -6,7 +6,7 @@ class Theme
     @name = name || Fake.title
     @font = font || 'Arial'
     @colors = colors || Theme.colors
-    @visibility = visibility
+    @visibility = visibility || 'private'
     @has_transparent_button = has_transparent_button
     @background = background
   end
@@ -72,6 +72,7 @@ class Theme
   end
 
   def same?(actual)
+
     (id.nil? || id == actual.id) &&
       name == actual.name &&
       colors == actual.colors &&
