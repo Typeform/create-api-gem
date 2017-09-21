@@ -24,4 +24,15 @@ class FormsTest < Minitest::Test
     delete_form = DeleteFormRequest.new(token, form)
     assert_equal delete_form.success?, true
   end
+
+  def test_same
+    form = Form.full_example
+    same_form = form.dup
+    assert_equal form.same?(same_form), true
+
+    not_same_form = form.dup
+    not_same_form.title = 'A different title'
+    assert_equal form.same?(not_same_form), false
+  end
+
 end

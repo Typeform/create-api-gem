@@ -64,13 +64,14 @@ class GroupBlock < Block
       blocks.map do |block|
         block.class.full_example(id: block.id) unless block == GroupBlock || block == PaymentBlock
       end
+
     GroupBlock.new(
       ref: Block.ref,
       id: id,
       description: DataGenerator.description,
       button_text: 'Click me!',
       show_button: true,
-      fields: fields,
+      fields: fields.compact,
       attachment: Block.attachment
     )
   end
