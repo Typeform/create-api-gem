@@ -39,8 +39,8 @@ class FieldLogic
       ]
     else
       actions = [
-        LogicJump.create_field_logic_jump(form, Block.block_symbol_to_string(logic_block.type))
-        #Calculation.full_example(logic_block)
+        LogicJump.create_field_logic_jump(form, Block.block_symbol_to_string(logic_block.type)),
+        Calculation.full_example(logic_block)
       ]
     end
     FieldLogic.new(field_ref: logic_block.ref, type: 'field', actions: actions)
