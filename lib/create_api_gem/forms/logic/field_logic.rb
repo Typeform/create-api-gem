@@ -26,7 +26,15 @@ class FieldLogic
     (field_ref.nil? || field_ref == actual.field_ref) &&
       type == actual.type &&
       actions.all? do |action|
-        actual_action = actual.actions.find { |a| a.class == action.class }
+        actual_action = actual.actions.find do |a|
+          if a.class == Calculation
+            a.class == action.class &&
+              a.action_type == action.action_type
+          elsif a.class == LogicJump
+            a.class == action.class &&
+              a.to_ref == action.to_ref
+          end
+        end
         action.same?(actual_action)
       end && actions.length == actual.actions.length
   end

@@ -86,7 +86,7 @@ class Form
     logic.all? do |field_logic|
       actual_field_logic = actual_logic.find { |fl| fl.field_ref == field_logic.field_ref }
       field_logic.same?(actual_field_logic)
-    end  && logic.length == actual_logic.length
+    end && logic.length == actual_logic.length
   end
 
   def theme_id
