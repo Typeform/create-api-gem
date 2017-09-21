@@ -54,7 +54,7 @@ class Form
   def same?(actual)
     (id.nil? || id == actual.id) &&
       (hidden.nil? || hidden == actual.hidden) &&
-      theme_url.nil? || theme_url == actual.theme_url &&
+      (theme_url.nil? || theme_url.include?('default') || theme_url == actual.theme_url) &&
         title == actual.title &&
         same_blocks?(actual.blocks) &&
         same_welcome_screens?(actual.welcome_screens) &&

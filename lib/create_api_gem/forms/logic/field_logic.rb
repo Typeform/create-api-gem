@@ -25,8 +25,9 @@ class FieldLogic
   def same?(actual)
     (field_ref.nil? || field_ref == actual.field_ref) &&
       type == actual.type &&
-      actions.zip(actual.actions).all? do |expected_action, actual_action|
-        expected_action.same?(actual_action)
+      actions.all? do |action|
+        actual_action = actual.actions.find { |a| a.class == action.class }
+        action.same?(actual_action)
       end && actions.length == actual.actions.length
   end
 
@@ -38,8 +39,8 @@ class FieldLogic
       ]
     else
       actions = [
-        LogicJump.create_field_logic_jump(form, Block.block_symbol_to_string(logic_block.type)),
-        Calculation.full_example(logic_block)
+        LogicJump.create_field_logic_jump(form, Block.block_symbol_to_string(logic_block.type))
+        #Calculation.full_example(logic_block)
       ]
     end
     FieldLogic.new(field_ref: logic_block.ref, type: 'field', actions: actions)
