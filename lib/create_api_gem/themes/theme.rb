@@ -33,6 +33,7 @@ class Theme
       colors: colors,
       font: 'Karla',
       has_transparent_button: true,
+      visibility: 'private',
       background: Background.full_example
     )
   end
