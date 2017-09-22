@@ -29,7 +29,7 @@ class Theme
 
   def self.full_example
     Theme.new(
-      name: 'A new theme',
+      name: DataGenerator.title,
       colors: colors,
       font: 'Karla',
       has_transparent_button: true,
@@ -40,10 +40,10 @@ class Theme
 
   def self.colors
     {
-      question: '#FF5733',
-      answer: '#C70039',
-      button: '#900C3F',
-      background: '#581845'
+      question: DataGenerator.color_code,
+      answer: DataGenerator.color_code,
+      button: DataGenerator.color_code,
+      background: DataGenerator.color_code
     }
   end
 
