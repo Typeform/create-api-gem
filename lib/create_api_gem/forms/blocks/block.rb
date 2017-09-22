@@ -47,9 +47,9 @@ class Block
     return true if attachment.nil?
     type = attachment[:type]
     case type
-    when 'image'
-      return (attachment[:href].start_with?("#{APIConfig.clafoutis_address}/images/") && actual_attachment[:href].start_with?("#{APIConfig.clafoutis_address}/images/"))
-    when 'video'
+      when 'image'
+      return (attachment[:href].start_with?("#{APIConfig.image_api_request_url}/images/") && actual_attachment[:href].start_with?("#{APIConfig.image_api_request_url}/images/"))
+      when 'video'
       return attachment == actual_attachment
     else
       return false
@@ -61,7 +61,7 @@ class Block
   end
 
   def self.image_attachment_payload(image_id: 'default')
-    { type: 'image', href: "#{APIConfig.clafoutis_address}/images/#{image_id}" }
+    { type: 'image', href: "#{APIConfig.image_api_request_url}/images/#{image_id}" }
   end
 
   def self.video_attachment_payload(video_url: 'https://www.youtube.com/watch?v=Uui3oT-XBxs', scale: 0.6)

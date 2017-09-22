@@ -33,7 +33,7 @@ class Background
 
   def self.full_example
     Background.new(
-      href: "#{APIConfig.clafoutis_address}/images/default",
+      href: "#{APIConfig.image_api_request_url}/images/default",
       brightness: 0.5,
       layout: 'no-repeat'
     )

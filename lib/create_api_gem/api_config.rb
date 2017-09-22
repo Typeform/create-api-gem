@@ -1,5 +1,5 @@
 class APIConfig
-  def self.clafoutis_address
+  def self.image_api_request_url
     'https://images.typeform.com'
   end
 
