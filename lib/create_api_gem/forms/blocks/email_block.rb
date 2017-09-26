@@ -43,7 +43,7 @@ class EmailBlock < Block
 
   def self.full_example(id: nil)
     EmailBlock.new(
-      ref: Block.ref,
+      ref: DataGenerator.field_ref,
       description: DataGenerator.description,
       id: id,
       required: true,

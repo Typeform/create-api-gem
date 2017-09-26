@@ -52,7 +52,7 @@ class RatingBlock < Block
 
   def self.full_example(id: nil)
     RatingBlock.new(
-      ref: Block.ref,
+      ref: DataGenerator.field_ref,
       description: DataGenerator.description,
       steps: 8,
       shape: 'heart',

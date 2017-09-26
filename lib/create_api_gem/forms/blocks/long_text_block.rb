@@ -47,7 +47,7 @@ class LongTextBlock < Block
 
   def self.full_example(id: nil)
     LongTextBlock.new(
-      ref: Block.ref,
+      ref: DataGenerator.field_ref,
       description: DataGenerator.description,
       id: id,
       required: true,

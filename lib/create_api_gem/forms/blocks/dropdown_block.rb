@@ -64,7 +64,7 @@ class DropdownBlock < Block
 
   def self.full_example(id: nil)
     DropdownBlock.new(
-      ref: Block.ref,
+      ref: DataGenerator.field_ref,
       description: DataGenerator.description,
       id: id,
       choices: choices,

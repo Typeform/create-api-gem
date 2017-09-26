@@ -50,7 +50,7 @@ class NumberBlock < Block
 
   def self.full_example(id: nil)
     NumberBlock.new(
-      ref: Block.ref,
+      ref: DataGenerator.field_ref,
       description: DataGenerator.description,
       id: id,
       required: true,

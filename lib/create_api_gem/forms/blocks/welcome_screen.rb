@@ -43,7 +43,7 @@ class WelcomeScreen < Block
 
   def self.full_example(id: nil)
     WelcomeScreen.new(
-      ref: Block.ref,
+      ref: DataGenerator.field_ref,
       description: DataGenerator.description,
       show_button: false,
       button_text: 'Click me!',

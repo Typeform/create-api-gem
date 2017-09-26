@@ -35,8 +35,4 @@ class Workspace
       members: payload[:members]
     )
   end
-
-  def owner?(user)
-    members.any? { |member| member[:role] == 'owner' && member[:email] == user.email }
-  end
 end

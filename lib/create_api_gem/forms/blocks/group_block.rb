@@ -64,7 +64,7 @@ class GroupBlock < Block
         block.class.full_example(id: block.id) unless block == GroupBlock || block == PaymentBlock
       end
     GroupBlock.new(
-      ref: Block.ref,
+      ref: DataGenerator.field_ref,
       id: id,
       description: DataGenerator.description,
       button_text: 'Click me!',

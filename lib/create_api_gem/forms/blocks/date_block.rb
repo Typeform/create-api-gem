@@ -52,7 +52,7 @@ class DateBlock < Block
 
   def self.full_example(id: nil)
     DateBlock.new(
-      ref: Block.ref,
+      ref: DataGenerator.field_ref,
       separator: '-',
       structure: 'DDMMYYYY',
       required: true,
