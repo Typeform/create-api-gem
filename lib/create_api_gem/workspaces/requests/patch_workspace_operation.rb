@@ -1,4 +1,4 @@
-class PatchOperation
+class PatchWorkspaceOperation
   attr_accessor :op, :value, :path
 
   def initialize(op: nil, path: nil, value: nil)
