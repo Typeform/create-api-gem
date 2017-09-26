@@ -22,8 +22,4 @@ class RetrieveImageRequest < ImageRequest
   def success?
     @response.code == 200
   end
-
-  def error?
-    @response.code != 200
-  end
 end
