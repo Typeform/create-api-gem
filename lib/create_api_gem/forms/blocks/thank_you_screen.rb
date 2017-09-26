@@ -53,7 +53,7 @@ class ThankYouScreen < Block
 
   def self.full_example
     ThankYouScreen.new(
-      ref: Block.ref,
+      ref: DataGenerator.field_ref,
       show_button: false,
       button_text: 'Click me!',
       button_mode: 'redirect',

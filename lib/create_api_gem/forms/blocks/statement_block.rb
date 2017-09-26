@@ -42,7 +42,7 @@ class StatementBlock < Block
 
   def self.full_example(id: nil)
     StatementBlock.new(
-      ref: Block.ref,
+      ref: DataGenerator.field_ref,
       description: DataGenerator.description,
       hide_marks: true,
       id: id,

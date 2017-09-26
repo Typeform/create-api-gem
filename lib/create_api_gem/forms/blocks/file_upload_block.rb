@@ -41,7 +41,7 @@ class FileUploadBlock < Block
 
   def self.full_example(id: nil)
     FileUploadBlock.new(
-      ref: Block.ref,
+      ref: DataGenerator.field_ref,
       description: DataGenerator.description,
       required: true,
       id: id

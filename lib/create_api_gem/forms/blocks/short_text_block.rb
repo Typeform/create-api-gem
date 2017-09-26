@@ -47,7 +47,7 @@ class ShortTextBlock < Block
 
   def self.full_example(id: nil)
     ShortTextBlock.new(
-      ref: Block.ref,
+      ref: DataGenerator.field_ref,
       description: DataGenerator.description,
       id: id,
       required: true,

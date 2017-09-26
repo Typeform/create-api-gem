@@ -43,7 +43,7 @@ class YesNoBlock < Block
 
   def self.full_example(id: nil)
     YesNoBlock.new(
-      ref: Block.ref,
+      ref: DataGenerator.field_ref,
       description: DataGenerator.description,
       required: true,
       attachment: Block.attachment,

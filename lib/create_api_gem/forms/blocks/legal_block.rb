@@ -41,7 +41,7 @@ class LegalBlock < Block
 
   def self.full_example(id: nil)
     LegalBlock.new(
-      ref: Block.ref,
+      ref: DataGenerator.field_ref,
       description: DataGenerator.description,
       required: true,
       id: id

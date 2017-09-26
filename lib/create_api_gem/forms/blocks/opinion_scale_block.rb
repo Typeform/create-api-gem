@@ -55,7 +55,7 @@ class OpinionScaleBlock < Block
 
   def self.full_example(id: nil)
     OpinionScaleBlock.new(
-      ref: Block.ref,
+      ref: DataGenerator.field_ref,
       description: DataGenerator.description,
       steps: 7,
       id: id,

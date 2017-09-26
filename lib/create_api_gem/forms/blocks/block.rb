@@ -56,10 +56,6 @@ class Block
     end
   end
 
-  def self.ref
-    (0...8).map { (65 + rand(26)).chr }.join
-  end
-
   def self.attachment
     [Block.image_attachment_payload, Block.video_attachment_payload].sample
   end

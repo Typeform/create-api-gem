@@ -85,7 +85,7 @@ class MultipleChoiceBlock < Block
 
   def self.full_example(id: nil)
     MultipleChoiceBlock.new(
-      ref: Block.ref,
+      ref: DataGenerator.field_ref,
       description: DataGenerator.description,
       id: id,
       randomize: true,
