@@ -11,8 +11,11 @@ class LogicCondition
   end
 
   def self.from_response(payload)
-    is_logic_condition_details = payload[:vars].detect { |var| var.key?(:op) }.nil?
-    vars = is_logic_condition_details ? [LogicConditionDetails.from_response(payload[:vars])] : payload[:vars].map { |condition_payload| LogicCondition.from_response(condition_payload) }
+    vars = []
+    if payload[:vars].any?
+      is_logic_condition_details = payload[:vars].detect { |var| var.key?(:op) }.nil?
+      vars = is_logic_condition_details ? [LogicConditionDetails.from_response(payload[:vars])] : payload[:vars].map { |condition_payload| LogicCondition.from_response(condition_payload) }
+    end
     LogicCondition.new(op: payload[:op], vars: vars)
   end
 

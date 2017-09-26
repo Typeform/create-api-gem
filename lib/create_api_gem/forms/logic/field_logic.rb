@@ -27,12 +27,10 @@ class FieldLogic
       type == actual.type &&
       actions.all? do |action|
         actual_action = actual.actions.find do |a|
-          if a.class == Calculation
-            a.class == action.class &&
-              a.action_type == action.action_type
-          elsif a.class == LogicJump
-            a.class == action.class &&
-              a.to_ref == action.to_ref
+          begin
+            a.same?(action)
+          rescue NoMethodError
+            false
           end
         end
         action.same?(actual_action)
