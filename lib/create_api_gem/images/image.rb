@@ -12,15 +12,7 @@ class Image
     @avg_color = avg_color
   end
 
-  def payload
-    {
-      image: image,
-      media_type: media_type,
-      file_name: file_name
-    }.to_json
-  end
-
-  def from_response(payload)
+  def self.from_response(payload)
     Image.new(
       id: payload[:id],
       image: payload[:image],
@@ -31,6 +23,14 @@ class Image
       has_alpha: payload[:has_alpha],
       avg_color: payload[:avg_color]
     )
+  end
+
+  def payload
+    {
+      image: image,
+      media_type: media_type,
+      file_name: file_name
+    }.to_json
   end
 
   def same?(actual)

@@ -1,4 +1,6 @@
-class CreateImageRequest < APIRequest
+require_relative 'image_request'
+
+class CreateImageRequest < ImageRequest
   def initialize(token, image)
     request(
       method: :post,
