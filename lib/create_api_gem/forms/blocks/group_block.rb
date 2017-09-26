@@ -55,14 +55,15 @@ class GroupBlock < Block
   end
 
   def self.full_example(id: nil, blocks: nil)
-    fields = blocks.nil? ?
-      Block.all_types.values.map do |block|
-        block.full_example unless block == GroupBlock || block == PaymentBlock
-      end
-      :
-      blocks.map do |block|
-        block.class.full_example(id: block.id) unless block == GroupBlock || block == PaymentBlock
-      end
+    fields = if blocks.nil?
+               Block.all_types.values.map do |block|
+                 block.full_example unless [GroupBlock, PaymentBlock].include?(block)
+               end
+             else
+               blocks.map do |block|
+                 block.class.full_example(id: block.id) unless [GroupBlock, PaymentBlock].include?(block)
+               end
+             end
     GroupBlock.new(
       ref: DataGenerator.field_ref,
       id: id,

@@ -73,7 +73,6 @@ class Theme
   end
 
   def same?(actual)
-
     (id.nil? || id == actual.id) &&
       name == actual.name &&
       colors == actual.colors &&

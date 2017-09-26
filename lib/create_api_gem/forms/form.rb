@@ -55,12 +55,12 @@ class Form
     (id.nil? || id == actual.id) &&
       (hidden.nil? || hidden == actual.hidden) &&
       (theme_url.nil? || theme_url.include?('default') || theme_url == actual.theme_url) &&
-        title == actual.title &&
-        same_blocks?(actual.blocks) &&
-        same_welcome_screens?(actual.welcome_screens) &&
-        same_thank_you_screens?(actual.thank_you_screens) &&
-        same_logic?(actual.logic) &&
-        (settings.nil? ? Settings.default : settings).same?(actual.settings) &&
+      title == actual.title &&
+      same_blocks?(actual.blocks) &&
+      same_welcome_screens?(actual.welcome_screens) &&
+      same_thank_you_screens?(actual.thank_you_screens) &&
+      same_logic?(actual.logic) &&
+      (settings.nil? ? Settings.default : settings).same?(actual.settings) &&
       (variables.nil? ? Variables.default : variables).same?(actual.variables)
   end
 
@@ -99,7 +99,7 @@ class Form
   end
 
   def self.with_all_blocks
-    blocks = Block.all_types.values.map { |block| block.new }
+    blocks = Block.all_types.values.map(&:new)
     Form.new(
       blocks: blocks
     )
@@ -118,7 +118,7 @@ class Form
       settings: Settings.full_example(email_block.ref),
       variables: Variables.full_example
     )
-    form.logic = blocks.map { |block| FieldLogic.full_example(block, form)}
+    form.logic = blocks.map { |block| FieldLogic.full_example(block, form) }
     form
   end
 end

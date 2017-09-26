@@ -47,9 +47,9 @@ class Block
     return true if attachment.nil?
     type = attachment[:type]
     case type
-      when 'image'
+    when 'image'
       return (attachment[:href].start_with?("#{APIConfig.clafoutis_address}/images/") && actual_attachment[:href].start_with?("#{APIConfig.clafoutis_address}/images/"))
-      when 'video'
+    when 'video'
       return attachment == actual_attachment
     else
       return false
@@ -67,8 +67,6 @@ class Block
   def self.video_attachment_payload(video_url: 'https://www.youtube.com/watch?v=Uui3oT-XBxs', scale: 0.6)
     { type: 'video', href: video_url, scale: scale }
   end
-
-  private
 
   def self.block_symbol_to_string(symbol)
     string = symbol.to_s
