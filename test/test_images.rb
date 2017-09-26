@@ -17,6 +17,10 @@ class ImagesTest < Minitest::Test
     retrieve_image = RetrieveImageRequest.new(image, accept: 'json')
     assert_equal retrieve_image.success?, true
     assert_equal image.same?(retrieve_image.image), true
+    image = retrieve_image.image
+
+    delete_image = DeleteImageRequest.new(token, image)
+    assert_equal delete_image.success?, true
   end
 
   def test_same_method
