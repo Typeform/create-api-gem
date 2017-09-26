@@ -13,19 +13,7 @@ class CreateImageRequest < ImageRequest
     )
   end
 
-  def id
-    json.fetch(:id)
-  end
-
-  def src
-    json.fetch(:src)
-  end
-
   def success?
     @response.code == 201 && json?
-  end
-
-  def error?
-    @response.code != (201 || 200)
   end
 end

@@ -39,6 +39,10 @@ class Image
       file_name == actual.file_name
   end
 
+  def src
+    "#{APIConfig.image_api_request_url}/images/#{id}"
+  end
+
   private
 
   def generate_image
