@@ -37,5 +37,4 @@ class FormsTest < Minitest::Test
     not_same_form.title = DataGenerator.title
     assert_equal form.same?(not_same_form), false
   end
-
 end

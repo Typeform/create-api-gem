@@ -33,7 +33,7 @@ class WelcomeScreen < Block
   end
 
   def same_extra_attributes?(actual)
-      (show_button.nil? ? WelcomeScreen.default.show_button == actual.show_button : show_button == actual.show_button) &&
+    (show_button.nil? ? WelcomeScreen.default.show_button == actual.show_button : show_button == actual.show_button) &&
       (button_text.nil? ? WelcomeScreen.default.button_text == actual.button_text : button_text == actual.button_text)
   end
 

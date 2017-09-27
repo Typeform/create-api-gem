@@ -28,16 +28,16 @@ class Calculation < LogicAction
   end
 
   def self.full_example(block)
-    is_blocks = [:multiple_choice, :picture_choice, :yes_no, :legal]
+    is_blocks = %i[multiple_choice picture_choice yes_no legal]
     logic_condition = if is_blocks.include?(block.type)
-      LogicCondition.generate_from_block(block, op: 'is')
-    elsif block.type == :date
-      LogicCondition.generate_from_block(block, op: 'on')
-    elsif block.type == :file_upload
-      LogicCondition.generate_from_block(block, op: 'answered')
-    else
-      LogicCondition.generate_from_block(block, op: 'equal')
-    end
+                        LogicCondition.generate_from_block(block, op: 'is')
+                      elsif block.type == :date
+                        LogicCondition.generate_from_block(block, op: 'on')
+                      elsif block.type == :file_upload
+                        LogicCondition.generate_from_block(block, op: 'answered')
+                      else
+                        LogicCondition.generate_from_block(block, op: 'equal')
+                      end
     Calculation.new(
       action_type: 'add',
       numeric_value: 5,

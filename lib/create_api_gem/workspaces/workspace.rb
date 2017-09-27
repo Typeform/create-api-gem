@@ -18,8 +18,8 @@ class Workspace
   def same?(actual)
     name == actual.name &&
       id.nil? || id == actual.id &&
-      (default.nil? ? default.default : default) == actual.default &&
-      (shared.nil? ? default.shared : shared) == actual.shared
+        (default.nil? ? default.default : default) == actual.default &&
+        (shared.nil? ? default.shared : shared) == actual.shared
   end
 
   def self.default

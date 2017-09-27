@@ -28,7 +28,6 @@ class ThemesTest < Minitest::Test
     assert_equal delete_theme.success?, true
   end
 
-
   def test_same_method
     theme = Theme.full_example
     same_theme = theme.dup

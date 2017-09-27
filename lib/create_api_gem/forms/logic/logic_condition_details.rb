@@ -19,7 +19,8 @@ class LogicConditionDetails
       reference_type: reference_type,
       reference: reference,
       value_type: value_type,
-      value: value)
+      value: value
+    )
   end
 
   def payload
