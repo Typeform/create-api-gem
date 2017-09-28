@@ -7,7 +7,7 @@ class ImagesTest < Minitest::Test
   end
 
   def test_crud_operations
-    image = Image.new
+    image = Image.full_example
 
     create_image = CreateImageRequest.new(token, image)
     assert_equal create_image.success?, true

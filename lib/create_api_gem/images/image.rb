@@ -3,9 +3,9 @@ class Image
 
   def initialize(id: nil, image: nil, media_type: nil, file_name: nil, width: nil, height: nil, has_alpha: nil, avg_color: nil)
     @id = id
-    @image = image || generate_image
-    @media_type = media_type || generate_media_type
-    @file_name = file_name || generate_file_name
+    @image = image
+    @media_type = media_type
+    @file_name = file_name
     @width = width
     @height = height
     @has_alpha = has_alpha
@@ -15,7 +15,6 @@ class Image
   def self.from_response(payload)
     Image.new(
       id: payload[:id],
-      image: payload[:image],
       media_type: payload[:media_type],
       file_name: payload[:file_name],
       width: payload[:width],
@@ -34,26 +33,28 @@ class Image
   end
 
   def same?(actual)
-    image == actual.image &&
-      media_type == actual.media_type &&
-      file_name == actual.file_name
+    (id.nil? || id == actual.id) &&
+      (media_type.nil? || media_type == actual.media_type) &&
+      (file_name.nil? || file_name == actual.file_name) &&
+      (width.nil? || width == actual.width) &&
+      (height.nil? || height == actual.height) &&
+      (has_alpha.nil? || has_alpha == actual.has_alpha) &&
+      (avg_color.nil? || avg_color == actual.avg_color)
   end
 
   def src
     "#{APIConfig.image_api_request_url}/images/#{id}"
   end
 
-  private
-
-  def generate_image
-    File.read(File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'data', 'dat_swarm_coat_of_arms.txt')))
-  end
-
-  def generate_media_type
-    'image/png'
-  end
-
-  def generate_file_name
-    'dat_swarm_coat_of_arms'
+  def self.full_example
+    Image.new(
+      image: File.read(File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'data', 'dat_swarm_coat_of_arms.txt'))),
+      media_type: 'image/png',
+      file_name: 'dat_swarm_coat_of_arms',
+      width: 417,
+      height: 398,
+      has_alpha: true,
+      avg_color: 'bec0cd'
+    )
   end
 end
