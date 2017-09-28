@@ -23,8 +23,5 @@ class ImagesTest < Minitest::Test
     assert_equal delete_image.success?, true
   end
 
-  def test_same_method
-
-  end
-
+  def test_same_method; end
 end

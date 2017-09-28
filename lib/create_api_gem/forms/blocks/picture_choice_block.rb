@@ -72,7 +72,7 @@ class PictureChoiceBlock < Block
       (!expected.key?(:id) || expected[:id] == actual[:id]) &&
         (!expected.key?(:ref) || expected[:ref] == actual[:ref]) &&
         expected[:label] == actual[:label] &&
-      (expected[:attachment][:href].start_with?("#{APIConfig.image_api_request_url}/images/") && actual[:attachment][:href].start_with?("#{APIConfig.image_api_request_url}/images/"))  
+        (expected[:attachment][:href].start_with?("#{APIConfig.image_api_request_url}/images/") && actual[:attachment][:href].start_with?("#{APIConfig.image_api_request_url}/images/"))
     end
   end
 

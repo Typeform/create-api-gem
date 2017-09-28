@@ -7,9 +7,7 @@ class RetrieveImageRequest < ImageRequest
           else
             "#{APIConfig.image_api_request_url}/images/#{image.id}/#{type}/#{size}"
           end
-    if accept == 'video'
-      url << '?format=mp4'
-    end
+    url << '?format=mp4' if accept == 'video'
     headers = { 'Content-Type' => 'application/json' }
     headers['Accept'] = 'application/json' if accept == 'json'
     request(
