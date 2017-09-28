@@ -51,7 +51,7 @@ class Settings
       (google_analytics.nil? || google_analytics == actual.google_analytics) &&
       (notifications.nil? || notifications.same?(actual.notifications)) &&
       (description.nil? || description == actual.description) &&
-      (image.nil? || image[:href].start_with?("#{APIConfig.clafoutis_address}/images/") && actual.image[:href].start_with?("#{APIConfig.clafoutis_address}/images/")) &&
+      (image.nil? || image[:href].start_with?("#{APIConfig.image_api_request_url}/images/") && actual.image[:href].start_with?("#{APIConfig.image_api_request_url}/images/")) &&
       (show_typeform_branding.nil? ? Settings.default.show_typeform_branding : show_typeform_branding) == actual.show_typeform_branding &&
       (progress_bar.nil? ? Settings.default.progress_bar : progress_bar) == actual.progress_bar &&
       (language.nil? ? Settings.default.language : language) == actual.language &&
@@ -65,7 +65,7 @@ class Settings
   end
 
   def self.full_example(email_block_for_notifications_ref)
-    image = { href: APIConfig.clafoutis_address + '/images/default' }
+    image = { href: APIConfig.image_api_request_url + '/images/default' }
     Settings.new(redirect_after_submit_url: 'http://google.com', show_typeform_branding: false, progress_bar: 'percentage',
                  show_progress_bar: false, description: 'some meta description', allow_indexing: false, image: image,
                  language: 'fr', is_public: true, google_analytics: 'UA-1234-12', notifications: Notifications.full_example(email_block_for_notifications_ref))
