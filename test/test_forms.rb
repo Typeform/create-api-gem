@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require 'create_api_gem'
 
 class FormsTest < TestBase
-  def test_crud_operations
+  def test_all_requests
     form = Form.full_example
 
     create_form = CreateFormRequest.new(token, form)
@@ -17,6 +17,9 @@ class FormsTest < TestBase
 
     head_form = HeadFormRequest.new(token, form)
     assert_equal head_form.success?, true
+
+    retrieve_all_forms = RetrieveAllFormsRequest.new(token)
+    assert_equal retrieve_all_forms.success?, true
 
     update_form = UpdateFormRequest.new(token, form)
     assert_equal update_form.success?, true
@@ -65,11 +68,5 @@ class FormsTest < TestBase
     different_settings = settings.dup
     different_settings.is_public = false
     assert_equal settings.same?(different_settings), false
-  end
-
-  def test_retrieve_all_forms_request
-    retrieve_all_forms = RetrieveAllFormsRequest.new(token)
-
-    assert_equal retrieve_all_forms.success?, true
   end
 end

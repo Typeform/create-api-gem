@@ -1,6 +1,6 @@
 require_relative 'workspace_request'
 
-class PatchWorkspaceRequest < WorkspaceRequest
+class UpdateWorkspaceRequest < WorkspaceRequest
   def initialize(token, workspace, operations)
     request(
       method: :patch,
