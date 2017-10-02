@@ -15,6 +15,9 @@ class ThemesTest < TestBase
     assert_equal theme.same?(retrieve_theme.theme), true
     theme = retrieve_theme.theme
 
+    retrieve_all_themes = RetrieveAllThemesRequest.new(token, page: 1, page_size: 2, visibility: 'private')
+    assert_equal retrieve_all_themes.success?, true
+
     update_theme = UpdateThemeRequest.new(token, theme)
     assert_equal update_theme.success?, true
     assert_equal theme.same?(update_theme.theme), true
@@ -34,6 +37,4 @@ class ThemesTest < TestBase
     not_same_theme.name = 'A different title'
     assert_equal theme.same?(not_same_theme), false
   end
-
-  def test_retrieve_all_themes_request; end
 end
