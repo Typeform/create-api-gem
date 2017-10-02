@@ -2,4 +2,10 @@ sudo: false
 language: ruby
 rvm:
   - 2.3.3
+
+cache:
+  bundler: true
+  directories:
+    - /home/travis/.rvm/
+
 script: rubocop && rake test
