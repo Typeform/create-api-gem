@@ -1,11 +1,7 @@
 require 'minitest/autorun'
 require 'create_api_gem'
 
-class ImagesTest < Minitest::Test
-  def token
-    ENV['TYPEFORM_API_TOKEN']
-  end
-
+class ImagesTest < TestBase
   def test_crud_operations
     image = Image.full_example
 
@@ -24,4 +20,8 @@ class ImagesTest < Minitest::Test
   end
 
   def test_same_method; end
+
+  def test_retrieve_all_images_request; end
+
+  def test_retrieve_frame_request; end
 end

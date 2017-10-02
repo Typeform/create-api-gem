@@ -1,6 +1,6 @@
 require_relative 'form_request'
 
-class RetrieveHeadFormRequest < FormRequest
+class HeadFormRequest < FormRequest
   def initialize(token, form)
     r = {
       method: :head,

@@ -1,11 +1,7 @@
 require 'minitest/autorun'
 require 'create_api_gem'
 
-class ThemesTest < Minitest::Test
-  def token
-    ENV['TYPEFORM_API_TOKEN']
-  end
-
+class ThemesTest < TestBase
   def test_crud_operations
     theme = Theme.full_example
 
@@ -38,4 +34,6 @@ class ThemesTest < Minitest::Test
     not_same_theme.name = 'A different title'
     assert_equal theme.same?(not_same_theme), false
   end
+
+  def test_retrieve_all_themes_request; end
 end

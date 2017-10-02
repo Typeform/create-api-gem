@@ -1,11 +1,7 @@
 require 'minitest/autorun'
 require 'create_api_gem'
 
-class FormsTest < Minitest::Test
-  def token
-    ENV['TYPEFORM_API_TOKEN']
-  end
-
+class FormsTest < TestBase
   def test_crud_operations
     form = Form.full_example
 
@@ -28,7 +24,7 @@ class FormsTest < Minitest::Test
     assert_equal delete_form.success?, true
   end
 
-  def test_same_method
+  def test_form_same_method
     form = Form.full_example
     same_form = form.dup
     assert_equal form.same?(same_form), true
@@ -37,4 +33,14 @@ class FormsTest < Minitest::Test
     not_same_form.title = DataGenerator.title
     assert_equal form.same?(not_same_form), false
   end
+
+  def test_block_same_method; end
+
+  def test_logic_same_method; end
+
+  def test_settings_same_method; end
+
+  def test_retrieve_all_forms_request; end
+
+  def test_head_form_request; end
 end
