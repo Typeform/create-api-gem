@@ -15,6 +15,9 @@ class FormsTest < TestBase
     assert_equal form.same?(retrieve_form.form), true
     form = retrieve_form.form
 
+    head_form = HeadFormRequest.new(token, form)
+    assert_equal head_form.success?, true
+
     update_form = UpdateFormRequest.new(token, form)
     assert_equal update_form.success?, true
     assert_equal form.same?(update_form.form), true
@@ -29,18 +32,44 @@ class FormsTest < TestBase
     same_form = form.dup
     assert_equal form.same?(same_form), true
 
-    not_same_form = form.dup
-    not_same_form.title = DataGenerator.title
-    assert_equal form.same?(not_same_form), false
+    different_form = form.dup
+    different_form.title = DataGenerator.title
+    assert_equal form.same?(different_form), false
   end
 
-  def test_block_same_method; end
+  def test_block_same_method
+    block = ShortTextBlock.full_example
+    same_block = block.dup
+    assert_equal block.same?(same_block), true
 
-  def test_logic_same_method; end
+    different_block = block.dup
+    different_block.ref = DataGenerator.field_ref
+    assert_equal block.same?(different_block), false
+  end
 
-  def test_settings_same_method; end
+  def test_logic_same_method
+    logic_jump = LogicJump.create_always_jump(Form.full_example)
+    same_logic_jump = logic_jump.dup
+    assert_equal logic_jump.same?(same_logic_jump), true
 
-  def test_retrieve_all_forms_request; end
+    different_logic_jump = logic_jump.dup
+    different_logic_jump.to_ref = DataGenerator.field_ref
+    assert_equal logic_jump.same?(different_logic_jump), false
+  end
 
-  def test_head_form_request; end
+  def test_settings_same_method
+    settings = Settings.full_example(DataGenerator.field_ref)
+    same_settings = settings.dup
+    assert_equal settings.same?(same_settings), true
+
+    different_settings = settings.dup
+    different_settings.is_public = false
+    assert_equal settings.same?(different_settings), false
+  end
+
+  def test_retrieve_all_forms_request
+    retrieve_all_forms = RetrieveAllFormsRequest.new(token)
+
+    assert_equal retrieve_all_forms.success?, true
+  end
 end
