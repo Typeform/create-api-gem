@@ -2,7 +2,7 @@ require_relative 'theme_request'
 require 'rack'
 
 class RetrieveAllThemesRequest < APIRequest
-  def initialize(token, page: nil, page_size: nil, visibility: nil)
+  def initialize(token = APIConfig.token, page: nil, page_size: nil, visibility: nil)
     parameters = Rack::Utils.build_query(
       page: page,
       page_size: page_size,
