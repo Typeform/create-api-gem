@@ -1,7 +1,7 @@
 require_relative 'workspace_request'
 
 class UpdateWorkspaceRequest < WorkspaceRequest
-  def initialize(token = APIConfig.token, workspace, operations)
+  def initialize(workspace, operations, token = APIConfig.token)
     request(
       method: :patch,
       url: "#{APIConfig.api_request_url}/workspaces/#{workspace.id}",

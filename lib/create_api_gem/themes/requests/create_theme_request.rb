@@ -1,7 +1,7 @@
 require_relative 'theme_request'
 
 class CreateThemeRequest < ThemeRequest
-  def initialize(token = APIConfig.token, theme)
+  def initialize(theme, token = APIConfig.token)
     request(
       method: :post,
       url: "#{APIConfig.api_request_url}/themes",
