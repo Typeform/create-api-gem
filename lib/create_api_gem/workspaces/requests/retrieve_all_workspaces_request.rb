@@ -20,4 +20,8 @@ class RetrieveAllWorkspacesRequest < WorkspaceRequest
       Workspace.from_response(workspace_json)
     end
   end
+
+  def default_workspace
+    workspaces.find { |ws| ws.default == true }
+  end
 end

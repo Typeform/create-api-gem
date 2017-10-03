@@ -1,14 +1,16 @@
 require_relative 'theme_request'
+require 'rack'
 
 class RetrieveAllThemesRequest < APIRequest
   def initialize(token, page: nil, page_size: nil, visibility: nil)
-    parameters = {}
-    parameters[:page] = page unless page.nil?
-    parameters[:page_size] = page_size unless page_size.nil?
-    parameters[:visibility] = visibility unless visibility.nil?
+    parameters = Rack::Utils.build_query(
+      page: page,
+      page_size: page_size,
+      visibility: visibility
+    )
     request(
       method: :get,
-      url: "#{PannacottaConfig.api_request_url}/themes?" + parameters.to_query,
+      url: "#{APIConfig.api_request_url}/themes?" + parameters,
       headers: {
         'Authorization' => "Bearer #{token}"
       },

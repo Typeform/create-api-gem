@@ -48,13 +48,13 @@ class Image
 
   def self.full_example
     Image.new(
-      image: File.read(File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'data', 'dat_swarm_coat_of_arms.txt'))),
-      media_type: 'image/png',
-      file_name: 'dat_swarm_coat_of_arms',
-      width: 417,
-      height: 398,
+      image: File.read(File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'data', 'typeform_image.txt'))),
+      media_type: 'image/gif',
+      file_name: 'typeform.gif',
+      width: 530,
+      height: 350,
       has_alpha: true,
-      avg_color: 'bec0cd'
+      avg_color: '5a6067'
     )
   end
 end

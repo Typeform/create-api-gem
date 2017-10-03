@@ -1,12 +1,8 @@
 require 'minitest/autorun'
 require 'create_api_gem'
 
-class ThemesTest < Minitest::Test
-  def token
-    ENV['TYPEFORM_API_TOKEN']
-  end
-
-  def test_crud_operations
+class ThemesTest < TestBase
+  def test_all_requests
     theme = Theme.full_example
 
     create_theme = CreateThemeRequest.new(token, theme)
@@ -18,6 +14,9 @@ class ThemesTest < Minitest::Test
     assert_equal retrieve_theme.success?, true
     assert_equal theme.same?(retrieve_theme.theme), true
     theme = retrieve_theme.theme
+
+    retrieve_all_themes = RetrieveAllThemesRequest.new(token, page: 1, page_size: 2, visibility: 'private')
+    assert_equal retrieve_all_themes.success?, true
 
     update_theme = UpdateThemeRequest.new(token, theme)
     assert_equal update_theme.success?, true

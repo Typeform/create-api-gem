@@ -4,7 +4,7 @@ class RetrieveAllImagesRequest < ImageRequest
   def initialize(token)
     request(
       method: :get,
-      url: "#{APIConfig.image_api_request_url}/images",
+      url: "#{APIConfig.api_request_url}/images",
       headers: {
         'Content-Type' => 'application/json',
         'Authorization' => "Bearer #{token}"

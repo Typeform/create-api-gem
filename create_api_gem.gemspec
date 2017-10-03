@@ -36,4 +36,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rest-client', '>=2'
   spec.add_dependency 'ffaker'
   spec.add_dependency 'json'
+  spec.add_dependency 'rack'
 end
