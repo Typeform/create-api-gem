@@ -5,28 +5,28 @@ class FormsTest < TestBase
   def test_all_requests
     form = Form.full_example
 
-    create_form = CreateFormRequest.new(token, form)
+    create_form = CreateFormRequest.new(form)
     assert_equal create_form.success?, true
     assert_equal form.same?(create_form.form), true
     form = create_form.form
 
-    retrieve_form = RetrieveFormRequest.new(token, form)
+    retrieve_form = RetrieveFormRequest.new(form)
     assert_equal retrieve_form.success?, true
     assert_equal form.same?(retrieve_form.form), true
     form = retrieve_form.form
 
-    head_form = HeadFormRequest.new(token, form)
+    head_form = HeadFormRequest.new(form)
     assert_equal head_form.success?, true
 
     retrieve_all_forms = RetrieveAllFormsRequest.new(token)
     assert_equal retrieve_all_forms.success?, true
 
-    update_form = UpdateFormRequest.new(token, form)
+    update_form = UpdateFormRequest.new(form)
     assert_equal update_form.success?, true
     assert_equal form.same?(update_form.form), true
     form = update_form.form
 
-    delete_form = DeleteFormRequest.new(token, form)
+    delete_form = DeleteFormRequest.new(form)
     assert_equal delete_form.success?, true
   end
 
