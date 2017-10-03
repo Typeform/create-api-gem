@@ -5,21 +5,21 @@ class WorkspacesTest < TestBase
   def test_all_requests
     workspace = Workspace.new
 
-    create_workspace = CreateWorkspaceRequest.new(token, workspace)
+    create_workspace = CreateWorkspaceRequest.new(workspace)
     assert_equal create_workspace.success?, true
     assert_equal workspace.same?(create_workspace.workspace), true
     workspace = create_workspace.workspace
 
-    retrieve_workspace = RetrieveWorkspaceRequest.new(token, workspace)
+    retrieve_workspace = RetrieveWorkspaceRequest.new(workspace)
     assert_equal retrieve_workspace.success?, true
     assert_equal workspace.same?(retrieve_workspace.workspace), true
     workspace = retrieve_workspace.workspace
 
-    retrieve_all_workspaces = RetrieveAllWorkspacesRequest.new(token)
+    retrieve_all_workspaces = RetrieveAllWorkspacesRequest.new
     assert_equal retrieve_all_workspaces.success?, true
     default_workspace = retrieve_all_workspaces.default_workspace
 
-    retrieve_workspace_forms = RetrieveWorkspaceFormsRequest.new(token, default_workspace)
+    retrieve_workspace_forms = RetrieveWorkspaceFormsRequest.new(default_workspace)
     assert_equal retrieve_workspace_forms.success?, true
 
     form = CreateFormRequest.execute(token, Form.new).form
@@ -28,14 +28,14 @@ class WorkspacesTest < TestBase
       PatchWorkspaceOperation.new(op: 'add', path: '/forms', value: form.id),
       PatchWorkspaceOperation.new(op: 'add', path: '/members', value: email)
     ]
-    update_workspace = UpdateWorkspaceRequest.new(token, workspace, operations)
+    update_workspace = UpdateWorkspaceRequest.new(workspace, operations)
     assert_equal update_workspace.success?, true
 
-    UpdateWorkspaceRequest.execute(token, workspace, [PatchWorkspaceOperation.new(op: 'remove', path: '/members', value: email)])
-    UpdateWorkspaceRequest.execute(token, default_workspace, [PatchWorkspaceOperation.new(op: 'add', path: '/forms', value: form.id)])
-    DeleteFormRequest.execute(token, form)
+    UpdateWorkspaceRequest.execute(workspace, [PatchWorkspaceOperation.new(op: 'remove', path: '/members', value: email)])
+    UpdateWorkspaceRequest.execute(default_workspace, [PatchWorkspaceOperation.new(op: 'add', path: '/forms', value: form.id)])
+    DeleteFormRequest.execute(form)
 
-    delete_workspace = DeleteWorkspaceRequest.new(token, workspace)
+    delete_workspace = DeleteWorkspaceRequest.new(workspace)
     assert_equal delete_workspace.success?, true
   end
 
