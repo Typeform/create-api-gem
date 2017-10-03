@@ -22,7 +22,7 @@ class WorkspacesTest < TestBase
     retrieve_workspace_forms = RetrieveWorkspaceFormsRequest.new(default_workspace)
     assert_equal retrieve_workspace_forms.success?, true
 
-    form = CreateFormRequest.execute(token, Form.new).form
+    form = CreateFormRequest.execute(Form.new).form
     operations = [
       PatchWorkspaceOperation.new(op: 'replace', path: '/name', value: DataGenerator.title),
       PatchWorkspaceOperation.new(op: 'add', path: '/forms', value: form.id),
