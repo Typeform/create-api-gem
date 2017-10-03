@@ -1,7 +1,7 @@
 require_relative 'image_request'
 
 class DeleteImageRequest < ImageRequest
-  def initialize(token, image)
+  def initialize(token = APIConfig.token, image)
     request(
       method: :delete,
       url: "#{APIConfig.api_request_url}/images/#{image.id}",

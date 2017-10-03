@@ -1,7 +1,7 @@
 require_relative 'image_request'
 
 class CreateImageRequest < ImageRequest
-  def initialize(token, image)
+  def initialize(token = APIConfig.token, image)
     request(
       method: :post,
       url: "#{APIConfig.api_request_url}/images",
