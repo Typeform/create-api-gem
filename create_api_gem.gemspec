@@ -6,11 +6,11 @@ require 'create_api_gem/version'
 Gem::Specification.new do |spec|
   spec.name          = 'create_api_gem'
   spec.version       = CreateApiGem::VERSION
-  spec.authors       = ['simondobson']
-  spec.email         = ['simon.dobson@typeform.com']
+  spec.authors       = ['Typeform']
+  spec.email         = ['opensource@typeform.com']
 
-  spec.summary       = 'Hello summary'
-  spec.description   = 'Hello description'
+  spec.summary       = 'Typeform Create API Gem'
+  spec.description   = 'Ruby gem for using the Typeform Create API'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
