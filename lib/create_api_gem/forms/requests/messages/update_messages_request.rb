@@ -1,5 +1,5 @@
-class UpdateMessagesRequest < APIRequest
-  def initialize(token, form, messages)
+class UpdateMessagesRequest < MessagesRequest
+  def initialize(form, messages, token: APIConfig.token)
     request(
       method: :put,
       url: "#{APIConfig.api_request_url}/forms/#{form.id}/messages",

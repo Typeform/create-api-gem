@@ -69,4 +69,18 @@ class FormsTest < TestBase
     different_settings.is_public = false
     assert_equal settings.same?(different_settings), false
   end
+
+  def test_messages
+    form = CreateFormRequest.execute(Form.new).form
+
+    retrieve_messages = RetrieveMessagesRequest.new(form)
+    assert_equal retrieve_messages.success?, true
+
+    messages = Messages.new('label.button.ok' => 'New Ok')
+    update_messages = UpdateMessagesRequest.new(form, messages)
+    assert_equal update_messages.success?, true
+    assert_equal messages.same?(RetrieveMessagesRequest.execute(form).messages), true
+
+    DeleteFormRequest.execute(form)
+  end
 end

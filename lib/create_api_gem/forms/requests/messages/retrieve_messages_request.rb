@@ -1,5 +1,5 @@
-class RetrieveMessagesRequest < APIRequest
-  def initialize(token, form)
+class RetrieveMessagesRequest < MessagesRequest
+  def initialize(form, token: APIConfig.token)
     request(
       method: :get,
       url: "#{APIConfig.api_request_url}/forms/#{form.id}/messages",
@@ -12,9 +12,5 @@ class RetrieveMessagesRequest < APIRequest
 
   def success?
     @response.code == 200 && json?
-  end
-
-  def messages
-    Messages.from_response(json)
   end
 end
