@@ -5,7 +5,5 @@ rvm:
 
 cache:
   bundler: true
-  directories:
-    - /home/travis/.rvm/
 
 script: rubocop && rake test
