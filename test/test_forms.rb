@@ -1,6 +1,3 @@
-require 'minitest/autorun'
-require 'create_api_gem'
-
 class FormsTest < TestBase
   def test_all_requests
     form = Form.full_example
