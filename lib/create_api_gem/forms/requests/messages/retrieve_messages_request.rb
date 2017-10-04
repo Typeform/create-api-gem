@@ -1,5 +1,5 @@
 class RetrieveMessagesRequest < APIRequest
-  def initialize(token, form)
+  def initialize(form, token: APIConfig.token)
     request(
       method: :get,
       url: "#{APIConfig.api_request_url}/forms/#{form.id}/messages",
