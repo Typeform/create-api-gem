@@ -1,7 +1,7 @@
 require_relative 'form_request'
 
 class CreateFormRequest < FormRequest
-  def initialize(token, form)
+  def initialize(form, token: APIConfig.token)
     request(
       method: :post,
       url: "#{APIConfig.api_request_url}/forms",

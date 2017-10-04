@@ -1,7 +1,7 @@
 require_relative 'form_request'
 
 class UpdateFormRequest < FormRequest
-  def initialize(token, form)
+  def initialize(form, token: APIConfig.token)
     request(
       method: :put,
       url: "#{APIConfig.api_request_url}/forms/#{form.id}",

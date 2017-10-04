@@ -1,7 +1,7 @@
 require_relative 'team_request'
 
 class RetrieveTeamRequest < TeamRequest
-  def initialize(token)
+  def initialize(token: APIConfig.token)
     request(
       method: :get,
       url: "#{APIConfig.api_request_url}/teams/mine",

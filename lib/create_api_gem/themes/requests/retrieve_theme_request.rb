@@ -1,7 +1,7 @@
 require_relative 'theme_request'
 
 class RetrieveThemeRequest < ThemeRequest
-  def initialize(token, theme)
+  def initialize(theme, token: APIConfig.token)
     headers = {}
     headers = { 'Authorization' => "Bearer #{token}" } unless token.nil?
     request(

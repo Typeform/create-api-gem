@@ -1,7 +1,7 @@
 require_relative 'theme_request'
 
 class DeleteThemeRequest < ThemeRequest
-  def initialize(token, theme)
+  def initialize(theme, token: APIConfig.token)
     request(
       method: :delete,
       url: "#{APIConfig.api_request_url}/themes/#{theme.id}",

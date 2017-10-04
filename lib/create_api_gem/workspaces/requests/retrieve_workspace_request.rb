@@ -1,7 +1,7 @@
 require_relative 'workspace_request'
 
 class RetrieveWorkspaceRequest < WorkspaceRequest
-  def initialize(token, workspace)
+  def initialize(workspace, token: APIConfig.token)
     request(
       method: :get,
       url: "#{APIConfig.api_request_url}/workspaces/#{workspace.id}",
