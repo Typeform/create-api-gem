@@ -1,4 +1,4 @@
-class UpdateMessagesRequest < MessagesRequest
+class UpdateMessagesRequest < APIRequest
   def initialize(form, messages, token: APIConfig.token)
     request(
       method: :put,
