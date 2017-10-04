@@ -1,6 +1,3 @@
-require 'minitest/autorun'
-require 'create_api_gem'
-
 class ThemesTest < TestBase
   def test_all_requests
     theme = Theme.full_example

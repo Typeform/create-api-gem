@@ -1,6 +1,3 @@
-require 'minitest/autorun'
-require 'create_api_gem'
-
 class WorkspacesTest < TestBase
   def test_all_requests
     workspace = Workspace.new

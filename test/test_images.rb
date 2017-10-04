@@ -1,6 +1,3 @@
-require 'minitest/autorun'
-require 'create_api_gem'
-
 class ImagesTest < TestBase
   def test_all_requests
     image = Image.full_example
