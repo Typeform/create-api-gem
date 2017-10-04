@@ -3,11 +3,11 @@ require 'rack'
 
 class RetrieveAllThemesRequest < APIRequest
   def initialize(token: APIConfig.token, page: nil, page_size: nil, visibility: nil)
-    parameters = Rack::Utils.build_query(
-      page: page,
-      page_size: page_size,
-      visibility: visibility
-    )
+    filters = {}
+    filters[:page] = page unless page.nil?
+    filters[:page_size] = page_size unless page_size.nil?
+    filters[:visibility] = visibility unless visibility.nil?
+    parameters = Rack::Utils.build_query(filters)
     request(
       method: :get,
       url: "#{APIConfig.api_request_url}/themes?" + parameters,
