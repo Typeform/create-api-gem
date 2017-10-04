@@ -1,7 +1,7 @@
 require_relative 'form_request'
 
 class HeadFormRequest < FormRequest
-  def initialize(form, token = APIConfig.token)
+  def initialize(form, token: APIConfig.token)
     r = {
       method: :head,
       url: "#{APIConfig.api_request_url}/forms/#{form.id}"

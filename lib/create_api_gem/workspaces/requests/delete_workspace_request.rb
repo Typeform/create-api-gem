@@ -1,7 +1,7 @@
 require_relative 'workspace_request'
 
 class DeleteWorkspaceRequest < WorkspaceRequest
-  def initialize(workspace, token = APIConfig.token)
+  def initialize(workspace, token: APIConfig.token)
     request(
       method: :delete,
       url: "#{APIConfig.api_request_url}/workspaces/#{workspace.id}",

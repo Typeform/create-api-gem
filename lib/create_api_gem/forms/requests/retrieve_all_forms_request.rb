@@ -1,7 +1,7 @@
 require_relative 'form_request'
 
 class RetrieveAllFormsRequest < FormRequest
-  def initialize(token = APIConfig.token, forms_per_page: 10)
+  def initialize(token: APIConfig.token, forms_per_page: 10)
     r = {
       method: :get,
       url: "#{APIConfig.api_request_url}/forms?page_size=#{forms_per_page}"

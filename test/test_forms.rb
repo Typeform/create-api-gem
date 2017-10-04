@@ -18,7 +18,7 @@ class FormsTest < TestBase
     head_form = HeadFormRequest.new(form)
     assert_equal head_form.success?, true
 
-    retrieve_all_forms = RetrieveAllFormsRequest.new(token)
+    retrieve_all_forms = RetrieveAllFormsRequest.new
     assert_equal retrieve_all_forms.success?, true
 
     update_form = UpdateFormRequest.new(form)

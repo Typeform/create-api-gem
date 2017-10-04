@@ -1,7 +1,7 @@
 require_relative 'team_request'
 
 class UpdateTeamRequest < TeamRequest
-  def initialize(operations, token = APIConfig.token)
+  def initialize(operations, token: APIConfig.token)
     request(
       method: :patch,
       url: "#{APIConfig.api_request_url}/teams/mine",
