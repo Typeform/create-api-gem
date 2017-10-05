@@ -14,15 +14,22 @@ Once you have this token, we recommend for security reasons saving it as an `TYP
 
 Add this line to your application's Gemfile:
 
-```ruby
-gem 'create_api_gem', git: 'https://github.com/Typeform/create-api-gem.git'
-```
+`gem 'create_api_gem', git: 'https://github.com/Typeform/create-api-gem.git'`
 
 And then execute:
 
-    $ bundle install
+`bundle install`
 
-###Usage
+Wherever you use the gem, it is easiest to require it like so:
+
+```
+require 'bundler'
+Bundler.require
+```
+
+This should require all the gems in your Gemfile for you.
+
+### Usage
 
 Now we're ready to develop. Let's say you want to create a form, you will just need to create a `Form` object and send it to our API's using a `CreateFormRequest`.
 
@@ -72,7 +79,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/Typefo
 
 This is just a Ruby wrapper for our API's, they use the JSON format so they are extremely flexible. The alternatives are endless. 
 
-##Legal
+## Legal
 
 Copyright 2017 Typeform SL. under the {LICENSENAME} License; see the LICENSE file for more information.
 
