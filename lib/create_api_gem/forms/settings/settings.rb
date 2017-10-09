@@ -52,13 +52,17 @@ class Settings
       (google_analytics.nil? || google_analytics == actual.google_analytics) &&
       (notifications.nil? || notifications.same?(actual.notifications)) &&
       (description.nil? || description == actual.description) &&
-      (image.nil? || image[:href].start_with?("#{APIConfig.image_api_request_url}/images/") && actual.image[:href].start_with?("#{APIConfig.image_api_request_url}/images/")) &&
       (show_typeform_branding.nil? ? Settings.default.show_typeform_branding : show_typeform_branding) == actual.show_typeform_branding &&
       (progress_bar.nil? ? Settings.default.progress_bar : progress_bar) == actual.progress_bar &&
       (language.nil? ? Settings.default.language : language) == actual.language &&
       (is_public.nil? ? Settings.default.is_public : is_public) == actual.is_public &&
       (is_trial.nil? ? Settings.default.is_trial : is_trial) == actual.is_trial &&
-      (allow_indexing.nil? ? Settings.default.allow_indexing : allow_indexing) == actual.allow_indexing
+      (allow_indexing.nil? ? Settings.default.allow_indexing : allow_indexing) == actual.allow_indexing &&
+      same_image?(actual.image)
+  end
+
+  def same_image?(actual)
+    (image.nil? || image[:href].start_with?("#{APIConfig.image_api_request_url}/images/") && actual.image[:href].start_with?("#{APIConfig.image_api_request_url}/images/"))
   end
 
   def self.default
