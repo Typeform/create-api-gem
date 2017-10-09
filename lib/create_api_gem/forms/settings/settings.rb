@@ -1,11 +1,11 @@
 class Settings
   attr_accessor :redirect_after_submit_url, :show_typeform_branding, :progress_bar,
                 :show_progress_bar, :description, :allow_indexing, :image, :language,
-                :is_public, :google_analytics, :notifications
+                :is_public, :is_trial, :google_analytics, :notifications
 
   def initialize(redirect_after_submit_url: nil, show_typeform_branding: nil, progress_bar: nil,
                  show_progress_bar: nil, description: nil, allow_indexing: nil, image: nil, language: nil,
-                 is_public: nil, google_analytics: nil, notifications: nil)
+                 is_public: nil, is_trial: nil, google_analytics: nil, notifications: nil)
     @redirect_after_submit_url = redirect_after_submit_url
     @show_typeform_branding = show_typeform_branding
     @progress_bar = progress_bar
@@ -14,6 +14,7 @@ class Settings
     @allow_indexing = allow_indexing
     @language = language
     @is_public = is_public
+    @is_trial = is_trial
     @image = image
     @google_analytics = google_analytics
     @notifications = notifications
@@ -61,7 +62,7 @@ class Settings
 
   def self.default
     Settings.new(show_typeform_branding: true, progress_bar: 'proportion', show_progress_bar: true,
-                 allow_indexing: true, language: 'en', is_public: true)
+                 allow_indexing: true, language: 'en', is_public: true, is_trial: false)
   end
 
   def self.full_example(email_block_for_notifications_ref)
