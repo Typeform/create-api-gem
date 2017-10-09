@@ -56,7 +56,6 @@ class Settings
       (progress_bar.nil? ? Settings.default.progress_bar : progress_bar) == actual.progress_bar &&
       (language.nil? ? Settings.default.language : language) == actual.language &&
       (is_public.nil? ? Settings.default.is_public : is_public) == actual.is_public &&
-      (is_trial.nil? ? Settings.default.is_trial : is_trial) == actual.is_trial &&
       (allow_indexing.nil? ? Settings.default.allow_indexing : allow_indexing) == actual.allow_indexing &&
       same_image?(actual.image)
   end
