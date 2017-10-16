@@ -6,4 +6,6 @@ rvm:
 cache:
   bundler: true
 
-script: rubocop && rake test
+script:
+  bundle exec rubocop
+  bundle exec rake test
