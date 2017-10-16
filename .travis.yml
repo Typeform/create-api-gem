@@ -2,4 +2,10 @@ sudo: false
 language: ruby
 rvm:
   - 2.3.3
-script: rubocop && rake test
+
+cache:
+  bundler: true
+
+script:
+  bundle exec rubocop
+  bundle exec rake test
