@@ -81,6 +81,6 @@ This is just a Ruby wrapper for our API's, they use the JSON format so they are 
 
 ## Legal
 
-Copyright 2017 Typeform SL. under the {LICENSENAME} License; see the LICENSE file for more information.
+Copyright 2017 Typeform SL. under the Apache 2 License; see the LICENSE file for more information.
 
 This is not an official Typeform product.
