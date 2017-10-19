@@ -75,9 +75,11 @@ After checking out the repo, you can run `rake console` to load the gem using th
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/Typeform/create-api-gem.
 
+When writing Ruby code we use *Rubocop* as a static code analyzer. You can run `rubocop` from the route folder to make sure that your code fits the conventions we have set inside the '.rubocop.yml' file.
+
 ## Alternatives
 
-This is just a Ruby wrapper for our API's, they use the JSON format so they are extremely flexible. There are many alternatives! 
+This is just a Ruby wrapper for our API's, they use the JSON format so they are extremely flexible. There are many alternatives!
 
 ## Legal
 
