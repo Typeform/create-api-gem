@@ -38,7 +38,7 @@ class Form
     hidden_fields = payload[:hidden].nil? ? [] : payload[:hidden]
     logic = payload[:logic].nil? ? [] : payload[:logic].map { |logic_payload| FieldLogic.from_response(logic_payload) }
     settings = Settings.from_response(payload[:settings])
-    variables = Variables.from_response(payload[:variables])
+    variables = payload[:variables].nil? ? Variables.new : Variables.from_response(payload[:variables])
     new(
       id: payload[:id],
       title: payload[:title],
@@ -78,7 +78,7 @@ class Form
       same_thank_you_screens?(actual.thank_you_screens) &&
       same_logic?(actual.logic) &&
       (settings.nil? ? Settings.default : settings).same?(actual.settings) &&
-      (variables.nil? ? Variables.default : variables).same?(actual.variables)
+      (variables.nil? || variables.same?(actual.variables))
   end
 
   def same_blocks?(actual_blocks)
