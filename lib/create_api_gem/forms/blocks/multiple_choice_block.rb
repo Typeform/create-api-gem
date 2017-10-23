@@ -95,7 +95,7 @@ class MultipleChoiceBlock < Block
       randomize: false,
       allow_multiple_selection: false,
       allow_other_choice: false,
-      vertical_alignment: false,
+      vertical_alignment: true,
       required: false
     )
   end
