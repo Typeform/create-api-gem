@@ -19,6 +19,8 @@ AllCops:
   TargetRubyVersion: 2.3.3
   Exclude:
     - create_api_gem.gemspec
+    - '**/vendor/**/*'
+    - '**/vendor/**/.*'
 
 Style/Documentation:
   Enabled: false
