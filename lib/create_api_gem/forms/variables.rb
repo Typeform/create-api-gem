@@ -31,7 +31,7 @@ class Variables
   end
 
   def self.default
-    Variables.new(score: 0)
+    Variables.new
   end
 
   def self.full_example
@@ -40,13 +40,13 @@ class Variables
 
   def payload
     payload = {}
-    payload[:score] = score
+    payload[:score] = score unless score.nil?
     payload[:price] = price unless price.nil?
     payload
   end
 
   def same?(actual)
-    (score.nil? ? Variables.default.score : score) == actual.score &&
+    (score.nil? || score == actual.score) &&
       (price.nil? || price == actual.price)
   end
 end
