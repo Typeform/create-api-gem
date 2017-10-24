@@ -38,7 +38,7 @@ class Form
     hidden_fields = payload[:hidden].nil? ? [] : payload[:hidden]
     logic = payload[:logic].nil? ? [] : payload[:logic].map { |logic_payload| FieldLogic.from_response(logic_payload) }
     settings = Settings.from_response(payload[:settings])
-    variables = payload[:variables].nil? ? Variables.new : Variables.from_response(payload[:variables])
+    variables = payload[:variables].nil? ? nil : Variables.from_response(payload[:variables])
     new(
       id: payload[:id],
       title: payload[:title],
