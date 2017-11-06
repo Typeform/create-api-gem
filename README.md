@@ -77,9 +77,15 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/Typefo
 
 When writing Ruby code we use *Rubocop* as a static code analyzer. You can run `rubocop` from the route folder to make sure that your code fits the conventions we have set inside the '.rubocop.yml' file.
 
+### Versioning
+
+We follow the semantic versioning as defined by rubygems.org
+
 ## Alternatives
 
 This is just a Ruby wrapper for our API's, they use the JSON format so they are extremely flexible. There are many alternatives!
+
+Check out our developers documentation at developers.typeform.com
 
 ## Legal
 
