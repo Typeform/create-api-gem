@@ -23,7 +23,8 @@ class DeleteWorkspaceRequest < WorkspaceRequest
       method: :delete,
       url: "#{APIConfig.api_request_url}/workspaces/#{workspace.id}",
       headers: {
-        'Authorization' => "Bearer #{token}"
+        'Authorization' => "Bearer #{token}",
+        'Content-Type' => 'application/json'
       }
     )
   end

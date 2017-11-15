@@ -23,7 +23,8 @@ class CreateWorkspaceRequest < WorkspaceRequest
       method: :post,
       url: "#{APIConfig.api_request_url}/workspaces",
       headers: {
-        'Authorization' => "Bearer #{token}"
+        'Authorization' => "Bearer #{token}",
+        'Content-Type' => 'application/json'
       },
       payload: workspace.payload
     )
