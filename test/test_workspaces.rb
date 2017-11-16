@@ -29,6 +29,9 @@ class WorkspacesTest < TestBase
     assert_equal workspace.same?(retrieve_workspace.workspace), true
     workspace = retrieve_workspace.workspace
 
+    retrieve_default_workspace = RetrieveDefaultWorkspaceRequest.new
+    assert_equal retrieve_default_workspace.success?, true
+
     retrieve_all_workspaces = RetrieveAllWorkspacesRequest.new
     assert_equal retrieve_all_workspaces.success?, true
     default_workspace = retrieve_all_workspaces.default_workspace

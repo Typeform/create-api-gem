@@ -15,26 +15,21 @@
 # specific language governing permissions and limitations
 # under the License.
 
-require_relative '../../api_request'
+require_relative 'workspace_request'
 
-class WorkspaceRequest < APIRequest
-  def workspace
-    Workspace.from_response(json)
+class RetrieveDefaultWorkspaceRequest < WorkspaceRequest
+  def initialize(token: APIConfig.token)
+    request(
+      method: :get,
+      url: "#{APIConfig.api_request_url}/workspaces/default",
+      headers: {
+        'Authorization' => "Bearer #{token}",
+        'Content-Type' => 'application/json'
+      }
+    )
   end
 
-  def unauthorized?
-    @response.code == 401
-  end
-
-  def not_found?
-    @response.code == 404
-  end
-
-  def forbidden?
-    @response.code == 403
-  end
-
-  def bad_request?
-    @response.code == 400
+  def success?
+    @response.code == 200 && json? && json.key?(:forms) && json.key?(:self)
   end
 end
