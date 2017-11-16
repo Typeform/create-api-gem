@@ -25,6 +25,10 @@ module DataGenerator
   def self.description
     FFaker::Lorem.paragraph
   end
+  
+  def self.email
+    FFaker::Internet.email
+  end
 
   def self.color_code
     '#' + SecureRandom.hex(3)
