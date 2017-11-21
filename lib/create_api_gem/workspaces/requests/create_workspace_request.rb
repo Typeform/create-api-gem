@@ -33,4 +33,8 @@ class CreateWorkspaceRequest < WorkspaceRequest
   def success?
     @response.code == 201 && json? && json.key?(:forms) && json.key?(:self)
   end
+
+  def location_header
+    headers.fetch(:location)
+  end
 end
