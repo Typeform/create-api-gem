@@ -16,14 +16,15 @@
 # under the License.
 
 class Form
-  attr_accessor :id, :title, :blocks, :hidden, :theme_url, :welcome_screens, :thank_you_screens, :logic, :settings, :variables
+  attr_accessor :id, :title, :blocks, :hidden, :theme_url, :workspace_url, :welcome_screens, :thank_you_screens, :logic, :settings, :variables
 
-  def initialize(id: nil, title: nil, blocks: [], hidden: [], theme_url: nil, welcome_screens: [], thank_you_screens: [], logic: [], settings: nil, variables: nil)
+  def initialize(id: nil, title: nil, blocks: [], hidden: [], theme_url: nil, workspace_url: nil, welcome_screens: [], thank_you_screens: [], logic: [], settings: nil, variables: nil)
     @id = id
     @title = title || DataGenerator.title
     @blocks = blocks
     @hidden = hidden
     @theme_url = theme_url
+    @workspace_url = workspace_url
     @welcome_screens = welcome_screens
     @thank_you_screens = thank_you_screens
     @logic = logic
@@ -45,6 +46,7 @@ class Form
       blocks: blocks,
       hidden: hidden_fields,
       theme_url: payload[:theme][:href],
+      workspace_url: payload[:workspace][:href],
       welcome_screens: welcome_screens,
       thank_you_screens: thank_you_screens,
       logic: logic,
@@ -59,6 +61,7 @@ class Form
     payload[:id] = id unless id.nil?
     payload[:hidden] = hidden unless hidden.empty?
     payload[:theme] = { href: theme_url } unless theme_url.nil?
+    payload[:workspace] = { href: workspace_url } unless workspace_url.nil?
     payload[:fields] = blocks.map(&:payload) unless blocks.empty?
     payload[:welcome_screens] = welcome_screens.map(&:payload) unless welcome_screens.empty?
     payload[:thankyou_screens] = thank_you_screens.map(&:payload) unless thank_you_screens.empty?
@@ -72,6 +75,7 @@ class Form
     (id.nil? || id == actual.id) &&
       (hidden.nil? || hidden == actual.hidden) &&
       (theme_url.nil? || theme_url.include?('default') || theme_url == actual.theme_url) &&
+      (workspace_url.nil? || workspace_url == actual.workspace_url) &&
       title == actual.title &&
       same_blocks?(actual.blocks) &&
       same_welcome_screens?(actual.welcome_screens) &&
@@ -108,6 +112,10 @@ class Form
 
   def theme_id
     theme_url.split('/themes/')[1]
+  end
+
+  def workspace_id
+    workspace_url.split('/workspaces/')[1]
   end
 
   def add_logic_action(field_ref, logic_action)
