@@ -17,6 +17,8 @@
 
 require 'json'
 require 'rest-client'
+require 'create_api_gem/api_request.rb'
+
 Gem.find_files('create_api_gem/**/*.rb').each do |path|
   require path
 end
