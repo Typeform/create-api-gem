@@ -16,12 +16,17 @@
 # under the License.
 
 require_relative 'workspace_request'
+require 'open-uri'
 
 class RetrieveAllWorkspacesRequest < WorkspaceRequest
-  def initialize(token: APIConfig.token)
+  def initialize(token: APIConfig.token, workspaces_per_page: 10, page: nil, search: nil)
+    url = "#{APIConfig.api_request_url}/workspaces?"
+    url << "page_size=#{workspaces_per_page}&" unless workspaces_per_page.nil?
+    url << "page=#{page}&" unless page.nil?
+    url << "search=#{URI.encode_www_form_component(search)}&" unless search.nil?
     request(
       method: :get,
-      url: "#{APIConfig.api_request_url}/workspaces",
+      url: url,
       headers: {
         'Authorization' => "Bearer #{token}",
         'Content-Type' => 'application/json'
