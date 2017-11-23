@@ -18,10 +18,20 @@
 require_relative 'form_request'
 
 class RetrieveAllFormsRequest < FormRequest
-  def initialize(token: APIConfig.token, forms_per_page: 10)
+  def initialize(token: APIConfig.token, forms_per_page: 10, page: nil, search_string: nil)
+    url = "#{APIConfig.api_request_url}/forms?"
+    unless forms_per_page.nil?
+      url << "page_size=#{forms_per_page}"
+    end
+    unless page.nil?
+      url << "page=#{page}"
+    end
+    unless search_string.nil?
+      url << "search=#{search_string}"
+    end
     r = {
       method: :get,
-      url: "#{APIConfig.api_request_url}/forms?page_size=#{forms_per_page}"
+      url: url
     }
     r[:headers] = { 'Authorization' => "Bearer #{token}" } unless token.nil?
 
