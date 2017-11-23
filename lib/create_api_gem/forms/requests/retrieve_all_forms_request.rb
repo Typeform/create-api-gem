@@ -23,7 +23,7 @@ class RetrieveAllFormsRequest < FormRequest
     url = "#{APIConfig.api_request_url}/forms?"
     url << "page_size=#{forms_per_page}&" unless forms_per_page.nil?
     url << "page=#{page}&" unless page.nil?
-    url << "search=#{URI.encode_www_form(search)}&" unless search.nil?
+    url << "search=#{URI.encode_www_form_component(search)}&" unless search.nil?
     r = {
       method: :get,
       url: url
