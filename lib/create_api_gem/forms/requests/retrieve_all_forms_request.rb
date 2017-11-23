@@ -16,18 +16,19 @@
 # under the License.
 
 require_relative 'form_request'
+require 'open-uri'
 
 class RetrieveAllFormsRequest < FormRequest
-  def initialize(token: APIConfig.token, forms_per_page: 10, page: nil, search_string: nil)
+  def initialize(token: APIConfig.token, forms_per_page: 10, page: nil, search: nil)
     url = "#{APIConfig.api_request_url}/forms?"
     unless forms_per_page.nil?
-      url << "page_size=#{forms_per_page}"
+      url << "page_size=#{forms_per_page}&"
     end
     unless page.nil?
-      url << "page=#{page}"
+      url << "page=#{page}&"
     end
-    unless search_string.nil?
-      url << "search=#{search_string}"
+    unless search.nil?
+      url << "search=#{URI::encode(search)}&"
     end
     r = {
       method: :get,
