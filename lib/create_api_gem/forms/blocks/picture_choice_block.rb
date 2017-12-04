@@ -42,12 +42,12 @@ class PictureChoiceBlock < Block
     [
       {
         label: 'label 1',
-        ref: 'choice-1-ref',
+        ref: DataGenerator.field_ref,
         attachment: Block.image_attachment_payload(image_id: 'default')
       },
       {
         label: 'label 2',
-        ref: 'choice-2-ref',
+        ref: DataGenerator.field_ref,
         attachment: Block.image_attachment_payload(image_id: 'default')
       }
     ]

@@ -42,11 +42,11 @@ class MultipleChoiceBlock < Block
     [
       {
         label: 'choice 1',
-        ref: 'choice-1-ref'
+        ref: DataGenerator.field_ref
       },
       {
         label: 'choice 2',
-        ref: 'choice-2-ref'
+        ref: DataGenerator.field_ref
       }
     ]
   end
