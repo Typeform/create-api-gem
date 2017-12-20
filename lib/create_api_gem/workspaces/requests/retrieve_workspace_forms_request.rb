@@ -16,12 +16,16 @@
 # under the License.
 
 require_relative 'workspace_request'
+require 'open-uri'
 
 class RetrieveWorkspaceFormsRequest < WorkspaceRequest
-  def initialize(workspace, token: APIConfig.token)
+  def initialize(workspace, token: APIConfig.token, from_id: nil)
+    url = "#{APIConfig.api_request_url}/workspaces/#{workspace.id}/forms?"
+    url << "from_id=#{URI.encode_www_form_component(from_id)}&" unless from_id.nil?
+
     request(
       method: :get,
-      url: "#{APIConfig.api_request_url}/workspaces/#{workspace.id}/forms",
+      url: url,
       headers: {
         'Authorization' => "Bearer #{token}",
         'Content-Type' => 'application/json'
