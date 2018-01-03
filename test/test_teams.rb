@@ -24,9 +24,9 @@ class TeamsTest < TestBase
     assert retrieve_team.success?, true
 
     default_workspace = RetrieveAllWorkspacesRequest.execute.default_workspace
-    UpdateWorkspaceRequest.execute(default_workspace, [PatchWorkspaceOperation.new(op: 'add', path: '/members', value: email)])
+    UpdateWorkspaceRequest.execute(default_workspace, [PatchOperation.new(op: 'add', path: '/members', value: { email: email })])
 
-    update_team = UpdateTeamRequest.new([PatchTeamOperation.new(op: 'remove', path: '/members', value: email)])
+    update_team = UpdateTeamRequest.new([PatchOperation.new(op: 'remove', path: '/members', value: { email: email })])
     assert update_team.success?, true
   end
 end

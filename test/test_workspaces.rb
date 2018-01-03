@@ -38,15 +38,15 @@ class WorkspacesTest < TestBase
 
     form = CreateFormRequest.execute(Form.new).form
     operations = [
-      PatchWorkspaceOperation.new(op: 'replace', path: '/name', value: DataGenerator.title),
-      PatchWorkspaceOperation.new(op: 'add', path: '/forms', value: form.id),
-      PatchWorkspaceOperation.new(op: 'add', path: '/members', value: email)
+      PatchOperation.new(op: 'replace', path: '/name', value: DataGenerator.title),
+      PatchOperation.new(op: 'add', path: '/forms', value: { href: "#{APIConfig.api_request_url}/forms/#{form.id}" }),
+      PatchOperation.new(op: 'add', path: '/members', value: { email: email })
     ]
     update_workspace = UpdateWorkspaceRequest.new(workspace, operations)
     assert_equal update_workspace.success?, true
 
-    UpdateWorkspaceRequest.execute(workspace, [PatchWorkspaceOperation.new(op: 'remove', path: '/members', value: email)])
-    UpdateWorkspaceRequest.execute(default_workspace, [PatchWorkspaceOperation.new(op: 'add', path: '/forms', value: form.id)])
+    UpdateWorkspaceRequest.execute(workspace, [PatchOperation.new(op: 'remove', path: '/members', value: { email: email })])
+    UpdateWorkspaceRequest.execute(default_workspace, [PatchOperation.new(op: 'add', path: '/forms', value: { href: "#{APIConfig.api_request_url}/forms/#{form.id}" })])
     DeleteFormRequest.execute(form)
 
     delete_workspace = DeleteWorkspaceRequest.new(workspace)

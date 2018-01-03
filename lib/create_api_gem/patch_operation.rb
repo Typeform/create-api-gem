@@ -15,7 +15,7 @@
 # specific language governing permissions and limitations
 # under the License.
 
-class PatchTeamOperation
+class PatchOperation
   attr_accessor :op, :value, :path
 
   def initialize(op: nil, path: nil, value: nil)
@@ -28,7 +28,7 @@ class PatchTeamOperation
     {
       op: op,
       path: path,
-      value: { email: value }
+      value: value
     }
   end
 end
