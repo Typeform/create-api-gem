@@ -15,20 +15,22 @@
 # specific language governing permissions and limitations
 # under the License.
 
-class PatchTeamOperation
-  attr_accessor :op, :value, :path
+require_relative 'form_request'
 
-  def initialize(op: nil, path: nil, value: nil)
-    @op = op
-    @path = path
-    @value = value
+class UpdateFormPatchRequest < FormRequest
+  def initialize(form, operations, token: APIConfig.token)
+    request(
+      method: :patch,
+      url: "#{APIConfig.api_request_url}/forms/#{form.id}",
+      headers: {
+        'Authorization' => "Bearer #{token}",
+        'Content-Type' => 'application/json'
+      },
+      payload: operations.map(&:payload).to_json
+    )
   end
 
-  def payload
-    {
-      op: op,
-      path: path,
-      value: { email: value }
-    }
+  def success?
+    @response.code == 204
   end
 end

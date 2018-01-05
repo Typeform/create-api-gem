@@ -15,35 +15,20 @@
 # specific language governing permissions and limitations
 # under the License.
 
-class PatchWorkspaceOperation
+class PatchOperation
   attr_accessor :op, :value, :path
 
   def initialize(op: nil, path: nil, value: nil)
     @op = op
     @path = path
-    @value = value || DataGenerator.title
+    @value = value
   end
 
   def payload
-    case path
-    when '/forms'
-      {
-        op: op,
-        path: path,
-        value: { href: "#{APIConfig.api_request_url}/forms/#{value}" }
-      }
-    when '/members'
-      {
-        op: op,
-        path: path,
-        value: { email: value }
-      }
-    else
-      {
-        op: op,
-        path: path,
-        value: value
-      }
-    end
+    {
+      op: op,
+      path: path,
+      value: value
+    }
   end
 end
