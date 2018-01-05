@@ -40,7 +40,7 @@ class FormsTest < TestBase
     assert_equal form.same?(update_form.form), true
     form = update_form.form
 
-    patch_operations = [PatchOperation.new(op: 'replace', path: '/title')]
+    patch_operations = [PatchOperation.new(op: 'replace', path: '/title', value: 'new title')]
     update_patch_form = UpdateFormPatchRequest.new(form, patch_operations)
     assert_equal update_patch_form.success?, true
 
