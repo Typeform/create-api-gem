@@ -102,7 +102,7 @@ class Form
     thank_you_screens.zip(actual_thank_you_screens).all? do |expected, actual|
       expected.same?(actual)
     end && thank_you_screens.length == actual_thank_you_screens.length &&
-      default_thank_you_screen.ref == 'default'
+      default_thank_you_screen.ref == 'default_tys'
   end
 
   def same_logic?(actual_logic)
