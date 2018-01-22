@@ -98,11 +98,11 @@ class Form
   end
 
   def same_thank_you_screens?(actual_thank_you_screens)
-    default_thank_you_screen = actual_thank_you_screens.pop
+    thank_you_screens.delete_if { |tys| tys.ref == 'default_tys' }
+    actual_thank_you_screens.delete_if { |tys| tys.ref == 'default_tys' }
     thank_you_screens.zip(actual_thank_you_screens).all? do |expected, actual|
       expected.same?(actual)
-    end && thank_you_screens.length == actual_thank_you_screens.length &&
-      default_thank_you_screen.ref == 'default_tys'
+    end
   end
 
   def same_logic?(actual_logic)
