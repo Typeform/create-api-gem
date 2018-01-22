@@ -65,7 +65,36 @@ class ThankYouScreen < Block
   end
 
   def self.default
-    ThankYouScreen.new(show_button: true, button_mode: 'reload', share_icons: true)
+    ThankYouScreen.new(
+      show_button: true,
+      button_mode: 'reload',
+      share_icons: true
+    )
+  end
+
+  def self.default_basic
+    ThankYouScreen.new(
+      title: "Thanks for completing this typeform\nNow *create your own* - it's free, easy & beautiful",
+      ref: 'defauly_tys',
+      show_button: true,
+      share_icons: false,
+      button_mode: 'redirect',
+      button_text: 'Create a typeform',
+      redirect_url: 'https://admin.typeform.com/signup?utm_campaign=Oi4jqT&utm_source=typeform.com-207-Basic&utm_medium=typeform&utm_content=typeform-thankyoubutton&utm_term=EN',
+      attachment: {
+        type: 'image',
+        href: "#{APIConfig.image_api_request_url}/images/2dpnUBBkz2VN"
+      }
+    )
+  end
+
+  def self.default_pro
+    ThankYouScreen.new(
+      title: 'Done! Your information was sent perfectly.',
+      ref: 'default_tys',
+      show_button: false,
+      share_icons: false
+    )
   end
 
   def self.full_example
