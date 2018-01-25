@@ -61,7 +61,7 @@ class ThankYouScreen < Block
       ((button_mode.nil? ? ThankYouScreen.default.button_mode == actual.button_mode : button_mode == actual.button_mode) || ref == 'default_tys') &&
       (redirect_url.nil? || redirect_url == actual.redirect_url) &&
       (share_icons.nil? ? ThankYouScreen.default.share_icons == actual.share_icons : share_icons == actual.share_icons) &&
-      (attachment.nil? || same_attachment?(actual.attachment))
+      (attachment.nil? || same_attachment?(actual.attachment) || ref == 'default_tys')
   end
 
   def self.default
@@ -74,12 +74,12 @@ class ThankYouScreen < Block
 
   def self.default_basic
     ThankYouScreen.new(
-      title: "Thanks for completing this typeform\nNow *create your own* - it's free, easy & beautiful",
-      ref: 'defauly_tys',
+      title: "Thanks for completing this typeform\nNow *create your own* — it's free, easy & beautiful",
+      ref: 'default_tys',
       show_button: true,
       share_icons: false,
       button_mode: 'redirect',
-      button_text: 'Create a typeform',
+      button_text: 'Create a *typeform*',
       redirect_url: 'https://admin.typeform.com/signup?utm_campaign=Oi4jqT&utm_source=typeform.com-207-Basic&utm_medium=typeform&utm_content=typeform-thankyoubutton&utm_term=EN',
       attachment: {
         type: 'image',
