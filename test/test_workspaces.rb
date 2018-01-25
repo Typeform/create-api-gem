@@ -31,7 +31,10 @@ class WorkspacesTest < TestBase
 
     retrieve_all_workspaces = RetrieveAllWorkspacesRequest.new
     assert_equal retrieve_all_workspaces.success?, true
-    default_workspace = retrieve_all_workspaces.default_workspace
+
+    retrieve_default_workspace = RetrieveDefaultWorkspaceRequest.new
+    assert_equal retrieve_default_workspace.success?, true
+    default_workspace = retrieve_default_workspace.workspace
 
     retrieve_workspace_forms = RetrieveWorkspaceFormsRequest.new(default_workspace)
     assert_equal retrieve_workspace_forms.success?, true
@@ -39,14 +42,12 @@ class WorkspacesTest < TestBase
     form = CreateFormRequest.execute(Form.new).form
     operations = [
       PatchOperation.new(op: 'replace', path: '/name', value: DataGenerator.title),
-      PatchOperation.new(op: 'add', path: '/forms', value: { href: "#{APIConfig.api_request_url}/forms/#{form.id}" }),
       PatchOperation.new(op: 'add', path: '/members', value: { email: email })
     ]
     update_workspace = UpdateWorkspaceRequest.new(workspace, operations)
     assert_equal update_workspace.success?, true
 
     UpdateWorkspaceRequest.execute(workspace, [PatchOperation.new(op: 'remove', path: '/members', value: { email: email })])
-    UpdateWorkspaceRequest.execute(default_workspace, [PatchOperation.new(op: 'add', path: '/forms', value: { href: "#{APIConfig.api_request_url}/forms/#{form.id}" })])
     DeleteFormRequest.execute(form)
 
     delete_workspace = DeleteWorkspaceRequest.new(workspace)

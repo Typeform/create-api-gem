@@ -22,6 +22,10 @@ class WorkspaceRequest < APIRequest
     Workspace.from_response(json)
   end
 
+  def unauthorized?
+    @response.code == 401
+  end
+
   def not_found?
     @response.code == 404
   end

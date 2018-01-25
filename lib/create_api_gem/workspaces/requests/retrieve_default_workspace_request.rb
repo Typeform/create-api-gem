@@ -15,20 +15,21 @@
 # specific language governing permissions and limitations
 # under the License.
 
-require_relative 'image_request'
+require_relative 'workspace_request'
 
-class RetrieveFrameRequest < ImageRequest
-  def initialize(image, frame)
+class RetrieveDefaultWorkspaceRequest < WorkspaceRequest
+  def initialize(token: APIConfig.token)
     request(
       method: :get,
-      url: "#{APIConfig.image_api_request_url}/images/#{image.id}/image/default-#{frame}frame.png",
+      url: "#{APIConfig.api_request_url}/workspaces/default",
       headers: {
+        'Authorization' => "Bearer #{token}",
         'Content-Type' => 'application/json'
       }
     )
   end
 
   def success?
-    @response.code == 200
+    @response.code == 200 && json? && json.key?(:forms) && json.key?(:self)
   end
 end
