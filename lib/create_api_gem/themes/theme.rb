@@ -20,7 +20,7 @@ class Theme
 
   def initialize(id: nil, name: nil, font: nil, colors: nil, visibility: nil, has_transparent_button: nil, background: nil)
     @id = id
-    @name = name || Fake.title
+    @name = name || DataGenerator.title
     @font = font || 'Arial'
     @colors = colors || Theme.colors
     @visibility = visibility || 'private'
