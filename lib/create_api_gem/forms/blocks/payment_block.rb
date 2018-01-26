@@ -28,8 +28,8 @@ class PaymentBlock < Block
     @ref = ref
     @description = description
     @required = required
-    @currency = currency
-    @price = price
+    @currency = currency || 'EUR'
+    @price = price || { type: 'variable', value: 'price' }
     @show_button = show_button
     @button_text = button_text
     @attachment = attachment
@@ -43,11 +43,11 @@ class PaymentBlock < Block
     payload[:ref] = ref unless ref.nil?
     unless description.nil? && currency.nil? && price.nil? && show_button.nil? && button_text.nil?
       payload[:properties] = {}
-      payload[:properties][:description] = description
-      payload[:properties][:currency] = currency
-      payload[:properties][:price] = price
-      payload[:properties][:show_button] = show_button
-      payload[:properties][:button_text] = button_text
+      payload[:properties][:description] = description unless description.nil?
+      payload[:properties][:currency] = currency unless currency.nil?
+      payload[:properties][:price] = price unless price.nil?
+      payload[:properties][:show_button] = show_button unless show_button.nil?
+      payload[:properties][:button_text] = button_text unless button_text.nil?
     end
     unless required.nil?
       payload[:validations] = {}

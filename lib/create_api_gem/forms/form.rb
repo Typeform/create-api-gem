@@ -35,7 +35,7 @@ class Form
   def self.from_response(payload)
     blocks = payload[:fields].nil? ? [] : payload[:fields].map { |field_payload| Block.from_response(field_payload) }
     welcome_screens = payload[:welcome_screens].nil? ? [] : payload[:welcome_screens].map { |welcome_screen_payload| WelcomeScreen.from_response(welcome_screen_payload) }
-    thank_you_screens = payload[:thankyou_screens].nil? ? [] : payload[:thankyou_screens].map { |thank_you_screen_payload| ThankYouScreen.from_response(thank_you_screen_payload) }
+    thank_you_screens = payload[:thankyou_screens].map { |thank_you_screen_payload| ThankYouScreen.from_response(thank_you_screen_payload) }
     hidden_fields = payload[:hidden].nil? ? [] : payload[:hidden]
     logic = payload[:logic].nil? ? [] : payload[:logic].map { |logic_payload| FieldLogic.from_response(logic_payload) }
     settings = Settings.from_response(payload[:settings])
@@ -98,9 +98,11 @@ class Form
   end
 
   def same_thank_you_screens?(actual_thank_you_screens)
+    thank_you_screens.delete_if { |tys| tys.ref == 'default_tys' }
+    actual_thank_you_screens.delete_if { |tys| tys.ref == 'default_tys' }
     thank_you_screens.zip(actual_thank_you_screens).all? do |expected, actual|
       expected.same?(actual)
-    end && thank_you_screens.length == actual_thank_you_screens.length
+    end
   end
 
   def same_logic?(actual_logic)
