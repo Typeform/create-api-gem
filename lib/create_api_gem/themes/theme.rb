@@ -38,7 +38,7 @@ class Theme
         button: '#4FB0AE',
         background: '#FFFFFF'
       ],
-      font: 'Arial',
+      font: 'Karla',
       has_transparent_button: false,
       visibility: 'private'
     )
@@ -48,7 +48,7 @@ class Theme
     Theme.new(
       name: DataGenerator.title,
       colors: colors,
-      font: 'Karla',
+      font: 'Nixie One',
       has_transparent_button: true,
       visibility: 'private',
       background: Background.full_example
