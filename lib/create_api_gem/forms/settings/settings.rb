@@ -79,13 +79,13 @@ class Settings
 
   def self.default
     Settings.new(show_typeform_branding: true, progress_bar: 'proportion', show_progress_bar: true,
-                 allow_indexing: true, language: 'en', is_public: true, is_trial: false)
+                 allow_indexing: false, language: 'en', is_public: true, is_trial: false)
   end
 
   def self.full_example(email_block_for_notifications_ref)
     image = { href: APIConfig.image_api_request_url + '/images/default' }
     Settings.new(redirect_after_submit_url: 'http://google.com', show_typeform_branding: false, progress_bar: 'percentage',
-                 show_progress_bar: false, description: 'some meta description', allow_indexing: false, image: image,
+                 show_progress_bar: false, description: 'some meta description', allow_indexing: true, image: image,
                  language: 'fr', is_public: true, google_analytics: 'UA-1234-12', notifications: Notifications.full_example(email_block_for_notifications_ref))
   end
 end
