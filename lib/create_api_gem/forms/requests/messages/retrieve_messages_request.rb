@@ -21,7 +21,6 @@ class RetrieveMessagesRequest < APIRequest
       method: :get,
       url: "#{APIConfig.api_request_url}/forms/#{form.id}/messages",
       headers: {
-        'Typeform-Request-Id' => DataGenerator.uuid,
         'Authorization' => "Bearer #{token}"
       }
     )
