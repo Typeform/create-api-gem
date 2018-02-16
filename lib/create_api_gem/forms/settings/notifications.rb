@@ -87,7 +87,7 @@ class Notifications
   end
 
   def self.full_example(email_block_for_notifications_ref)
-    Notifications.new(self_enabled: false, self_reply_to: '{{field:' + email_block_for_notifications_ref + '}}', self_recipients: ['recipient1@email.com', 'recipient2@email.com'],
+    Notifications.new(self_enabled: true, self_reply_to: '{{field:' + email_block_for_notifications_ref + '}}', self_recipients: ['recipient1@email.com', 'recipient2@email.com'],
                       self_subject: 'An email subject', self_message: 'This is a message that will be in an email',
                       respondent_enabled: true, respondent_reply_to: ['hello@email.com'], respondent_recipient: '{{field:' + email_block_for_notifications_ref + '}}',
                       respondent_subject: 'An email subject', respondent_message: 'This is a message that will be in an email')
