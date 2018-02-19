@@ -74,7 +74,7 @@ class ThankYouScreen < Block
 
   def self.default_basic
     ThankYouScreen.new(
-      title: "Thanks for completing this typeform\nNow *create your own* — it's free, easy & beautiful",
+      title: "Thanks for completing this typeform\nNow *create your own* — it's free, easy, & beautiful",
       ref: 'default_tys',
       show_button: true,
       share_icons: false,
