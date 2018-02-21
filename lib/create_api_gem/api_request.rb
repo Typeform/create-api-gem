@@ -30,10 +30,6 @@ class APIRequest
     "#{@response.code}\n#{@response}"
   end
 
-  def success?
-    @response.code == 200 && json?
-  end
-
   def bad_request?
     @response.code == 400
   end
