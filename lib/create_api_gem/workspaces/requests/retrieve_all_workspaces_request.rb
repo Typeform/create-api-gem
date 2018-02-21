@@ -45,6 +45,6 @@ class RetrieveAllWorkspacesRequest < WorkspaceRequest
   end
 
   def default_workspace
-    workspaces.find { |ws| ws.default}
+    workspaces.find(&:default)
   end
 end
