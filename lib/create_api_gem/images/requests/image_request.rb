@@ -21,4 +21,8 @@ class ImageRequest < APIRequest
   def image
     Image.from_response(json)
   end
+
+  def src
+    json.fetch(:src)
+  end
 end

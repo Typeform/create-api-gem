@@ -30,6 +30,34 @@ class APIRequest
     "#{@response.code}\n#{@response}"
   end
 
+  def bad_request?
+    @response.code == 400
+  end
+
+  def unauthorized?
+    @response.code == 401
+  end
+
+  def payment_required?
+    @response.code == 402
+  end
+
+  def forbidden?
+    @response.code == 403
+  end
+
+  def not_found?
+    @response.code == 404
+  end
+
+  def service_unavailable?
+    @response.code == 502 || @response.code == 503
+  end
+
+  def error_code
+    json.fetch(:code)
+  end
+
   private
 
   def request(args = {})

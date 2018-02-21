@@ -20,9 +20,9 @@ require_relative 'image_request'
 class RetrieveImageRequest < ImageRequest
   def initialize(image, type: nil, size: nil, accept: nil)
     url = if type.nil? && size.nil?
-            "#{APIConfig.image_api_request_url}/images/#{image.id}"
+            "#{APIConfig.api_request_url}/images/#{image.id}"
           else
-            "#{APIConfig.image_api_request_url}/images/#{image.id}/#{type}/#{size}"
+            "#{APIConfig.api_request_url}/images/#{image.id}/#{type}/#{size}"
           end
     headers = { 'Content-Type' => 'application/json' }
     headers['Accept'] = 'application/json' if accept == 'json'
@@ -35,5 +35,9 @@ class RetrieveImageRequest < ImageRequest
 
   def success?
     @response.code == 200
+  end
+
+  def body
+    @response.body
   end
 end

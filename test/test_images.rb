@@ -25,7 +25,9 @@ class ImagesTest < TestBase
 
     retrieve_image = RetrieveImageRequest.new(image, accept: 'json')
     assert_equal retrieve_image.success?, true
-    assert_equal image.same?(retrieve_image.image), true
+    assert_equal image.id == retrieve_image.image.id, true
+    assert_equal image.file_name == retrieve_image.image.file_name, true
+    assert_equal image.media_type == retrieve_image.image.media_type, true
     image = retrieve_image.image
 
     retrieve_frame = RetrieveFrameRequest.new(image, 'first')
