@@ -36,4 +36,8 @@ class RetrieveImageRequest < ImageRequest
   def success?
     @response.code == 200
   end
+
+  def body
+    @response.body
+  end
 end

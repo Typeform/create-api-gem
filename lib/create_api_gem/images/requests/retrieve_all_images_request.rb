@@ -29,7 +29,7 @@ class RetrieveAllImagesRequest < ImageRequest
     )
   end
 
-  def success?
-    @response.code == 200
+  def images
+    json.map { |image| Image.from_response(image) }
   end
 end
