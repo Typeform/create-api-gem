@@ -46,6 +46,10 @@ class FormRequest < APIRequest
     @response.code == 404
   end
 
+  def conflict?
+    @response.code == 409
+  end
+
   def service_unavailable?
     @response.code == 502 || @response.code == 503
   end
