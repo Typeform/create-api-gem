@@ -27,7 +27,7 @@ class CreateImageFromUrlRequest < ImageRequest
         'Authorization' => "Bearer #{token}"
       },
       payload: {
-          url: image_url
+        url: image_url
       }.to_json
     )
   end
