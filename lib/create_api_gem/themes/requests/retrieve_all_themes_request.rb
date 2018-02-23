@@ -35,10 +35,6 @@ class RetrieveAllThemesRequest < APIRequest
     )
   end
 
-  def bad_request?
-    @response.code == 400 && json?
-  end
-
   def success?
     @response.code == 200 && json?
   end

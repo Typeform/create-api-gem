@@ -15,9 +15,7 @@
 # specific language governing permissions and limitations
 # under the License.
 
-require_relative 'team_request'
-
-class UpdateTeamRequest < TeamRequest
+class UpdateTeamRequest < APIRequest
   def initialize(operations, token: APIConfig.token)
     request(
       method: :patch,

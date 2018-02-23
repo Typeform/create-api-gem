@@ -15,9 +15,7 @@
 # specific language governing permissions and limitations
 # under the License.
 
-require_relative 'team_request'
-
-class RetrieveTeamRequest < TeamRequest
+class RetrieveTeamRequest < APIRequest
   def initialize(token: APIConfig.token)
     request(
       method: :get,

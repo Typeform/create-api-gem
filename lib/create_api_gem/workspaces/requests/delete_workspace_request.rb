@@ -32,8 +32,4 @@ class DeleteWorkspaceRequest < WorkspaceRequest
   def success?
     @response.code == 204
   end
-
-  def invalid_operation?
-    @response.code == 400
-  end
 end
