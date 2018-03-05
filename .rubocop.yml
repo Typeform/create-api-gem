@@ -55,5 +55,10 @@ Metrics/ParameterLists:
 Metrics/ClassLength:
   Max: 150
 
+Naming/UncommunicativeMethodParamName:
+  AllowedNames:
+    - op
+    - id
+
 Style/FrozenStringLiteralComment:
   Enabled: false

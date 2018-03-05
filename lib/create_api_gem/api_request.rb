@@ -70,8 +70,8 @@ class APIRequest
 
   def json?
     json
-    return true
+    true
   rescue JSON::ParserError
-    return false
+    false
   end
 end
