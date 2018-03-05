@@ -21,7 +21,7 @@ class RetrieveDefaultWorkspaceRequest < WorkspaceRequest
   def initialize(token: APIConfig.token)
     request(
       method: :get,
-      url: "#{APIConfig.api_request_url}/workspaces/default",
+      url: "#{APIConfig.workspaces_api_request_url}/default",
       headers: {
         'Authorization' => "Bearer #{token}",
         'Content-Type' => 'application/json'

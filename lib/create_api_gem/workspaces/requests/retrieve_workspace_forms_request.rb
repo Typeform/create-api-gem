@@ -20,7 +20,7 @@ require 'open-uri'
 
 class RetrieveWorkspaceFormsRequest < WorkspaceRequest
   def initialize(workspace, token: APIConfig.token, from_id: nil)
-    url = "#{APIConfig.api_request_url}/workspaces/#{workspace.id}/forms?"
+    url = "#{APIConfig.workspaces_api_request_url}/#{workspace.id}/forms?"
     url << "from_id=#{URI.encode_www_form_component(from_id)}&" unless from_id.nil?
 
     request(

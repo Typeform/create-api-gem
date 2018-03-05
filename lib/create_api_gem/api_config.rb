@@ -24,6 +24,10 @@ class APIConfig
     'https://images.typeform.com'
   end
 
+  def self.workspaces_api_request_url
+    'https://api.typeform.com/workspaces'
+  end
+
   def self.api_request_url
     'https://api.typeform.com'
   end
