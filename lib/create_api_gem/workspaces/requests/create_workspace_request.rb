@@ -21,7 +21,7 @@ class CreateWorkspaceRequest < WorkspaceRequest
   def initialize(workspace, token: APIConfig.token)
     request(
       method: :post,
-      url: "#{APIConfig.api_request_url}/workspaces",
+      url: APIConfig.workspaces_api_request_url,
       headers: {
         'Authorization' => "Bearer #{token}",
         'Content-Type' => 'application/json'

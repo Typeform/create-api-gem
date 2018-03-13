@@ -21,7 +21,7 @@ class DeleteWorkspaceRequest < WorkspaceRequest
   def initialize(workspace, token: APIConfig.token)
     request(
       method: :delete,
-      url: "#{APIConfig.api_request_url}/workspaces/#{workspace.id}",
+      url: "#{APIConfig.workspaces_api_request_url}/#{workspace.id}",
       headers: {
         'Authorization' => "Bearer #{token}",
         'Content-Type' => 'application/json'
