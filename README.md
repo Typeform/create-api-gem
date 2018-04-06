@@ -119,11 +119,11 @@ Here are the links to the classes that you can use.
 
 #### Requests
 
-[CreateImageRequest](lib/create_api_gem/images/create_image_request.rb)  
-[CreateImageFromUrlRequest](lib/create_api_gem/images/create_image_from_url_request.rb)  
-[RetrieveImageRequest](lib/create_api_gem/images/retrieve_image_request.rb)  
-[RetrieveAllImagesRequest](lib/create_api_gem/images/retrieve_all_images_request.rb)  
-[DeleteImageRequest](lib/create_api_gem/images/retrieve_image_request.rb)  
+[CreateImageRequest](lib/create_api_gem/images/requests/create_image_request.rb)  
+[CreateImageFromUrlRequest](lib/create_api_gem/images/requests/create_image_from_url_request.rb)  
+[RetrieveImageRequest](lib/create_api_gem/images/requests/retrieve_image_request.rb)  
+[RetrieveAllImagesRequest](lib/create_api_gem/images/requests/retrieve_all_images_request.rb)  
+[DeleteImageRequest](lib/create_api_gem/images/requests/retrieve_image_request.rb)  
 
 #### Elements
 
@@ -133,18 +133,18 @@ Here are the links to the classes that you can use.
 
 #### Requests
 
-[RetrieveTeamRequest](lib/create_api_gem/teams/retrieve_team_request.rb)  
-[UpdateTeamRequest](lib/create_api_gem/teams/update_team_request.rb)  
+[RetrieveTeamRequest](lib/create_api_gem/teams/requests/retrieve_team_request.rb)  
+[UpdateTeamRequest](lib/create_api_gem/teams/requests/update_team_request.rb)  
 
 ### Themes
 
 #### Requests
 
-[CreateThemeRequest](lib/create_api_gem/themes/create_theme_request.rb)  
-[RetrieveThemeRequest](lib/create_api_gem/themes/retrieve_theme_request.rb)  
-[RetrieveAllThemesRequest](lib/create_api_gem/themes/retrieve_all_themes_request.rb)  
-[UpdateThemeRequest](lib/create_api_gem/teams/update_theme_request.rb)  
-[DeleteThemeRequest](lib/create_api_gem/teams/delete_theme_request.rb)  
+[CreateThemeRequest](lib/create_api_gem/themes/requests/create_theme_request.rb)  
+[RetrieveThemeRequest](lib/create_api_gem/themes/requests/retrieve_theme_request.rb)  
+[RetrieveAllThemesRequest](lib/create_api_gem/themes/requests/retrieve_all_themes_request.rb)  
+[UpdateThemeRequest](lib/create_api_gem/themes/requests/update_theme_request.rb)  
+[DeleteThemeRequest](lib/create_api_gem/themes/requests/delete_theme_request.rb)  
 
 #### Elements
 
@@ -153,12 +153,12 @@ Here are the links to the classes that you can use.
 
 ### Workspaces
 
-[CreateWorkspaceRequest](lib/create_api_gem/workspaces/create_workspace_request.rb)  
-[RetrieveWorkspaceRequest](lib/create_api_gem/workspaces/retrieve_workspace_request.rb)  
-[RetrieveAllWorkspacesRequest](lib/create_api_gem/workspaces/retrieve_all_workspaces_request.rb)  
-[RetrieveDefaultWorkspaceRequest](lib/create_api_gem/workspaces/retrieve_default_workspace_request.rb)  
-[UpdateWorkspaceRequest](lib/create_api_gem/workspaces/update_workspace_request.rb)  
-[DeleteWorkspaceRequest](lib/create_api_gem/workspaces/delete_workspace_request.rb)  
+[CreateWorkspaceRequest](lib/create_api_gem/workspaces/requests/create_workspace_request.rb)  
+[RetrieveWorkspaceRequest](lib/create_api_gem/workspaces/requests/retrieve_workspace_request.rb)  
+[RetrieveAllWorkspacesRequest](lib/create_api_gem/workspaces/requests/retrieve_all_workspaces_request.rb)  
+[RetrieveDefaultWorkspaceRequest](lib/create_api_gem/workspaces/requests/retrieve_default_workspace_request.rb)  
+[UpdateWorkspaceRequest](lib/create_api_gem/workspaces/requests/update_workspace_request.rb)  
+[DeleteWorkspaceRequest](lib/create_api_gem/workspaces/requests/delete_workspace_request.rb)  
 
 #### Elements
 
