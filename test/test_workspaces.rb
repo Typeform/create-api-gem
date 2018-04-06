@@ -34,10 +34,6 @@ class WorkspacesTest < TestBase
 
     retrieve_default_workspace = RetrieveDefaultWorkspaceRequest.new
     assert_equal retrieve_default_workspace.success?, true
-    default_workspace = retrieve_default_workspace.workspace
-
-    retrieve_workspace_forms = RetrieveWorkspaceFormsRequest.new(default_workspace)
-    assert_equal retrieve_workspace_forms.success?, true
 
     form = CreateFormRequest.execute(Form.new).form
     operations = [
