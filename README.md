@@ -57,7 +57,7 @@ Now you're form has a block, but Typeform doesn't know that yet, so we need to s
 
 `form = UpdateFormRequest.execute(form).form`
 
-If you want to use an existing form of yours, you can do so like so
+If you want to use an existing form of yours, you can do so like this
 
 `form = RetrieveFormRequest.execute(Form.new(id: 'your-form-id-goes-here')).form`
 
@@ -66,6 +66,103 @@ You can find your form's ID on the end of the URL for the typeform.
 ## Development
 
 After checking out the repo, you can run `rake console` to load the gem using the interactive ruby console.
+
+## Appendix
+
+Here are the links to the classes that you can use.
+
+### Forms
+
+#### Requests
+[CreateFormRequest](lib/create_api_gem/forms/requests/create_form_request.rb)  
+[RetrieveFormRequest](lib/create_api_gem/forms/requests/retrieve_form_request.rb)  
+[RetrieveAllFormsRequest](lib/create_api_gem/forms/requests/retrieve_all_forms_request.rb)  
+[UpdateFormRequest](lib/create_api_gem/forms/requests/update_form_request.rb)  
+[UpdateFormPatchRequest](lib/create_api_gem/forms/requests/update_form_patch_request.rb)  
+[HeadFormRequest](lib/create_api_gem/forms/requests/head_form_request.rb)  
+[DeleteFormRequest](lib/create_api_gem/forms/requests/delete_form_request.rb)
+
+#### Elements
+
+[Form](lib/create_api_gem/forms/form.rb)  
+
+[DateBlock](lib/create_api_gem/forms/blocks/date_block.rb)  
+[DropdownBlock](lib/create_api_gem/forms/blocks/dropdown_block.rb)  
+[EmailBlock](lib/create_api_gem/forms/blocks/email_block.rb)  
+[FileUploadBlock](lib/create_api_gem/forms/blocks/file_upload_block.rb)  
+[GroupBlock](lib/create_api_gem/forms/blocks/group_block.rb)  
+[LegalBlock](lib/create_api_gem/forms/blocks/legal_block.rb)  
+[LongTextBlock](lib/create_api_gem/forms/blocks/long_text_block.rb)  
+[MultipleChoiceBlock](lib/create_api_gem/forms/blocks/multiple_choice_block.rb)  
+[NumberBlock](lib/create_api_gem/forms/blocks/number_block.rb)  
+[OpinionScaleBlock](lib/create_api_gem/forms/blocks/opinion_scale_block.rb)  
+[PaymentBlock](lib/create_api_gem/forms/blocks/payment_block.rb)  
+[PictureChoiceBlock](lib/create_api_gem/forms/blocks/picture_choice_block.rb)  
+[RatingBlock](lib/create_api_gem/forms/blocks/rating_block.rb)  
+[ShortTextBlock](lib/create_api_gem/forms/blocks/short_text_block.rb)  
+[StatementBlock](lib/create_api_gem/forms/blocks/statement_block.rb)  
+[WebsiteBlock](lib/create_api_gem/forms/blocks/website_block.rb)  
+[YesNoBlock](lib/create_api_gem/forms/blocks/yes_no_block.rb)   
+
+[ThankYouScreen](lib/create_api_gem/forms/blocks/thank_you_screen.rb)  
+[WelcomeScreen](lib/create_api_gem/forms/blocks/welcome_screen.rb)
+
+[LogicJump](lib/create_api_gem/forms/logic/actions/logic_jump.rb)  
+[Calculation](lib/create_api_gem/forms/logic/actions/calculation.rb)
+
+[Settings](lib/create_api_gem/forms/settings/settings.rb)  
+[Notifications](lib/create_api_gem/forms/settings/notifications.rb)  
+[Variables](lib/create_api_gem/forms/variables.rb)  
+[Messages](lib/create_api_gem/forms/messages.rb) 
+
+### Images
+
+#### Requests
+
+[CreateImageRequest](lib/create_api_gem/images/create_image_request.rb)  
+[CreateImageFromUrlRequest](lib/create_api_gem/images/create_image_from_url_request.rb)  
+[RetrieveImageRequest](lib/create_api_gem/images/retrieve_image_request.rb)  
+[RetrieveAllImagesRequest](lib/create_api_gem/images/retrieve_all_images_request.rb)  
+[DeleteImageRequest](lib/create_api_gem/images/retrieve_image_request.rb)  
+
+#### Elements
+
+[Image](lib/create_api_gem/images/image.rb)
+
+### Teams
+
+#### Requests
+
+[RetrieveTeamRequest](lib/create_api_gem/teams/retrieve_team_request.rb)  
+[UpdateTeamRequest](lib/create_api_gem/teams/update_team_request.rb)  
+
+### Themes
+
+#### Requests
+
+[CreateThemeRequest](lib/create_api_gem/themes/create_theme_request.rb)  
+[RetrieveThemeRequest](lib/create_api_gem/themes/retrieve_theme_request.rb)  
+[RetrieveAllThemesRequest](lib/create_api_gem/themes/retrieve_all_themes_request.rb)  
+[UpdateThemeRequest](lib/create_api_gem/teams/update_theme_request.rb)  
+[DeleteThemeRequest](lib/create_api_gem/teams/delete_theme_request.rb)  
+
+#### Elements
+
+[Theme](lib/create_api_gem/themes/theme.rb)
+[Background](lib/create_api_gem/themes/background.rb)
+
+### Workspaces
+
+[CreateWorkspaceRequest](lib/create_api_gem/workspaces/create_workspace_request.rb)  
+[RetrieveWorkspaceRequest](lib/create_api_gem/workspaces/retrieve_workspace_request.rb)  
+[RetrieveAllWorkspacesRequest](lib/create_api_gem/workspaces/retrieve_all_workspaces_request.rb)  
+[RetrieveDefaultWorkspaceRequest](lib/create_api_gem/workspaces/retrieve_default_workspace_request.rb)  
+[UpdateWorkspaceRequest](lib/create_api_gem/workspaces/update_workspace_request.rb)  
+[DeleteWorkspaceRequest](lib/create_api_gem/workspaces/delete_workspace_request.rb)  
+
+#### Elements
+
+[Workspace](lib/create_api_gem/workspaces/workspace.rb)
 
 ## Code of Conduct
 
