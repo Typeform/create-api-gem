@@ -59,7 +59,7 @@ class ThankYouScreen < Block
       (show_button.nil? ? ThankYouScreen.default.show_button == actual.show_button : show_button == actual.show_button) &&
       (button_text.nil? || button_text == actual.button_text) &&
       ((button_mode.nil? ? ThankYouScreen.default.button_mode == actual.button_mode : button_mode == actual.button_mode) || ref == 'default_tys') &&
-      (redirect_url.nil? || redirect_url == actual.redirect_url) &&
+      (redirect_url.nil? || actual.redirect_url.include?(redirect_url)) &&
       (share_icons.nil? ? ThankYouScreen.default.share_icons == actual.share_icons : share_icons == actual.share_icons) &&
       (attachment.nil? || same_attachment?(actual.attachment) || ref == 'default_tys')
   end
@@ -72,7 +72,7 @@ class ThankYouScreen < Block
     )
   end
 
-  def self.default_basic
+  def self.default_basic(account_id: nil, form_uid: nil)
     ThankYouScreen.new(
       title: "Thanks for completing this typeform\nNow *create your own* — it's free, easy, & beautiful",
       ref: 'default_tys',
@@ -80,7 +80,7 @@ class ThankYouScreen < Block
       share_icons: false,
       button_mode: 'redirect',
       button_text: 'Create a *typeform*',
-      redirect_url: 'https://admin.typeform.com/signup?utm_campaign=Oi4jqT&utm_source=typeform.com-207-Basic&utm_medium=typeform&utm_content=typeform-thankyoubutton&utm_term=EN',
+      redirect_url: "/signup?utm_campaign=#{form_uid}&utm_source=typeform.com-#{account_id}-Basic&utm_medium=typeform&utm_content=typeform-thankyoubutton&utm_term=EN",
       attachment: {
         type: 'image',
         href: "#{APIConfig.image_api_request_url}/images/2dpnUBBkz2VN"
