@@ -59,7 +59,7 @@ class ThankYouScreen < Block
       (show_button.nil? ? ThankYouScreen.default.show_button == actual.show_button : show_button == actual.show_button) &&
       (button_text.nil? || button_text == actual.button_text) &&
       ((button_mode.nil? ? ThankYouScreen.default.button_mode == actual.button_mode : button_mode == actual.button_mode) || ref == 'default_tys') &&
-      (redirect_url.nil? || actual.redirect_url.include?(redirect_url)) &&
+      (redirect_url.nil? || (redirect_url == actual.redirect_url && ref != 'default_tys') || (redirect_url.include?(actual.redirect_url) || ref == 'default_tys')) &&
       (share_icons.nil? ? ThankYouScreen.default.share_icons == actual.share_icons : share_icons == actual.share_icons) &&
       (attachment.nil? || same_attachment?(actual.attachment) || ref == 'default_tys')
   end
