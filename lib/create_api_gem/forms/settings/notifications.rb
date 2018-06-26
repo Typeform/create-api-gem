@@ -36,16 +36,20 @@ class Notifications
   def self.from_response(response)
     self_payload = response[:self]
     new_self_payload = {}
-    self_payload.each_key do |key|
-      new_key = 'self_' + key.to_s
-      new_self_payload[new_key.to_sym] = self_payload.delete(key)
+    if self_payload
+      self_payload.each_key do |key|
+        new_key = 'self_' + key.to_s
+        new_self_payload[new_key.to_sym] = self_payload.delete(key)
+      end
     end
 
     respondent_payload = response[:respondent]
     new_respondent_payload = {}
-    respondent_payload.each_key do |key|
-      new_key = 'respondent_' + key.to_s
-      new_respondent_payload[new_key.to_sym] = respondent_payload.delete(key)
+    if respondent_payload
+      respondent_payload.each_key do |key|
+        new_key = 'respondent_' + key.to_s
+        new_respondent_payload[new_key.to_sym] = respondent_payload.delete(key)
+      end
     end
 
     params = new_respondent_payload.merge(new_self_payload)
