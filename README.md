@@ -182,7 +182,7 @@ We follow the semantic versioning as defined by rubygems.org
 
 This is just a Ruby wrapper for our API's, they use the JSON format so they are extremely flexible. There are many alternatives!
 
-Check out our developers documentation at developers.typeform.com
+Check out our developers documentation at https://developer.typeform.com
 
 ## Legal
 
