@@ -34,7 +34,8 @@ class Block
       'short text block' => ShortTextBlock,
       'statement block' => StatementBlock,
       'website block' => WebsiteBlock,
-      'yes no block' => YesNoBlock
+      'yes no block' => YesNoBlock,
+      'phone number block' => PhoneNumberBlock
     }
   end
 
@@ -62,6 +63,7 @@ class Block
 
   def same_attachment?(actual_attachment)
     return true if attachment.nil?
+
     type = attachment[:type]
     case type
     when 'image'

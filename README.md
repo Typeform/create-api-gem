@@ -98,6 +98,7 @@ Here are the links to the classes that you can use.
 [OpinionScaleBlock](lib/create_api_gem/forms/blocks/opinion_scale_block.rb)  
 [PaymentBlock](lib/create_api_gem/forms/blocks/payment_block.rb)  
 [PictureChoiceBlock](lib/create_api_gem/forms/blocks/picture_choice_block.rb)  
+[PhoneNumberBlock](lib/create_api_gem/forms/blocks/phone_number_block.rb)
 [RatingBlock](lib/create_api_gem/forms/blocks/rating_block.rb)  
 [ShortTextBlock](lib/create_api_gem/forms/blocks/short_text_block.rb)  
 [StatementBlock](lib/create_api_gem/forms/blocks/statement_block.rb)  
