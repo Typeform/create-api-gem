@@ -18,9 +18,9 @@
 require_relative 'block'
 
 class PhoneNumberBlock < Block
-  attr_accessor :id, :title, :type, :ref, :description, :required, :attachment
+  attr_accessor :id, :title, :type, :ref, :description, :required, :attachment, :default_country_code
 
-  def initialize(id: nil, title: nil, type: :phone_number, ref: nil, description: nil, required: nil, attachment: nil)
+  def initialize(id: nil, title: nil, type: :phone_number, ref: nil, description: nil, required: nil, attachment: nil, default_country_code: nil)
     @id = id
     @title = title || DataGenerator.title
     @type = type
@@ -28,6 +28,7 @@ class PhoneNumberBlock < Block
     @description = description
     @required = required
     @attachment = attachment
+    @default_country_code = default_country_code
   end
 
   def payload
@@ -36,10 +37,9 @@ class PhoneNumberBlock < Block
     payload[:type] = type.to_s
     payload[:id] = id unless id.nil?
     payload[:ref] = ref unless ref.nil?
-    unless description.nil?
-      payload[:properties] = {}
-      payload[:properties][:description] = description
-    end
+    payload[:properties] = {}
+    payload[:properties][:description] = description unless description.nil?
+    payload[:properties][:default_country_code] = default_country_code unless default_country_code.nil?
     unless required.nil?
       payload[:validations] = {}
       payload[:validations][:required] = required
@@ -64,7 +64,8 @@ class PhoneNumberBlock < Block
       description: DataGenerator.description,
       id: id,
       required: true,
-      attachment: Block.attachment
+      attachment: Block.attachment,
+      default_country_code: 'us'
     )
   end
 end
