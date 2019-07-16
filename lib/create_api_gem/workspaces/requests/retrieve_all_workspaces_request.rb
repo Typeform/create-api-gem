@@ -28,8 +28,7 @@ class RetrieveAllWorkspacesRequest < WorkspaceRequest
       method: :get,
       url: url,
       headers: {
-        'Authorization' => "Bearer #{token}",
-        'Content-Type' => 'application/json'
+        'Authorization' => "Bearer #{token}"
       }
     )
   end

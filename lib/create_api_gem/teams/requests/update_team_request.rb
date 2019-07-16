@@ -23,7 +23,8 @@ class UpdateTeamRequest < TeamRequest
       method: :patch,
       url: "#{APIConfig.api_request_url}/teams/mine",
       headers: {
-        'Authorization' => "Bearer #{token}"
+        'Authorization' => "Bearer #{token}",
+        'Content-Type' => 'application/json'
       },
       payload: operations.map(&:payload).to_json
     )

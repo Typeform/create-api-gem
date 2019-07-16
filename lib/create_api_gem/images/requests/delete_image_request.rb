@@ -23,7 +23,6 @@ class DeleteImageRequest < ImageRequest
       method: :delete,
       url: "#{APIConfig.api_request_url}/images/#{image.id}",
       headers: {
-        'Content-Type' => 'application/json',
         'Authorization' => "Bearer #{token}"
       }
     )

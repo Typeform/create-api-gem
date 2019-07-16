@@ -24,7 +24,7 @@ class RetrieveImageRequest < ImageRequest
           else
             "#{APIConfig.api_request_url}/images/#{image.id}/#{type}/#{size}"
           end
-    headers = { 'Content-Type' => 'application/json' }
+    headers = { }
     headers['Accept'] = 'application/json' if accept == 'json'
     request(
       method: :get,

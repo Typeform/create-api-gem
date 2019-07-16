@@ -23,8 +23,7 @@ class RetrieveWorkspaceRequest < WorkspaceRequest
       method: :get,
       url: "#{APIConfig.workspaces_api_request_url}/#{workspace.id}",
       headers: {
-        'Authorization' => "Bearer #{token}",
-        'Content-Type' => 'application/json'
+        'Authorization' => "Bearer #{token}"
       }
     )
   end
