@@ -15,20 +15,22 @@
 # specific language governing permissions and limitations
 # under the License.
 
-class PatchOperation
-  attr_accessor :op, :value, :path
+module Typeform
+  class PatchOperation
+    attr_accessor :op, :value, :path
 
-  def initialize(op: nil, path: nil, value: nil)
-    @op = op
-    @path = path
-    @value = value
-  end
+    def initialize(op: nil, path: nil, value: nil)
+      @op = op
+      @path = path
+      @value = value
+    end
 
-  def payload
-    {
-      op: op,
-      path: path,
-      value: value
-    }
+    def payload
+      {
+        op: op,
+        path: path,
+        value: value
+      }
+    end
   end
 end

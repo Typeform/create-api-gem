@@ -17,18 +17,20 @@
 
 require_relative 'image_request'
 
-class RetrieveFrameRequest < ImageRequest
-  def initialize(image, frame)
-    request(
-      method: :get,
-      url: "#{APIConfig.image_api_request_url}/images/#{image.id}/image/default-#{frame}frame.png",
-      headers: {
-        'Content-Type' => 'application/json'
-      }
-    )
-  end
+module Typeform
+  class RetrieveFrameRequest < ImageRequest
+    def initialize(image, frame)
+      request(
+        method: :get,
+        url: "#{APIConfig.image_api_request_url}/images/#{image.id}/image/default-#{frame}frame.png",
+        headers: {
+          'Content-Type' => 'application/json'
+        }
+      )
+    end
 
-  def success?
-    @response.code == 200
+    def success?
+      @response.code == 200
+    end
   end
 end

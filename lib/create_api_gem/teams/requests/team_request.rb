@@ -17,20 +17,22 @@
 
 require_relative '../../api_request'
 
-class TeamRequest < APIRequest
-  def not_found?
-    @response.code == 404
-  end
+module Typeform
+  class TeamRequest < APIRequest
+    def not_found?
+      @response.code == 404
+    end
 
-  def forbidden?
-    @response.code == 403
-  end
+    def forbidden?
+      @response.code == 403
+    end
 
-  def bad_request?
-    @response.code == 400
-  end
+    def bad_request?
+      @response.code == 400
+    end
 
-  def payment_required?
-    @response.code == 402
+    def payment_required?
+      @response.code == 402
+    end
   end
 end

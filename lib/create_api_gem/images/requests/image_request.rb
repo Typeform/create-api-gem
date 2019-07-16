@@ -17,12 +17,14 @@
 
 require_relative '../../api_request'
 
-class ImageRequest < APIRequest
-  def image
-    Image.from_response(json)
-  end
+module Typeform
+  class ImageRequest < APIRequest
+    def image
+      Image.from_response(json)
+    end
 
-  def src
-    json.fetch(:src)
+    def src
+      json.fetch(:src)
+    end
   end
 end
