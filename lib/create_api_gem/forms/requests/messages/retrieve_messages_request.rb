@@ -15,22 +15,24 @@
 # specific language governing permissions and limitations
 # under the License.
 
-class RetrieveMessagesRequest < APIRequest
-  def initialize(form, token: APIConfig.token)
-    request(
-      method: :get,
-      url: "#{APIConfig.api_request_url}/forms/#{form.id}/messages",
-      headers: {
-        'Authorization' => "Bearer #{token}"
-      }
-    )
-  end
+module Typeform
+  class RetrieveMessagesRequest < APIRequest
+    def initialize(form, token: APIConfig.token)
+      request(
+        method: :get,
+        url: "#{APIConfig.api_request_url}/forms/#{form.id}/messages",
+        headers: {
+          'Authorization' => "Bearer #{token}"
+        }
+      )
+    end
 
-  def success?
-    @response.code == 200 && json?
-  end
+    def success?
+      @response.code == 200 && json?
+    end
 
-  def messages
-    Messages.from_response(json)
+    def messages
+      Messages.from_response(json)
+    end
   end
 end

@@ -15,23 +15,25 @@
 # specific language governing permissions and limitations
 # under the License.
 
-class UpdateMessagesRequest < APIRequest
-  def initialize(form, messages, token: APIConfig.token)
-    request(
-      method: :put,
-      url: "#{APIConfig.api_request_url}/forms/#{form.id}/messages",
-      headers: {
-        'Authorization' => "Bearer #{token}"
-      },
-      payload: messages.payload
-    )
-  end
+module Typeform
+  class UpdateMessagesRequest < APIRequest
+    def initialize(form, messages, token: APIConfig.token)
+      request(
+        method: :put,
+        url: "#{APIConfig.api_request_url}/forms/#{form.id}/messages",
+        headers: {
+          'Authorization' => "Bearer #{token}"
+        },
+        payload: messages.payload
+      )
+    end
 
-  def success?
-    @response.code == 204
-  end
+    def success?
+      @response.code == 204
+    end
 
-  def payment_required?
-    @response.code == 402
+    def payment_required?
+      @response.code == 402
+    end
   end
 end

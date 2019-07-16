@@ -18,33 +18,35 @@
 require_relative 'workspace_request'
 require 'open-uri'
 
-class RetrieveAllWorkspacesRequest < WorkspaceRequest
-  def initialize(token: APIConfig.token, workspaces_per_page: 10, page: nil, search: nil)
-    url = "#{APIConfig.workspaces_api_request_url}?"
-    url << "page_size=#{workspaces_per_page}&" unless workspaces_per_page.nil?
-    url << "page=#{page}&" unless page.nil?
-    url << "search=#{URI.encode_www_form_component(search)}&" unless search.nil?
-    request(
-      method: :get,
-      url: url,
-      headers: {
-        'Authorization' => "Bearer #{token}",
-        'Content-Type' => 'application/json'
-      }
-    )
-  end
-
-  def success?
-    @response.code == 200 && json?
-  end
-
-  def workspaces
-    json.fetch(:items).map do |workspace_json|
-      Workspace.from_response(workspace_json)
+module Typeform
+  class RetrieveAllWorkspacesRequest < WorkspaceRequest
+    def initialize(token: APIConfig.token, workspaces_per_page: 10, page: nil, search: nil)
+      url = "#{APIConfig.workspaces_api_request_url}?"
+      url << "page_size=#{workspaces_per_page}&" unless workspaces_per_page.nil?
+      url << "page=#{page}&" unless page.nil?
+      url << "search=#{URI.encode_www_form_component(search)}&" unless search.nil?
+      request(
+        method: :get,
+        url: url,
+        headers: {
+          'Authorization' => "Bearer #{token}",
+          'Content-Type' => 'application/json'
+        }
+      )
     end
-  end
 
-  def default_workspace
-    workspaces.find(&:default)
+    def success?
+      @response.code == 200 && json?
+    end
+
+    def workspaces
+      json.fetch(:items).map do |workspace_json|
+        Workspace.from_response(workspace_json)
+      end
+    end
+
+    def default_workspace
+      workspaces.find(&:default)
+    end
   end
 end

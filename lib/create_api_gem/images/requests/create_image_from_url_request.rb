@@ -17,22 +17,24 @@
 
 require_relative 'image_request'
 
-class CreateImageFromUrlRequest < ImageRequest
-  def initialize(image_url, token: APIConfig.token)
-    request(
-      method: :post,
-      url: "#{APIConfig.api_request_url}/images",
-      headers: {
-        'Content-Type' => 'application/json',
-        'Authorization' => "Bearer #{token}"
-      },
-      payload: {
-        url: image_url
-      }.to_json
-    )
-  end
+module Typeform
+  class CreateImageFromUrlRequest < ImageRequest
+    def initialize(image_url, token: APIConfig.token)
+      request(
+        method: :post,
+        url: "#{APIConfig.api_request_url}/images",
+        headers: {
+          'Content-Type' => 'application/json',
+          'Authorization' => "Bearer #{token}"
+        },
+        payload: {
+          url: image_url
+        }.to_json
+      )
+    end
 
-  def success?
-    @response.code == 201 && json?
+    def success?
+      @response.code == 201 && json?
+    end
   end
 end
