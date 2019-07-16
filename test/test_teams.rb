@@ -18,15 +18,17 @@
 require 'minitest/autorun'
 require 'create_api_gem'
 
-class TeamsTest < TestBase
-  def test_all_requests
-    retrieve_team = RetrieveTeamRequest.new
-    assert retrieve_team.success?, true
+module Typeform
+  class TeamsTest < TestBase
+    def test_all_requests
+      retrieve_team = RetrieveTeamRequest.new
+      assert retrieve_team.success?, true
 
-    default_workspace = RetrieveAllWorkspacesRequest.execute.default_workspace
-    UpdateWorkspaceRequest.execute(default_workspace, [PatchOperation.new(op: 'add', path: '/members', value: { email: email })])
+      default_workspace = RetrieveAllWorkspacesRequest.execute.default_workspace
+      UpdateWorkspaceRequest.execute(default_workspace, [PatchOperation.new(op: 'add', path: '/members', value: { email: email })])
 
-    update_team = UpdateTeamRequest.new([PatchOperation.new(op: 'remove', path: '/members', value: { email: email })])
-    assert update_team.success?, true
+      update_team = UpdateTeamRequest.new([PatchOperation.new(op: 'remove', path: '/members', value: { email: email })])
+      assert update_team.success?, true
+    end
   end
 end
