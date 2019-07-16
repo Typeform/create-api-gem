@@ -17,24 +17,26 @@
 
 require_relative 'workspace_request'
 
-class CreateWorkspaceRequest < WorkspaceRequest
-  def initialize(workspace, token: APIConfig.token)
-    request(
-      method: :post,
-      url: APIConfig.workspaces_api_request_url,
-      headers: {
-        'Authorization' => "Bearer #{token}",
-        'Content-Type' => 'application/json'
-      },
-      payload: workspace.payload
-    )
-  end
+module Typeform
+  class CreateWorkspaceRequest < WorkspaceRequest
+    def initialize(workspace, token: APIConfig.token)
+      request(
+        method: :post,
+        url: APIConfig.workspaces_api_request_url,
+        headers: {
+          'Authorization' => "Bearer #{token}",
+          'Content-Type' => 'application/json'
+        },
+        payload: workspace.payload
+      )
+    end
 
-  def success?
-    @response.code == 201 && json? && json.key?(:forms) && json.key?(:self)
-  end
+    def success?
+      @response.code == 201 && json? && json.key?(:forms) && json.key?(:self)
+    end
 
-  def location_header
-    headers.fetch(:location)
+    def location_header
+      headers.fetch(:location)
+    end
   end
 end

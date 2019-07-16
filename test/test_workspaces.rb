@@ -15,48 +15,50 @@
 # specific language governing permissions and limitations
 # under the License.
 
-class WorkspacesTest < TestBase
-  def test_all_requests
-    workspace = Workspace.new
+module Typeform
+  class WorkspacesTest < TestBase
+    def test_all_requests
+      workspace = Workspace.new
 
-    create_workspace = CreateWorkspaceRequest.new(workspace)
-    assert_equal create_workspace.success?, true
-    assert_equal workspace.same?(create_workspace.workspace), true
-    workspace = create_workspace.workspace
+      create_workspace = CreateWorkspaceRequest.new(workspace)
+      assert_equal create_workspace.success?, true
+      assert_equal workspace.same?(create_workspace.workspace), true
+      workspace = create_workspace.workspace
 
-    retrieve_workspace = RetrieveWorkspaceRequest.new(workspace)
-    assert_equal retrieve_workspace.success?, true
-    assert_equal workspace.same?(retrieve_workspace.workspace), true
-    workspace = retrieve_workspace.workspace
+      retrieve_workspace = RetrieveWorkspaceRequest.new(workspace)
+      assert_equal retrieve_workspace.success?, true
+      assert_equal workspace.same?(retrieve_workspace.workspace), true
+      workspace = retrieve_workspace.workspace
 
-    retrieve_all_workspaces = RetrieveAllWorkspacesRequest.new
-    assert_equal retrieve_all_workspaces.success?, true
+      retrieve_all_workspaces = RetrieveAllWorkspacesRequest.new
+      assert_equal retrieve_all_workspaces.success?, true
 
-    retrieve_default_workspace = RetrieveDefaultWorkspaceRequest.new
-    assert_equal retrieve_default_workspace.success?, true
+      retrieve_default_workspace = RetrieveDefaultWorkspaceRequest.new
+      assert_equal retrieve_default_workspace.success?, true
 
-    form = CreateFormRequest.execute(Form.new).form
-    operations = [
-      PatchOperation.new(op: 'replace', path: '/name', value: DataGenerator.title),
-      PatchOperation.new(op: 'add', path: '/members', value: { email: email })
-    ]
-    update_workspace = UpdateWorkspaceRequest.new(workspace, operations)
-    assert_equal update_workspace.success?, true
+      form = CreateFormRequest.execute(Form.new).form
+      operations = [
+        PatchOperation.new(op: 'replace', path: '/name', value: DataGenerator.title),
+        PatchOperation.new(op: 'add', path: '/members', value: { email: email })
+      ]
+      update_workspace = UpdateWorkspaceRequest.new(workspace, operations)
+      assert_equal update_workspace.success?, true
 
-    UpdateWorkspaceRequest.execute(workspace, [PatchOperation.new(op: 'remove', path: '/members', value: { email: email })])
-    DeleteFormRequest.execute(form)
+      UpdateWorkspaceRequest.execute(workspace, [PatchOperation.new(op: 'remove', path: '/members', value: { email: email })])
+      DeleteFormRequest.execute(form)
 
-    delete_workspace = DeleteWorkspaceRequest.new(workspace)
-    assert_equal delete_workspace.success?, true
-  end
+      delete_workspace = DeleteWorkspaceRequest.new(workspace)
+      assert_equal delete_workspace.success?, true
+    end
 
-  def test_same_method
-    workspace = Workspace.new
-    same_workspace = workspace.dup
-    assert_equal workspace.same?(same_workspace), true
+    def test_same_method
+      workspace = Workspace.new
+      same_workspace = workspace.dup
+      assert_equal workspace.same?(same_workspace), true
 
-    different_workspace = workspace.dup
-    different_workspace.name = DataGenerator.title
-    assert_equal workspace.same?(different_workspace), false
+      different_workspace = workspace.dup
+      different_workspace.name = DataGenerator.title
+      assert_equal workspace.same?(different_workspace), false
+    end
   end
 end

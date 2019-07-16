@@ -17,6 +17,7 @@
 
 require_relative 'theme_request'
 
+<<<<<<< HEAD
 class UpdateThemeRequest < ThemeRequest
   def initialize(theme, token: APIConfig.token)
     request(
@@ -29,8 +30,23 @@ class UpdateThemeRequest < ThemeRequest
       payload: theme.payload
     )
   end
+=======
+module Typeform
+  class UpdateThemeRequest < ThemeRequest
+    def initialize(theme, token: APIConfig.token)
+      request(
+        method: :put,
+        url: "#{APIConfig.api_request_url}/themes/#{theme.id}",
+        headers: {
+          'Authorization' => "Bearer #{token}"
+        },
+        payload: theme.payload
+      )
+    end
+>>>>>>> add-typeform-namespace
 
-  def success?
-    @response.code == 200 && json?
+    def success?
+      @response.code == 200 && json?
+    end
   end
 end
