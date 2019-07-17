@@ -19,7 +19,7 @@ module Typeform
   class APIRequest
     def self.execute(*args)
       new(*args).tap do |request|
-        raise StandardError, 'Failed asserting that the request succeeds' unless request.success?
+        raise StandardError, "Failed asserting that the request succeeds\n\n#{request.inspect}" unless request.success?
       end
     end
 
