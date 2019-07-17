@@ -1,6 +1,12 @@
 Change logs of create-api-gem
 ====================================================
 
+Version 1.0.3
+----------------------------------
+
+* Add error message logging when a request fails
+
+
 Version 1.0.2
 ----------------------------------
 
