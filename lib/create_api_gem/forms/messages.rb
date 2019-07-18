@@ -15,22 +15,24 @@
 # specific language governing permissions and limitations
 # under the License.
 
-class Messages
-  attr_accessor :messages
+module Typeform
+  class Messages
+    attr_accessor :messages
 
-  def initialize(messages)
-    @messages = Hash[messages.map { |(k, v)| [k.to_sym, v] }]
-  end
+    def initialize(messages)
+      @messages = Hash[messages.map { |(k, v)| [k.to_sym, v] }]
+    end
 
-  def self.from_response(response)
-    Messages.new(response)
-  end
+    def self.from_response(response)
+      Messages.new(response)
+    end
 
-  def payload
-    messages.to_json
-  end
+    def payload
+      messages.to_json
+    end
 
-  def same?(actual)
-    messages == actual.messages
+    def same?(actual)
+      messages == actual.messages
+    end
   end
 end

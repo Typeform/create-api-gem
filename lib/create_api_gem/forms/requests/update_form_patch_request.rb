@@ -17,20 +17,22 @@
 
 require_relative 'form_request'
 
-class UpdateFormPatchRequest < FormRequest
-  def initialize(form, operations, token: APIConfig.token)
-    request(
-      method: :patch,
-      url: "#{APIConfig.api_request_url}/forms/#{form.id}",
-      headers: {
-        'Authorization' => "Bearer #{token}",
-        'Content-Type' => 'application/json'
-      },
-      payload: operations.map(&:payload).to_json
-    )
-  end
+module Typeform
+  class UpdateFormPatchRequest < FormRequest
+    def initialize(form, operations, token: APIConfig.token)
+      request(
+        method: :patch,
+        url: "#{APIConfig.api_request_url}/forms/#{form.id}",
+        headers: {
+          'Authorization' => "Bearer #{token}",
+          'Content-Type' => 'application/json'
+        },
+        payload: operations.map(&:payload).to_json
+      )
+    end
 
-  def success?
-    @response.code == 204
+    def success?
+      @response.code == 204
+    end
   end
 end

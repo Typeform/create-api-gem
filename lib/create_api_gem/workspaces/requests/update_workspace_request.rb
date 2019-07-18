@@ -17,20 +17,22 @@
 
 require_relative 'workspace_request'
 
-class UpdateWorkspaceRequest < WorkspaceRequest
-  def initialize(workspace, operations, token: APIConfig.token)
-    request(
-      method: :patch,
-      url: "#{APIConfig.workspaces_api_request_url}/#{workspace.id}",
-      headers: {
-        'Authorization' => "Bearer #{token}",
-        'Content-Type' => 'application/json'
-      },
-      payload: operations.map(&:payload).to_json
-    )
-  end
+module Typeform
+  class UpdateWorkspaceRequest < WorkspaceRequest
+    def initialize(workspace, operations, token: APIConfig.token)
+      request(
+        method: :patch,
+        url: "#{APIConfig.workspaces_api_request_url}/#{workspace.id}",
+        headers: {
+          'Authorization' => "Bearer #{token}",
+          'Content-Type' => 'application/json'
+        },
+        payload: operations.map(&:payload).to_json
+      )
+    end
 
-  def success?
-    @response.code == 204
+    def success?
+      @response.code == 204
+    end
   end
 end

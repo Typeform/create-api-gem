@@ -17,23 +17,24 @@
 
 require_relative 'workspace_request'
 
-class DeleteWorkspaceRequest < WorkspaceRequest
-  def initialize(workspace, token: APIConfig.token)
-    request(
-      method: :delete,
-      url: "#{APIConfig.workspaces_api_request_url}/#{workspace.id}",
-      headers: {
-        'Authorization' => "Bearer #{token}",
-        'Content-Type' => 'application/json'
-      }
-    )
-  end
+module Typeform
+  class DeleteWorkspaceRequest < WorkspaceRequest
+    def initialize(workspace, token: APIConfig.token)
+      request(
+        method: :delete,
+        url: "#{APIConfig.workspaces_api_request_url}/#{workspace.id}",
+        headers: {
+          'Authorization' => "Bearer #{token}"
+        }
+      )
+    end
 
-  def success?
-    @response.code == 204
-  end
+    def success?
+      @response.code == 204
+    end
 
-  def invalid_operation?
-    @response.code == 400
+    def invalid_operation?
+      @response.code == 400
+    end
   end
 end

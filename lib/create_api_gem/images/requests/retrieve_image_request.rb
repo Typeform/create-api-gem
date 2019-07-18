@@ -17,27 +17,29 @@
 
 require_relative 'image_request'
 
-class RetrieveImageRequest < ImageRequest
-  def initialize(image, type: nil, size: nil, accept: nil)
-    url = if type.nil? && size.nil?
-            "#{APIConfig.api_request_url}/images/#{image.id}"
-          else
-            "#{APIConfig.api_request_url}/images/#{image.id}/#{type}/#{size}"
-          end
-    headers = { 'Content-Type' => 'application/json' }
-    headers['Accept'] = 'application/json' if accept == 'json'
-    request(
-      method: :get,
-      url: url,
-      headers: headers
-    )
-  end
+module Typeform
+  class RetrieveImageRequest < ImageRequest
+    def initialize(image, type: nil, size: nil, accept: nil)
+      url = if type.nil? && size.nil?
+              "#{APIConfig.api_request_url}/images/#{image.id}"
+            else
+              "#{APIConfig.api_request_url}/images/#{image.id}/#{type}/#{size}"
+            end
+      headers = { }
+      headers['Accept'] = 'application/json' if accept == 'json'
+      request(
+        method: :get,
+        url: url,
+        headers: headers
+      )
+    end
 
-  def success?
-    @response.code == 200
-  end
+    def success?
+      @response.code == 200
+    end
 
-  def body
-    @response.body
+    def body
+      @response.body
+    end
   end
 end
