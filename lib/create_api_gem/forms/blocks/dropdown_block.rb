@@ -18,10 +18,10 @@
 require_relative 'block'
 
 class DropdownBlock < Block
-  attr_accessor :id, :title, :type, :ref, :description, :alphabetical_order, :randomize, :choices, :required, :attachment
+  attr_accessor :id, :title, :type, :ref, :description, :alphabetical_order, :choices, :required, :attachment, :randomize
 
   def initialize(id: nil, title: nil, type: :dropdown, ref: nil, description: nil, alphabetical_order: nil,
-                 randomize: nil, choices: nil, required: nil, attachment: nil)
+                 choices: nil, required: nil, attachment: nil, randomize: nil)
     @id = id
     @title = title || DataGenerator.title
     @type = type
