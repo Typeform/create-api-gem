@@ -21,7 +21,8 @@ class UpdateMessagesRequest < APIRequest
       method: :put,
       url: "#{APIConfig.api_request_url}/forms/#{form.id}/messages",
       headers: {
-        'Authorization' => "Bearer #{token}"
+        'Authorization' => "Bearer #{token}",
+        'Content-Type' => 'application/json'
       },
       payload: messages.payload
     )

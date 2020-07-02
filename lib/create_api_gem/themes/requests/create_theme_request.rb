@@ -23,7 +23,8 @@ class CreateThemeRequest < ThemeRequest
       method: :post,
       url: "#{APIConfig.api_request_url}/themes",
       headers: {
-        'Authorization' => "Bearer #{token}"
+        'Authorization' => "Bearer #{token}",
+        'Content-Type' => 'application/json'
       },
       payload: theme.payload
     )

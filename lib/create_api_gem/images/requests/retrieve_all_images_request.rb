@@ -23,7 +23,6 @@ class RetrieveAllImagesRequest < ImageRequest
       method: :get,
       url: "#{APIConfig.api_request_url}/images",
       headers: {
-        'Content-Type' => 'application/json',
         'Authorization' => "Bearer #{token}"
       }
     )

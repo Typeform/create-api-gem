@@ -21,10 +21,7 @@ class RetrieveFrameRequest < ImageRequest
   def initialize(image, frame)
     request(
       method: :get,
-      url: "#{APIConfig.image_api_request_url}/images/#{image.id}/image/default-#{frame}frame.png",
-      headers: {
-        'Content-Type' => 'application/json'
-      }
+      url: "#{APIConfig.image_api_request_url}/images/#{image.id}/image/default-#{frame}frame.png"
     )
   end
 

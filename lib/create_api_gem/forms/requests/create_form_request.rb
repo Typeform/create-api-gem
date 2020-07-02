@@ -23,7 +23,8 @@ class CreateFormRequest < FormRequest
       method: :post,
       url: "#{APIConfig.api_request_url}/forms",
       headers: {
-        'Authorization' => "Bearer #{token}"
+        'Authorization' => "Bearer #{token}",
+        'Content-Type' => 'application/json'
       },
       payload: form.payload
     )

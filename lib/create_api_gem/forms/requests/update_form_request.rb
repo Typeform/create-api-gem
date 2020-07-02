@@ -23,7 +23,8 @@ class UpdateFormRequest < FormRequest
       method: :put,
       url: "#{APIConfig.api_request_url}/forms/#{form.id}",
       headers: {
-        'Authorization' => "Bearer #{token}"
+        'Authorization' => "Bearer #{token}",
+        'Content-Type' => 'application/json'
       },
       payload: form.payload
     )
