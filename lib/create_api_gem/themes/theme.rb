@@ -16,9 +16,9 @@
 # under the License.
 
 class Theme
-  attr_accessor :id, :name, :font, :colors, :visibility, :has_transparent_button, :background
+  attr_accessor :id, :name, :font, :colors, :visibility, :has_transparent_button, :background, :screens, :fields
 
-  def initialize(id: nil, name: nil, font: nil, colors: nil, visibility: nil, has_transparent_button: nil, background: nil)
+  def initialize(id: nil, name: nil, font: nil, colors: nil, visibility: nil, has_transparent_button: nil, background: nil, screens: nil, fields: nil)
     @id = id
     @name = name || DataGenerator.title
     @font = font || 'Arial'
@@ -26,6 +26,8 @@ class Theme
     @visibility = visibility || 'private'
     @has_transparent_button = has_transparent_button
     @background = background
+    @screens = screens || Theme.screens
+    @fields = fields || Theme.fields
   end
 
   def self.default
@@ -37,6 +39,14 @@ class Theme
         answer: '#4FB0AE',
         button: '#4FB0AE',
         background: '#FFFFFF'
+      ],
+      screens: [
+        font_size: 'small',
+        alignment: 'center'
+      ],
+      fields: [
+        font_size: 'medium',
+        alignment: 'left'
       ],
       font: 'Karla',
       has_transparent_button: false,
@@ -51,7 +61,9 @@ class Theme
       font: 'Nixie One',
       has_transparent_button: true,
       visibility: 'private',
-      background: Background.full_example
+      background: Background.full_example,
+      screens: screens,
+      fields: fields
     )
   end
 
@@ -64,6 +76,20 @@ class Theme
     }
   end
 
+  def self.screens
+    {
+      font_size: 'small',
+      alignment: 'center'
+    }
+  end
+
+  def self.fields
+    {
+      font_size: 'medium',
+      alignment: 'left'
+    }
+  end
+
   def payload
     payload = {
       name: name,
@@ -73,6 +99,8 @@ class Theme
     payload[:has_transparent_button] = has_transparent_button unless has_transparent_button.nil?
     payload[:visibility] = visibility unless visibility.nil?
     payload[:background] = background.payload unless background.nil?
+    payload[:screens] = screens unless screens.nil?
+    payload[:fields] = fields unless fields.nil?
     payload.to_json
   end
 
@@ -85,7 +113,9 @@ class Theme
       colors: payload[:colors],
       visibility: payload[:visibility],
       has_transparent_button: payload[:has_transparent_button],
-      background: background
+      background: background,
+      screens: payload[:screens],
+      fields: payload[:fields]
     )
   end
 
@@ -97,6 +127,8 @@ class Theme
       font == actual.font &&
       (visibility.nil? ? Theme.default.visibility : visibility) == actual.visibility &&
       (has_transparent_button.nil? ? Theme.default.has_transparent_button : has_transparent_button) == actual.has_transparent_button &&
-      (background.nil? || background.same?(actual.background))
+      (background.nil? || background.same?(actual.background)) &&
+      (screens.nil? ? Theme.default.screens : screens) == actual.screens &&
+      (fields.nil? ? Theme.fields.screens : fields) == actual.fields
   end
 end
