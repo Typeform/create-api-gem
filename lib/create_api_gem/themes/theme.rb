@@ -128,7 +128,7 @@ class Theme
       (visibility.nil? ? Theme.default.visibility : visibility) == actual.visibility &&
       (has_transparent_button.nil? ? Theme.default.has_transparent_button : has_transparent_button) == actual.has_transparent_button &&
       (background.nil? || background.same?(actual.background)) &&
-      (screens.nil? ? Theme.default.screens : screens) == actual.screens &&
+      (screens || Theme.default.screens) == actual.screens &&
       (fields.nil? ? Theme.fields.screens : fields) == actual.fields
   end
 end
