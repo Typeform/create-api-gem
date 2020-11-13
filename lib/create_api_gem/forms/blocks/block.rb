@@ -67,11 +67,11 @@ class Block
     type = attachment[:type]
     case type
     when 'image'
-      return (attachment[:href].start_with?("#{APIConfig.image_api_request_url}/images/") && actual_attachment[:href].start_with?("#{APIConfig.image_api_request_url}/images/"))
+      (attachment[:href].start_with?("#{APIConfig.image_api_request_url}/images/") && actual_attachment[:href].start_with?("#{APIConfig.image_api_request_url}/images/"))
     when 'video'
-      return attachment == actual_attachment
+      attachment == actual_attachment
     else
-      return false
+      false
     end
   end
 
