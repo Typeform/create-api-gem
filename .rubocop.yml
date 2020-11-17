@@ -50,15 +50,20 @@ Metrics/ModuleLength:
   Max: 195
 
 Metrics/ParameterLists:
-  Max: 15
+  Max: 16
 
 Metrics/ClassLength:
   Max: 150
 
-Naming/UncommunicativeMethodParamName:
+Naming/MethodParameterName:
   AllowedNames:
     - op
     - id
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Lint/UnusedMethodArgument:
+  Enabled: true
+  Exclude:
+    - ./lib/create_api_gem/forms/settings/settings.rb
