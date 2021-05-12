@@ -25,7 +25,7 @@ class Settings
                  show_progress_bar: nil, description: nil, allow_indexing: nil, image: nil, language: nil,
                  is_public: nil, is_trial: nil, google_analytics: nil, facebook_pixel: nil,
                  google_tag_manager: nil, notifications: nil, are_uploads_public: nil,
-                 show_time_to_complete: nil)
+                 show_time_to_complete: nil, hide_navigation: nil)
 
     @redirect_after_submit_url = redirect_after_submit_url
     @show_typeform_branding = show_typeform_branding
