@@ -15,6 +15,8 @@
 # specific language governing permissions and limitations
 # under the License.
 
+require_relative 'block'
+
 class ThankYouScreen < Block
   attr_accessor :title, :ref, :show_button, :button_text, :button_mode, :redirect_url, :share_icons, :attachment
 
