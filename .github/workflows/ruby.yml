@@ -23,9 +23,11 @@ jobs:
         with:
           ruby-version: 2.3.3
       - name: Install dependencies
-        run: bundle install
+        run: |
+          gem install bundler:2.1.4
+          bundle _2.1.4_ install
       - name: Rubocop
-        run: bundle exec rubocop
+        run: bundle _2.1.4_ exec rubocop
       - name: Run tests
-        run: bundle exec rake
+        run: bundle _2.1.4_ exec rake
 
