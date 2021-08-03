@@ -1,0 +1,33 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Ruby
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.3.3
+      - name: Install dependencies
+        run: |
+          gem install bundler:2.1.4
+          bundle _2.1.4_ install
+      - name: Rubocop
+        run: bundle _2.1.4_ exec rubocop
+      - name: Run tests
+        run: bundle _2.1.4_ exec rake
+
