@@ -27,6 +27,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Typeform Create API Gem'
   spec.description   = 'Ruby gem for using the Typeform Create API'
+  spec.post_install_message = "WARNING: This gem has been deprecated."
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.

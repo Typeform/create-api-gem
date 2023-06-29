@@ -2,6 +2,12 @@
 
 [![Build Status](https://travis-ci.com/Typeform/create-api-gem.svg?branch=master)](https://travis-ci.com/Typeform/create-api-gem)
 
+----------
+
+### (WARNING: THIS GEM HAS BEEN DEPRECATED)
+
+----------
+
 Welcome to the Create API Gem! This gem provides a way of interacting with [Typeforms Create API](https://developer.typeform.com/create/) if you are programming in Ruby. We have created object representations of forms, themes, images, and workspaces so you can programmatically create all of the afore mentioned using Ruby nice and easily. Also you'll find all the requests needed to perform CRUD operations on each of these entities.
 
 ## Getting Started
